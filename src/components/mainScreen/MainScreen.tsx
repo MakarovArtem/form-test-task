@@ -1,7 +1,10 @@
 import React, { FC } from "react";
 import style from "./MainScreen.module.css";
+import Input from "../input/Input";
 
-const MainScreen: FC = () => {
+interface MainScreenProps {}
+
+const MainScreen: FC<MainScreenProps> = () => {
   return (
     <main className={style.main}>
       <div className={style.info}>
@@ -50,14 +53,10 @@ const MainScreen: FC = () => {
       </div>
       <div className={style.line}></div>
       <form className={style.form} action="post">
-        <div className={style.inputContainer}>
-          <p className={style.inputTitle}>Номер телефона</p>
-          <input className={style.input} type="tel" placeholder="+7 999 999-99-99"/>
-        </div>
-        <div className={style.inputContainer}>
-          <p className={style.inputTitle}>Email</p>
-          <input className={style.input} type="email" placeholder="tim.jennings@example.com" />
-        </div>
+
+        <Input title='Номер телефона' type='tel' placeholder="+7 999 999-99-99"/>
+        <Input title='Email' type='email' placeholder="tim.jennings@example.com"/>
+
         <button className={style.button} id="button-start">Начать</button>
       </form>
     </main>
