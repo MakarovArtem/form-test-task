@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import style from "./MainScreen.module.css";
 import Input from "../input/Input";
+import Button from "../button/Button";
 
 interface MainScreenProps {}
 
@@ -53,11 +54,9 @@ const MainScreen: FC<MainScreenProps> = () => {
       </div>
       <div className={style.line}></div>
       <form className={style.form} action="post">
-
         <Input title='Номер телефона' type='tel' placeholder="+7 999 999-99-99"/>
         <Input title='Email' type='email' placeholder="tim.jennings@example.com"/>
-
-        <button className={style.button} id="button-start">Начать</button>
+        <Button text="Начать" themeBlue={false}/>
       </form>
     </main>
   )
