@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import style from "./MainScreen.module.css";
-import Input from "../input/Input";
-import Button from "../button/Button";
+import Input from "../../components/input/Input";
+import Button from "../../components/button/Button";
 
 interface MainScreenProps {}
 

@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import style from "./FormStepOne.module.css";
-import ProgressLine from "../progressLine/ProgressLine";
+import ProgressLine from "../../components/progressLine/ProgressLine";
 
 interface FormStepOneProps {}
 

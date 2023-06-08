@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
-import MainScreen from "./components/mainScreen/MainScreen";
-import FormStepOne from "./components/formStepOne/FormStepOne";
+import MainScreen from "./pages/mainScreen/MainScreen";
+import FormStepOne from "./pages/formStepOne/FormStepOne";
 
 function App() {
   return (
