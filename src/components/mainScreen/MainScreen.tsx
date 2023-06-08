@@ -56,7 +56,7 @@ const MainScreen: FC<MainScreenProps> = () => {
       <form className={style.form} action="post">
         <Input title='Номер телефона' type='tel' placeholder="+7 999 999-99-99"/>
         <Input title='Email' type='email' placeholder="tim.jennings@example.com"/>
-        <Button text="Начать" themeBlue={false}/>
+        <Button text="Начать" themeBlue={false} id="button-start"/>
       </form>
     </main>
   )

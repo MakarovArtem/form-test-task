@@ -1,0 +1,88 @@
+.main{
+  width: 66vw;
+  height: 821px;
+  padding: 25px;
+  border-radius: 24px;
+  background-color: #fff;
+}
+
+.line{
+  width: 100%;
+  height: 8px;
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.progressDot{
+  width: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.dot{
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #A6A6A6;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  /* сверхунужно будет раскомментировать, когда 
+  буду комбинировать стили*/
+}
+
+.dotActive{
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #5558FA;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    /* сверху нужно удалить когда 
+  буду комбинировать стили*/
+}
+
+.dotDone{
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #5558FA;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* сверху нужно удалить когда 
+  буду комбинировать стили*/
+}
+
+.dotActive:before{
+  content: "";
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #FFFFFF;
+}/* белый кружок */
+
+.dotDone:before{
+  content: url("../../../public/check-icon.svg");
+}/* белая галочка */
+
+/* .dotDone:after{
+  content: "";
+  width: 50%;
+  height: 8px;
+  color: #5558FA;
+}синяя полоска */
+
+.dotNumber{
+  font-size: 14px;
+  line-height: 20px;
+  color: #666666;
+}
+
+.dotNumberActive{
+  color: #5558FA;
+}
