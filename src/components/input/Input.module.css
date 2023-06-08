@@ -1,10 +1,14 @@
 .inputContainer{
   width: 400px;
-  height: 72px;
+  max-height: 96px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
 }
 
 .inputTitle{
-  margin-bottom: 8px;
+
 }
 
 .input{
@@ -15,4 +19,19 @@
   border-radius: 4px;
   background: rgba(0, 0, 0, 0.04);
   font-size: 14px;
+  transition: .3s ease;
+}
+
+.input:hover{
+  box-shadow: 0px 0px 8px 1px rgba(0, 4, 251, 0.28);
+}
+
+.input:focus{
+  box-shadow: 0px 0px 8px 4px rgba(41, 155, 255, 0.3);
+}
+
+.inputTip{
+  font-size: 12px;
+  line-height: 16px;
+  color: rgba(0, 0, 0, 0.48);
 }
