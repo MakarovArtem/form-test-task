@@ -1,0 +1,39 @@
+.checkboxGroupContainer{
+  width: 400px;
+  max-height: 96px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.checkboxTitle{
+  font-size: 14px;
+  line-height: 20px;
+  color: #333333;
+}
+
+.checkboxContainer{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.checkbox{
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid rgba(0, 0, 0, 0.24);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.checkbox:hover{
+  box-shadow: 0px 0px 8px 1px rgba(0, 4, 251, 0.28);
+}
+
+.checkboxLabel{
+  font-size: 14px;
+  line-height: 20px;
+  color: #333333;
+  cursor: default;
+}
