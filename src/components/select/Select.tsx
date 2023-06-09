@@ -4,10 +4,10 @@ import style from "./Select.module.css";
 interface SelectProps {
   width?: string;
   title: string;
-  variants?: string[];
-  optionsId?: string[];
+  variants: string[];
+  optionsId: string[];
   tip?: string;
-  id?: string;
+  id: string;
 }
 
 const Select: FC<SelectProps> = ({width, title, variants, tip, optionsId, id}) => {

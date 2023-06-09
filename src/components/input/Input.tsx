@@ -7,7 +7,7 @@ interface InputProps {
   type: string;
   placeholder?: string;
   tip?: string;
-  id?: string;
+  id: string;
 }
 
 const Input: FC<InputProps> = ({width, title, type, placeholder, tip, id}) => {
