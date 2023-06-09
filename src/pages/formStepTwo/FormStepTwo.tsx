@@ -13,7 +13,12 @@ const FormStepTwo: FC<FormStepTwoProps> = () => {
       <div className={style.mainContainer}>
         <ProgressLine step="three" />
         <form className={style.form} action="post">
-          <Select width="500px" title="SELECT" variants={["man", "woman"]}/>
+          <Select 
+            width="500px" 
+            title="SELECT" 
+            variants={["man", "woman"]} 
+            optionsId={["field-sex-option-man", "field-sex-option-woman"]}
+          />
           <div className={style.backContainer}>
             <Button text="Назад" themeBlue={false} id="button-back" />
           </div>
