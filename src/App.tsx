@@ -3,7 +3,8 @@ import "./App.css";
 import MainScreen from "./pages/mainScreen/MainScreen";
 import FormStepOne from "./pages/formStepOne/FormStepOne";
 import FormStepTwo from "./pages/formStepTwo/FormStepTwo";
-import Checkbox from "./components/checkbox/Checkbox";
+// import Checkbox from "./components/checkbox/Checkbox";
+import Radio from "./components/radio/Radio";
 
 function App() {
   return (
@@ -11,15 +12,16 @@ function App() {
       {/* <MainScreen /> */}
       {/* <FormStepOne /> */}
       {/* <FormStepTwo /> */}
-      <Checkbox 
-        title="Checkbox group"
+      <Radio 
+        title="Radio group"
+        groupName="radio"
         variants={["1", "2", "3"]}
         optionsId={[
-          "field-checkbox-group-option-1",
-          "field-checkbox-group-option-2",
-          "field-checkbox-group-option-3"
+          "field-radio-group-option-1",
+          "field-radio-group-option-2",
+          "field-radio-group-option-3"
         ]}
-        id="checkbox-group"
+        id="radio-group"
       />
     </div>
   );

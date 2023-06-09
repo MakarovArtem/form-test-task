@@ -1,0 +1,40 @@
+.radioGroupContainer{
+  width: 400px;
+  max-height: 96px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.radioTitle{
+  font-size: 14px;
+  line-height: 20px;
+  color: #333333;
+}
+
+.radioContainer{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.radio{
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid rgba(0, 0, 0, 0.24);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.radio:hover{
+  box-shadow: 0px 0px 8px -15px rgba(0, 4, 251, 0.28);
+  /* тень не круглая( даже не знаю, оставить или нет.. */
+}
+
+.radioLabel{
+  font-size: 14px;
+  line-height: 20px;
+  color: #333333;
+  cursor: default;
+}
