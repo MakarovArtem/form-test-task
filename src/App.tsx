@@ -5,6 +5,7 @@ import FormStepOne from "./pages/formStepOne/FormStepOne";
 import FormStepTwo from "./pages/formStepTwo/FormStepTwo";
 // import Checkbox from "./components/checkbox/Checkbox";
 import Radio from "./components/radio/Radio";
+import Button from "./components/button/Button";
 
 function App() {
   return (
@@ -23,6 +24,9 @@ function App() {
         ]}
         id="radio-group"
       />
+      <Button text="+" />
+      <Button text="Далее" />
+
     </div>
   );
 }
