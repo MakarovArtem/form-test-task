@@ -22,7 +22,7 @@ const FormStepOne: FC<FormStepOneProps> = () => {
             <Input title="Surname" type="text" tip="tip" id="field-surname"/>
           </div>
           <div className={style.sexContainer}>
-            <Input title="Sex" type="select" tip="tip" id="field-sex"/>
+            <Input widthInp="300px" title="Sex" type="select" tip="tip" id="field-sex"/>
             {/* нужно сделать кастомный селект */}
           </div>
           <div className={style.backContainer}>
