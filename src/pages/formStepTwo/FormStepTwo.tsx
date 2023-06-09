@@ -3,6 +3,7 @@ import style from "./FormStepTwo.module.css";
 import ProgressLine from "../../components/progressLine/ProgressLine";
 import Input from "../../components/input/Input";
 import Button from "../../components/button/Button";
+import Select from "../../components/select/Select";
 
 interface FormStepTwoProps {}
 
@@ -12,19 +13,7 @@ const FormStepTwo: FC<FormStepTwoProps> = () => {
       <div className={style.mainContainer}>
         <ProgressLine step="three" />
         <form className={style.form} action="post">
-          <div className={style.nickContainer}>
-            <Input width="300px" title="Nickname" type="text" tip="tip" id="field-nickname"/>
-          </div>
-          <div className={style.nameContainer}>
-            <Input width="300px" title="Name" type="text" tip="tip" id="field-name"/>
-          </div>
-          <div className={style.surnameContainer}>
-            <Input width="300px" title="Surname" type="text" tip="tip" id="field-surname"/>
-          </div>
-          <div className={style.sexContainer}>
-            <Input width="300px" title="Sex" type="select" tip="tip" id="field-sex"/>
-            {/* нужно сделать кастомный селект */}
-          </div>
+          <Select width="500px" title="SELECT" variants={["man", "woman"]}/>
           <div className={style.backContainer}>
             <Button text="Назад" themeBlue={false} id="button-back" />
           </div>
