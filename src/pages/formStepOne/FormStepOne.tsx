@@ -13,16 +13,16 @@ const FormStepOne: FC<FormStepOneProps> = () => {
         <ProgressLine step="three" />
         <form className={style.form} action="post">
           <div className={style.nickContainer}>
-            <Input title="Nickname" type="text" tip="tip" id="field-nickname"/>
+            <Input width="300px" title="Nickname" type="text" tip="tip" id="field-nickname"/>
           </div>
           <div className={style.nameContainer}>
-            <Input title="Name" type="text" tip="tip" id="field-name"/>
+            <Input width="300px" title="Name" type="text" tip="tip" id="field-name"/>
           </div>
           <div className={style.surnameContainer}>
-            <Input title="Surname" type="text" tip="tip" id="field-surname"/>
+            <Input width="300px" title="Surname" type="text" tip="tip" id="field-surname"/>
           </div>
           <div className={style.sexContainer}>
-            <Input widthInp="300px" title="Sex" type="select" tip="tip" id="field-sex"/>
+            <Input width="300px" title="Sex" type="select" tip="tip" id="field-sex"/>
             {/* нужно сделать кастомный селект */}
           </div>
           <div className={style.backContainer}>
