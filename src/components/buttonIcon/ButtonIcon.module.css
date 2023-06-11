@@ -1,0 +1,9 @@
+.buttonIcon{
+  display: block;
+  cursor: pointer;
+  transition: .3s ease;
+}
+
+.buttonIcon:hover{
+  transform: scale(1.2);
+}

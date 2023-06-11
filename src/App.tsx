@@ -6,6 +6,7 @@ import FormStepTwo from "./pages/formStepTwo/FormStepTwo";
 // import Checkbox from "./components/checkbox/Checkbox";
 import Radio from "./components/radio/Radio";
 import Button from "./components/button/Button";
+import ButtonIcon from "./components/buttonIcon/ButtonIcon";
 
 function App() {
   return (
@@ -13,18 +14,7 @@ function App() {
       {/* <MainScreen /> */}
       {/* <FormStepOne /> */}
       {/* <FormStepTwo /> */}
-      <Radio 
-        title="Radio group"
-        groupName="radio"
-        variants={["1", "2", "3"]}
-        optionsId={[
-          "field-radio-group-option-1",
-          "field-radio-group-option-2",
-          "field-radio-group-option-3"
-        ]}
-        id="radio-group"
-      />
-      <Button text="+" />
+      <ButtonIcon picURL="delete-icon.svg" alt="delete-button-icon" />
       <Button text="Далее" />
 
     </div>
