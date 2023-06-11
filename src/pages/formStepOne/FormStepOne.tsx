@@ -11,7 +11,7 @@ const FormStepOne: FC<FormStepOneProps> = () => {
   return (
     <article className={style.main}>
       <div className={style.mainContainer}>
-        <ProgressLine step="three" />
+        <ProgressLine step="one" />
         <form className={style.form} action="post">
           <div className={style.nickContainer}>
             <Input 

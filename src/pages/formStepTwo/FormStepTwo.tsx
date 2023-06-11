@@ -4,7 +4,6 @@ import ProgressLine from "../../components/progressLine/ProgressLine";
 import Input from "../../components/input/Input";
 import Button from "../../components/button/Button";
 import ButtonIcon from "../../components/buttonIcon/ButtonIcon";
-import Select from "../../components/select/Select";
 import Checkbox from "../../components/checkbox/Checkbox";
 import Radio from "../../components/radio/Radio";
 
@@ -14,17 +13,27 @@ const FormStepTwo: FC<FormStepTwoProps> = () => {
   return (
     <article className={style.main}>
       <div className={style.mainContainer}>
-        <ProgressLine step="three" />
+        <ProgressLine step="two" />
         <form className={style.form} action="post">
           <div className={style.inputsContainer}>
-            <Input title="Advantages" type="text" id="field-advantages-1" />
-            <Input title="" type="text" id="field-advantages-2" />
-            <Input title="" type="text" id="field-advantages-3" />
-          </div>
-          <div className={style.buttonsRemoveContainer}>
-            <ButtonIcon picURL="delete-icon.svg" alt="delete-button-icon" id="button-remove-1" />
-            <ButtonIcon picURL="delete-icon.svg" alt="delete-button-icon" id="button-remove-2" />
-            <ButtonIcon picURL="delete-icon.svg" alt="delete-button-icon" id="button-remove-3" />
+            <div className={style.advantageContainer}>
+              <Input title="Advantages" type="text" id="field-advantages-1" />
+              <div className={style.removeAdvantageContainer}>
+                <ButtonIcon picURL="delete-icon.svg" alt="delete-button-icon" id="button-remove-1" />
+              </div>
+            </div>
+            <div className={style.advantageContainer}>
+              <Input title="" type="text" id="field-advantages-2" />
+              <div className={style.removeAdvantageContainer}>
+                <ButtonIcon picURL="delete-icon.svg" alt="delete-button-icon" id="button-remove-2" />
+              </div>
+            </div>
+            <div className={style.advantageContainer}>
+              <Input title="" type="text" id="field-advantages-3" />
+              <div className={style.removeAdvantageContainer}>
+                <ButtonIcon picURL="delete-icon.svg" alt="delete-button-icon" id="button-remove-3" />
+              </div>
+            </div>
           </div>
           <div className={style.buttonAddContainer}>
             <Button text="+" themeBlue={false} id="button-add"/>

@@ -17,42 +17,28 @@
 }
 
 .form{
+  width: 100%;
   display: grid;
   grid-template-areas: 
-    "nickname ..."
-    "name     ..."
-    "surname  ..."
-    "sex      ..."
-    "back    next";
-  grid-template-rows: repeat(5, 96px);
+    "textarea textarea"
+    "back         next";
+  grid-template-columns: 1fr 1fr;
   row-gap: 25px;
+  column-gap: 16px;
 }
 
-.nickContainer{
-  grid-area: nickname;
+.textareaContaier{
+  grid-area: textarea;
 }
 
-.nameContainer{
-  grid-area: name;
-}
-
-.surnameContainer{
-  grid-area: surname;
-}
-
-.sexContainer{
-  grid-area: sex;
-}
-
-.backContainer{
+.backContaier{
+  grid-area: back;
   justify-self: flex-start;
   align-self: flex-end;
-  grid-area: back;
 }
 
-.nextContainer{
+.nextContaier{
+  grid-area: next;
   justify-self: flex-end;
   align-self: flex-end;
-  grid-area: next;
 }
-

@@ -3,7 +3,7 @@ import style from "./Button.module.css";
 
 interface ButtonProps {
   text: string;
-  id?: string;
+  id: string;
   themeBlue?: boolean;
 }
 
