@@ -19,29 +19,41 @@
 .form{
   display: grid;
   grid-template-areas: 
-    "nickname ..."
-    "name     ..."
-    "surname  ..."
-    "sex      ..."
+    "advantages removing"
+    "adding     ..."
+    "checkbox  ..."
+    "radio      ..."
     "back    next";
-  grid-template-rows: repeat(5, 96px);
+  /* grid-template-rows: repeat(5, 96px); */
+  grid-template-columns: 1fr 1fr;
   row-gap: 25px;
+  column-gap: 16px;
 }
 
-.nickContainer{
-  grid-area: nickname;
+.inputsContainer{
+  grid-area: advantages;
 }
 
-.nameContainer{
-  grid-area: name;
+.buttonsRemoveContainer{
+  padding-top: 35px;
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 0;
+  grid-area: removing;
 }
 
-.surnameContainer{
-  grid-area: surname;
+.buttonAddContainer{
+  grid-area: adding;
 }
 
-.sexContainer{
-  grid-area: sex;
+.checkboxContainer{
+  grid-area: checkbox;
+}
+
+.radioContainer{
+  grid-area: radio;
 }
 
 .backContainer{

@@ -4,13 +4,14 @@ import style from "./ButtonIcon.module.css";
 interface ButtonIconProps {
   picURL: string;
   alt: string;
-  id?: string;
+  id: string;
+  maxWidth?: string;
 }
 
-const ButtonIcon: FC<ButtonIconProps> = ({picURL, alt, id}) => {
+const ButtonIcon: FC<ButtonIconProps> = ({picURL, alt, id, maxWidth}) => {
 
   return (
-    <img className={style.buttonIcon} src={picURL} alt={alt} id={id} />
+    <img style={{maxWidth: maxWidth ? maxWidth : "20px"}} className={style.buttonIcon} src={picURL} alt={alt} id={id} />
   )
 }
 
