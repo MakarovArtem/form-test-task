@@ -4,6 +4,7 @@ import MainScreen from "./pages/mainScreen/MainScreen";
 import FormStepOne from "./pages/formStepOne/FormStepOne";
 import FormStepTwo from "./pages/formStepTwo/FormStepTwo";
 import FormStepThree from "./pages/formStepThree/FormStepThree";
+import ModalWindow from "./components/modalWindow/ModalWindow";
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
       {/* <MainScreen /> */}
       {/* <FormStepOne /> */}
       {/* <FormStepTwo /> */}
-      <FormStepThree />
+      {/* <FormStepThree /> */}
+      <ModalWindow isSuccessfull={true} />
     </div>
   );
 }

@@ -22,6 +22,15 @@
   transition: .3s ease;
 }
 
+/* textarea::-webkit-resizer {
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  background-image: url("../../../public/textarea-resize-icon.svg");
+  background-position: 50px 0px;
+  background-repeat: no-repeat;
+} */
+
 .textarea:hover{
   box-shadow: 0px 0px 8px 1px rgba(0, 4, 251, 0.28);
 }
