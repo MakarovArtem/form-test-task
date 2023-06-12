@@ -54,7 +54,7 @@ const MainScreen: FC<MainScreenProps> = () => {
           <Input 
             title='Номер телефона' 
             type='tel' 
-            placeholder="+7 999 999-99-99" 
+            placeholder="+7 961 026-29-17" 
             id="filed-number"
           />
         </div>
@@ -62,7 +62,7 @@ const MainScreen: FC<MainScreenProps> = () => {
           <Input 
             title='Email'
             type='email'
-            placeholder="tim.jennings@example.com"
+            placeholder="ARTEMMAKAROV76@YANDEX.RU"
             id="filed-email"
           />
         </div>

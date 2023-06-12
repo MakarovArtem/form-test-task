@@ -16,7 +16,7 @@ const FormStepTwo: FC<FormStepTwoProps> = () => {
   return (
     <article className={style.main}>
       <div className={style.mainContainer}>
-        <ProgressLine step="two" 
+        <ProgressLine step="two" />
         <form className={style.form} action="post">
           <div className={style.inputsContainer}>
             <div className={style.advantageContainer}>
