@@ -2,6 +2,7 @@
   display: block;
   cursor: pointer;
   transition: .3s ease;
+  user-select: none;
 }
 
 .buttonIcon:hover{
