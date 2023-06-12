@@ -1,0 +1,26 @@
+.main{
+  width: 490px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+
+.title{
+  font-size: 72px;
+  line-height: 80px;
+  color: rgb(255, 136, 0);
+}
+
+.text{
+  font-size: 24px;
+  line-height: 40px;
+  color: #666666;
+  text-align: center;
+}
+
+.buttonContainer{
+
+}

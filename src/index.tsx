@@ -5,11 +5,13 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import FormStepOne from './pages/formStepOne/FormStepOne';
 import FormStepTwo from './pages/formStepTwo/FormStepTwo';
 import FormStepThree from './pages/formStepThree/FormStepThree';
+import Error from './pages/Error/Error';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />
+    element: <App />,
+    errorElement: <Error />
   },
   {
     path: "/form-step-one",
@@ -22,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: "/form-step-three",
     element: <FormStepThree />
+  },
+  {
+    path: "*",
+    element: <Error />
   },
 ]);
 
