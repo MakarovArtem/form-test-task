@@ -26,7 +26,24 @@
   border-radius: 4px;
   cursor: pointer;
 }
+/*
+.checkboxLabel:before{
+  display: none;
+  content: "";
+  display: block;
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid rgba(0, 0, 0, 0.24);
+  border-radius: 4px;
+  cursor: pointer;
+}
 
+.checkbox:checked + .checkboxLabel:before{
+  content: "\2713"; добавляем символ галочки, когда чекбокс выбран
+  text-align: center;
+  font-size: 16px; задаем размер и цвет символа
+  color: #000;
+}*/
 .checkbox:hover{
   box-shadow: 0px 0px 8px 1px rgba(0, 4, 251, 0.28);
 }

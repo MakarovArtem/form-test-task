@@ -11,10 +11,17 @@ interface InputProps {
 }
 
 const Input: FC<InputProps> = ({width, title, type, placeholder, tip, id}) => {
+  
   return (
     <div className={style.inputContainer}>
       <p className={style.inputTitle}>{title}</p>
-      <input style={{width: width ? width : "400px"}} className={style.input} type={type} placeholder={placeholder ? placeholder : 'Placeholder'} id={id}/>
+      <input 
+        style={{width: width ? width : "400px"}}
+        className={style.input}
+        type={type}
+        placeholder={placeholder ? placeholder : 'Placeholder'}
+        id={id}
+      />
       {tip && <p className={style.inputTip}>{tip}</p>}
     </div>
   )

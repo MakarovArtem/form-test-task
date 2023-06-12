@@ -4,19 +4,27 @@ import style from "./Checkbox.module.css";
 interface CheckboxProps {
   title: string;
   groupName: string;
-  variants: string[];
+  options: string[];
   optionsId: string[];
   id: string;
 }
 
-const Checkbox: FC<CheckboxProps> = ({title, groupName, variants, optionsId, id}) => {
+const Checkbox: FC<CheckboxProps> = ({title, groupName, options, optionsId, id}) => {
+  
   return (
     <fieldset className={style.checkboxGroupContainer} id={id}>
       <legend className={style.checkboxTitle}>{title}</legend>
-      {variants.map((variant, ind) =>
+      {options.map((option, ind) =>
         <div className={style.checkboxContainer}>
-          <input className={style.checkbox} type="checkbox" value={variant} name={groupName} id={optionsId?.[ind]} />
-          <label className={style.checkboxLabel} htmlFor={variant}>{variant}</label>
+          <label className={style.checkboxLabel} htmlFor={option}>{option}
+            <input
+              className={style.checkbox}
+              type="checkbox"
+              value={option}
+              name={groupName}
+              id={optionsId?.[ind]}
+            />
+            </label>
         </div>
       )}
     </fieldset>

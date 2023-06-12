@@ -90,13 +90,15 @@ legend {
 
 /* Common styles */
 body{
-  padding-top: 22px;
+  padding: 22px 0;
 
   display: flex;
   justify-content: center;
   background: #F4F4F5;
 
-  font-family: "SB Sans Text";
+  font-family: 'SB Sans Interface';
   font-style: normal;
   font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
 }

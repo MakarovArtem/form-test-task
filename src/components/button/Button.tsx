@@ -9,9 +9,9 @@ interface ButtonProps {
 
 const Button: FC<ButtonProps> = ({text, id, themeBlue}) => {
 
-  const mixedStyle = themeBlue ?
-    `${style.button + ' ' + style.buttonBlue}`
-    : `${style.button}`;
+    const mixedStyle = themeBlue ?
+    style.button + " " + style.buttonBlue
+    : style.button;
 
   return (
     <button className={mixedStyle} id={id}>{text}</button>

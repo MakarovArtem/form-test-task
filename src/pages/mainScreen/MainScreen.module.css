@@ -5,7 +5,7 @@
   border-radius: 12px 12px 0px 0px;
   background-color: #fff;
 }
-/* -------------------- */
+
 .info{
   display: grid;
   grid-template-areas:
@@ -13,6 +13,7 @@
     "avatar contacts";
   grid-template-rows: 40px 40px;
   grid-template-columns: 80px 228px;
+  row-gap: 8px;
   column-gap: 24px;
 }
 
@@ -29,6 +30,7 @@
 }
 
 .avatar{
+  font-family: 'SB Sans Text';
   font-size: 40px;
   line-height: 52px;
   color: #212830;
@@ -42,7 +44,6 @@
 }
 
 .name{
-  font-family: 'SB Sans Display';
   font-weight: 600;
   font-size: 20px;
   line-height: 26px;
@@ -83,18 +84,17 @@
 }
 
 .link{
-  font-family: 'SB Sans Display';
   font-size: 12px;
   color: #5558FA;
 }
-/* -------------------- */
+
 .line{
   width: 95%;
   height: 0;
-  margin: 24px auto 24px;
+  margin: 24px auto;
   border: 1px solid rgba(0, 0, 0, 0.08);
 }
-/* -------------------- */
+
 .form{
   display: flex;
   flex-direction: column;

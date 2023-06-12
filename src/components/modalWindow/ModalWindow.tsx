@@ -1,7 +1,7 @@
 import React, { FC } from "react";
-import styleError from "./ModalWindowError.module.css";
-import styleSucces from "./ModalWindowSuccess.module.css";
 import Button from "../button/Button";
+import styleSucces from "./ModalWindowSuccess.module.css";
+import styleError from "./ModalWindowError.module.css";
 
 interface ModalWindowProps {
   isSuccessfull: boolean;
