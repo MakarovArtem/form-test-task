@@ -23,7 +23,9 @@ const FormStepTwo: FC<FormStepTwoProps> = () => {
               {/* {for(let i = 0; i <=advantagesCount; i++){
 
               }} */}
-              <Input title="Advantages" type="text" id="field-advantages-1" />
+              <div className={style.inputContainer}>
+                <Input title="Advantages" type="text" id="field-advantages-1" />
+              </div>
               <div className={style.removeAdvantageContainer}>
                 <ButtonIcon
                   picURL="delete-icon.svg"
@@ -33,7 +35,9 @@ const FormStepTwo: FC<FormStepTwoProps> = () => {
               </div>
             </div>
             <div className={style.advantageContainer}>
-              <Input title="" type="text" id="field-advantages-2" />
+              <div className={style.inputContainer}>
+                <Input title="" type="text" id="field-advantages-2" />
+              </div>
               <div className={style.removeAdvantageContainer}>
                 <ButtonIcon
                   picURL="delete-icon.svg"
@@ -43,7 +47,9 @@ const FormStepTwo: FC<FormStepTwoProps> = () => {
               </div>
             </div>
             <div className={style.advantageContainer}>
-              <Input title="" type="text" id="field-advantages-3" />
+              <div className={style.inputContainer}>
+                <Input title="" type="text" id="field-advantages-3" />
+              </div>
               <div className={style.removeAdvantageContainer}>
                 <ButtonIcon
                   picURL="delete-icon.svg"

@@ -1,5 +1,4 @@
 .radioGroupContainer{
-  max-height: 96px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -39,13 +38,10 @@
 }
 
 @media screen and (max-width: 768px){
-  .radioGroupContainer{
-    max-height: 80px;
-  }
   .radioTitle{
     margin-bottom: 8px;
-    font-size: 12px;
-    line-height: 14px;
+    font-size: 10px;
+    line-height: 12px;
   }
   .radioContainer{
     gap: 10px;
@@ -55,14 +51,13 @@
     border-radius: 3px;
   }
   .radioLabel{
-    font-size: 12px;
-    line-height: 14px;
+    font-size: 10px;
+    line-height: 12px;
   }
 }
 
 @media screen and (max-width: 576px){
   .radioGroupContainer{
-    max-height: 74px;
     gap: 10px;
   }
   .radioContainer{

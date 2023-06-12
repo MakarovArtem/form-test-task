@@ -12,7 +12,7 @@ const ButtonIcon: FC<ButtonIconProps> = ({maxWidth, picURL, alt, id}) => {
 
   return (
     <img 
-      style={{maxWidth: maxWidth ? maxWidth : "20px"}}
+      style={{maxWidth: maxWidth ? maxWidth : "auto"}}
       className={style.buttonIcon}
       src={picURL}
       alt={alt}

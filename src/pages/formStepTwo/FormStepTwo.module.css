@@ -19,11 +19,11 @@
 .form{
   display: grid;
   grid-template-areas: 
-    "advantages ..."
-    "adding     ..."
-    "checkbox   ..."
-    "radio      ..."
-    "back      next";
+    "advantages advantages"
+    "adding         adding"
+    "checkbox     checkbox"
+    "radio           radio"
+    "back             next";
   grid-template-columns: 1fr 1fr;
   row-gap: 25px;
   column-gap: 16px;
@@ -38,6 +38,10 @@
   justify-content: flex-start;
   align-items: flex-end;
   gap: 16px;
+}
+
+.inputContainer{
+  width: 300px;
 }
 
 .removeAdvantageContainer{
@@ -68,3 +72,59 @@
   grid-area: next;
 }
 
+@media screen and (max-width: 1368px){
+  .main{
+    width: 900px;
+  }
+  .removeAdvantageContainer{
+    padding-bottom: 15px;
+  }
+}
+
+@media screen and (max-width: 1024px){
+  .main{
+    width: 700px;
+    padding: 50px 0;
+  }
+  .mainContainer{
+    width: 85%;
+  }
+  .form{
+    row-gap: 15px;
+  }
+}
+
+@media screen and (max-width: 768px){
+  .main{
+    width: 500px;
+    padding: 40px 0;
+  }
+  .mainContainer{
+    width: 90%;
+  }
+  .form{
+    row-gap: 15px;
+  }
+  .removeAdvantageContainer{
+    padding-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 576px){
+  .main{
+    width: 300px;
+    padding: 20px 0;
+  }
+  .mainContainer{
+    gap: 50px;
+  }
+  .form{
+    row-gap: 14px;
+  }
+  .inputContainer{
+    width: 100%;
+  }
+  .removeAdvantageContainer{
+    padding-bottom: 7px;
+  }
+}

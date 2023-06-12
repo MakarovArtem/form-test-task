@@ -10,18 +10,12 @@
 
 @media screen and (max-width: 768px){
   .buttonIcon{
-    padding: 10px 14px;
-    border-radius: 3px;
-    font-size: 12px;
-    line-height: 14px;
+    width: 18px;
   }
 }
 
 @media screen and (max-width: 576px){
   .buttonIcon{
-    padding: 8px 12px;
-    border-radius: 2px;
-    font-size: 10px;
-    line-height: 12px;
+    width: 16px;
   }
 }
