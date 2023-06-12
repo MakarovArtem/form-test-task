@@ -13,7 +13,7 @@ function App() {
       {/* <FormStepOne /> */}
       {/* <FormStepTwo /> */}
       <FormStepThree />
-      {/* <ModalWindow isSuccessfull={true} /> */}
+      {/* <ModalWindow isSuccessfull={false} /> */}
     </div>
   );
 }

@@ -73,3 +73,56 @@
   justify-self: flex-end;
   align-self: flex-end;
 }
+
+@media screen and (max-width: 1024px){
+  .main{
+    width: 380px;
+    height: 260px;
+    padding: 28px;
+  }
+  .title{
+    font-size: 18px;
+    line-height: 20px;
+  }
+  .crossButton{
+    width: 24px;
+    height: 24px;
+  }
+  .crossButton:hover{
+    transform: scale(1.15);
+  }
+}
+
+@media screen and (max-width: 768px){
+  .main{
+    width: 300px;
+    height: 200px;
+    padding: 20px;
+    row-gap: 15px;
+  }
+  .title{
+    font-size: 14px;
+    line-height: 16px;
+  }
+  .pictogram{
+    width: 70px;
+    height: 70px;
+  }
+}
+
+@media screen and (max-width: 576px){
+  .main{
+    width: 220px;
+    height: 150px;
+    padding: 10px;
+    row-gap: 8px;
+  }
+  .title{
+    font-size: 12px;
+    line-height: 14px;
+  }
+  .pictogram{
+    width: 60px;
+    height: 60px;
+  }
+}
