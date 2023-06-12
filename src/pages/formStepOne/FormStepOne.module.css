@@ -19,11 +19,11 @@
 .form{
   display: grid;
   grid-template-areas: 
-    "nickname ..."
-    "name     ..."
-    "surname  ..."
-    "sex      ..."
-    "back    next";
+    "nickname nickname"
+    "name         name"
+    "surname   surname"
+    "sex           sex"
+    "back         next";
   grid-template-rows: repeat(5, 96px);
   row-gap: 25px;
 }
@@ -56,3 +56,63 @@
   grid-area: next;
 }
 
+@media screen and (max-width: 1368px){
+  .main{
+    width: 900px;
+  }
+  .nickContainer,
+  .nameContainer,
+  .surnameContainer,
+  .sexContainer{
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 1024px){
+  .main{
+    width: 700px;
+    padding: 50px 0;
+  }
+  .mainContainer{
+    width: 85%;
+  }
+  .form{
+    row-gap: 15px;
+  }
+}
+
+@media screen and (max-width: 768px){
+  .main{
+    width: 500px;
+    height: 630px;
+    padding: 40px 0;
+  }
+  .mainContainer{
+    width: 90%;
+  }
+  .form{
+    grid-template-rows: repeat(5, 80px);
+    row-gap: 15px;
+  }
+}
+
+@media screen and (max-width: 576px){
+  .main{
+    width: 300px;
+    height: 500px;
+    padding: 20px 0;
+  }
+  .mainContainer{
+    gap: 50px;
+  }
+  .form{
+    grid-template-rows: repeat(5, 70px);
+    row-gap: 10px;
+  }
+  .nickContainer,
+  .nameContainer,
+  .surnameContainer,
+  .sexContainer{
+    width: 100%;
+  }
+}

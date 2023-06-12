@@ -15,7 +15,7 @@ const Select: FC<SelectProps> = ({width, title, variants, tip, optionsId, id}) =
     <div className={style.selectContainer}>
       <p className={style.selectTitle}>{title}</p>
       <select
-        style={{width: width ? width : "400px"}}
+        style={{width: width ? width : "auto"}}
         className={style.select}
         id={id}
       >

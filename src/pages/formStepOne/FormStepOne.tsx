@@ -16,7 +16,6 @@ const FormStepOne: FC<FormStepOneProps> = () => {
         <form className={style.form} action="#">
           <div className={style.nickContainer}>
             <Input 
-              width="300px" 
               title="Nickname" 
               type="text" 
               tip="Tip" 
@@ -25,7 +24,6 @@ const FormStepOne: FC<FormStepOneProps> = () => {
           </div>
           <div className={style.nameContainer}>
             <Input 
-              width="300px" 
               title="Name" 
               type="text" 
               tip="Tip" 
@@ -34,16 +32,14 @@ const FormStepOne: FC<FormStepOneProps> = () => {
           </div>
           <div className={style.surnameContainer}>
             <Input 
-              width="300px" 
-              title="Surname" 
-              type="text" 
-              tip="Tip" 
+              title="Surname"
+              type="text"
+              tip="Tip"
               id="field-surname"
             />
           </div>
           <div className={style.sexContainer}>
             <Select 
-              width="300px"
               title="Sex"
               tip="Tip"
               variants={["man", "woman"]} 
