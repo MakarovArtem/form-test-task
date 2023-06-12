@@ -7,6 +7,7 @@ import style from "./FormStepThree.module.css";
 interface FormStepThreeProps {}
 
 const FormStepThree: FC<FormStepThreeProps> = () => {
+  
   return (
     <article className={style.main}>
       <div className={style.mainContainer}>

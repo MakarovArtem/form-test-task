@@ -23,3 +23,21 @@
 .button:active{
   box-shadow: 0px 0px 8px 4px rgba(41, 155, 255, 0.6);
 }
+
+@media screen and (max-width: 768px){
+  .button{
+    padding: 10px 14px;
+    border-radius: 3px;
+    font-size: 12px;
+    line-height: 14px;
+  }
+}
+
+@media screen and (max-width: 576px){
+  .button{
+    padding: 8px 12px;
+    border-radius: 2px;
+    font-size: 10px;
+    line-height: 12px;
+  }
+}

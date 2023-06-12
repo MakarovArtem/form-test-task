@@ -40,3 +40,43 @@
   line-height: 16px;
   color: rgba(0, 0, 0, 0.48);
 }
+
+@media screen and (max-width: 768px){
+  .textareaContainer{
+    gap: 8px;
+  }
+  .textareaTitle{
+    font-size: 12px;
+    line-height: 14px;
+  }
+  .textarea{
+    min-height: 70px;
+    padding: 10px;
+    font-size: 12px;
+    line-height: 14px;
+  }
+  .textareaTip{
+    font-size: 10px;
+    line-height: 12px;
+  }
+}
+
+@media screen and (max-width: 576px){
+  .textareaContainer{
+    gap: 7px;
+  }
+  .textareaTitle{
+    font-size: 10px;
+    line-height: 12px;
+  }
+  .textarea{
+    min-height: 56px;
+    padding: 8px;
+    font-size: 10px;
+    line-height: 12px;
+  }
+  .textareaTip{
+    font-size: 8px;
+    line-height: 10px;
+  }
+}

@@ -1,5 +1,4 @@
 .radioGroupContainer{
-  width: 400px;
   max-height: 96px;
   display: flex;
   flex-direction: column;
@@ -8,6 +7,7 @@
 }
 
 .radioTitle{
+  margin-bottom: 10px;
   font-size: 14px;
   line-height: 20px;
   color: #333333;
@@ -36,4 +36,42 @@
   line-height: 20px;
   color: #333333;
   cursor: default;
+}
+
+@media screen and (max-width: 768px){
+  .radioGroupContainer{
+    max-height: 80px;
+  }
+  .radioTitle{
+    margin-bottom: 8px;
+    font-size: 12px;
+    line-height: 14px;
+  }
+  .radioContainer{
+    gap: 10px;
+  }
+  .radio{
+    border: 1px solid rgba(0, 0, 0, 0.24);
+    border-radius: 3px;
+  }
+  .radioLabel{
+    font-size: 12px;
+    line-height: 14px;
+  }
+}
+
+@media screen and (max-width: 576px){
+  .radioGroupContainer{
+    max-height: 74px;
+    gap: 10px;
+  }
+  .radioContainer{
+    gap: 10px;
+  }
+  .radio{
+    width: 18px;
+    height: 18px;
+    border: 0.75px solid rgba(0, 0, 0, 0.24);
+    border-radius: 2px;
+  }
 }

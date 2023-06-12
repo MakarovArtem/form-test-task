@@ -15,7 +15,7 @@ const Textarea: FC<TextareaProps> = ({width, title, placeholder, tip, id}) => {
     <div className={style.textareaContainer}>
       <p className={style.textareaTitle}>{title}</p>
       <textarea
-        style={{width: width ? width : "400px"}}
+        style={{width: width ? width : "auto"}}
         className={style.textarea}
         placeholder={placeholder ? placeholder : 'Placeholder'}
         id={id}

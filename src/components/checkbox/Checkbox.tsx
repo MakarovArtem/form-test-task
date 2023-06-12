@@ -16,15 +16,14 @@ const Checkbox: FC<CheckboxProps> = ({title, groupName, options, optionsId, id})
       <legend className={style.checkboxTitle}>{title}</legend>
       {options.map((option, ind) =>
         <div className={style.checkboxContainer}>
-          <label className={style.checkboxLabel} htmlFor={option}>{option}
-            <input
-              className={style.checkbox}
-              type="checkbox"
-              value={option}
-              name={groupName}
-              id={optionsId?.[ind]}
-            />
-            </label>
+          <input
+            className={style.checkbox}
+            type="checkbox"
+            value={option}
+            name={groupName}
+            id={optionsId?.[ind]}
+          />
+          <label className={style.checkboxLabel} htmlFor={option}>{option}</label>
         </div>
       )}
     </fieldset>

@@ -50,7 +50,7 @@ const MainScreen: FC<MainScreenProps> = () => {
       </div>
       <div className={style.line}></div>
       <form className={style.form} action="#">
-        <div>
+        <div className={style.inputContainer}>
           <Input 
             title='Номер телефона' 
             type='tel' 
@@ -58,7 +58,7 @@ const MainScreen: FC<MainScreenProps> = () => {
             id="filed-number"
           />
         </div>
-        <div>
+        <div className={style.inputContainer}>
           <Input 
             title='Email'
             type='email'
@@ -66,7 +66,7 @@ const MainScreen: FC<MainScreenProps> = () => {
             id="filed-email"
           />
         </div>
-        <div>
+        <div className={style.buttonContainer}>
           <Button text="Начать" themeBlue={false} id="button-start"/>
         </div>
       </form>

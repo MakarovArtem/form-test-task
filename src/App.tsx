@@ -9,10 +9,10 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <MainScreen />
-      {/* <FormStepOne /> */}
-      {/* <FormStepTwo /> */}
-      {/* <FormStepThree /> */}
+      {/* <MainScreen /> */}
+        {/* <FormStepOne /> */}
+        {/* <FormStepTwo /> */}
+      <FormStepThree />
       {/* <ModalWindow isSuccessfull={true} /> */}
     </div>
   );
