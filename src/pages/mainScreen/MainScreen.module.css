@@ -6,30 +6,6 @@
   background-color: #fff;
 }
 
-@media screen and (max-width: 1368px){
-  .main{
-    width: 900px;
-  }
-}
-
-@media screen and (max-width: 1024px){
-  .main{
-    width: 700px;
-  }
-}
-
-@media screen and (max-width: 768px){
-  .main{
-    width: 500px;
-  }
-}
-
-@media screen and (max-width: 576px){
-  .main{
-    width: 300px;
-  }
-}
-
 .info{
   display: grid;
   grid-template-areas:
@@ -49,6 +25,8 @@
   justify-content: center;
   align-items: center;
   grid-area: avatar;
+  justify-self: center;
+  align-self: center;
   background: #D5E4F7;
   cursor: default;
 }
@@ -127,4 +105,121 @@
 
 .inputContainer{
   width: 50%;
+}
+
+@media screen and (max-width: 1368px){
+  .main{
+    width: 900px;
+  }
+}
+
+@media screen and (max-width: 1024px){
+  .main{
+    width: 700px;
+  }
+  .inputContainer{
+    width: 75%;
+  }
+}
+
+@media screen and (max-width: 768px){
+  .main{
+    width: 500px;
+    height: 500px;
+    padding: 20px;
+  }
+  .inputContainer{
+    width: 100%;
+  }
+  .info{
+    grid-template-rows: 38px 38px;
+    row-gap: 8px;
+    column-gap: 20px;
+  }
+  .avatarContainer{
+    width: 70px;
+    height: 70px;
+  }
+  .avatar{
+    font-size: 32px;
+    line-height: 36px;
+  }
+  .name{
+    font-size: 14px;
+    line-height: 18px;
+  }
+  .contacts{
+    height: 16px;
+  }
+  .contactContainer{
+    gap: 6px;
+  }
+  .linkIconContainer{
+    width: 18px;
+    height: 18px;
+  }
+  .link{
+    font-size: 14px;
+    line-height: 16px;
+  }
+  .line{
+    margin: 16px auto;
+  }
+}
+
+@media screen and (max-width: 576px){
+  .main{
+    width: 300px;
+    height: 500px;
+    padding: 10px;
+  }
+  .info{
+    grid-template-areas:
+      "avatar     name"
+      "contacts contacts";
+    grid-template-rows: auto auto;
+    grid-template-columns: 2fr 3fr;
+    row-gap: 8px;
+    column-gap: 24px;
+  }
+  .avatarContainer{
+    width: 60px;
+    height: 60px;
+  }
+  .avatar{
+    font-size: 28px;
+    line-height: 32px;
+  }
+  .nameContainer{
+    justify-self: flex-start;
+    align-self: center;
+  }
+  .name{
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .contactsContainer{
+    justify-self: center;
+  }
+  .contacts{
+    height: 16px;
+  }
+  .contactContainer{
+    gap: 6px;
+  }
+  .linkIconContainer{
+    width: 18px;
+    height: 18px;
+  }
+  .link{
+    font-size: 14px;
+    line-height: 16px;
+  }
+  .line{
+    margin: 16px auto;
+  }
+  .form{
+    align-items: center;
+    gap: 12px;
+  }
 }
