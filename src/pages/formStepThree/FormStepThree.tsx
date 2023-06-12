@@ -14,7 +14,7 @@ const FormStepThree: FC<FormStepThreeProps> = () => {
         <ProgressLine step="three" />
         <form className={style.form} action="post">
           <div className={style.textareaContaier}>
-            <Textarea title="About" width="100%" id="field-about" placeholder="Placeholder" tip="Tip" />
+            <Textarea title="About" width="auto" id="field-about" placeholder="Placeholder" tip="Tip" />
           </div>
           <div className={style.backContaier}>
             <Button text="Назад" themeBlue={false} id="button-back"/>

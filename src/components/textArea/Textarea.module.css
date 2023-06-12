@@ -50,7 +50,7 @@
     line-height: 14px;
   }
   .textarea{
-    min-height: 70px;
+    min-height: 90px;
     padding: 10px;
     font-size: 12px;
     line-height: 14px;
@@ -70,7 +70,6 @@
     line-height: 12px;
   }
   .textarea{
-    min-height: 56px;
     padding: 8px;
     font-size: 10px;
     line-height: 12px;

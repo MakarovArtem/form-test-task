@@ -11,8 +11,8 @@ function App() {
     <div className="App">
       {/* <MainScreen /> */}
       {/* <FormStepOne /> */}
-      <FormStepTwo />
-      {/* <FormStepThree /> */}
+      {/* <FormStepTwo /> */}
+      <FormStepThree />
       {/* <ModalWindow isSuccessfull={true} /> */}
     </div>
   );
