@@ -33,21 +33,6 @@
   grid-area: advantages;
 }
 
-.advantageContainer{
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-end;
-  gap: 16px;
-}
-
-.inputContainer{
-  width: 300px;
-}
-
-.removeAdvantageContainer{
-  padding-bottom: 15px;
-}
-
 .buttonAddContainer{
   grid-area: adding;
 }
@@ -76,9 +61,6 @@
   .main{
     width: 900px;
   }
-  .removeAdvantageContainer{
-    padding-bottom: 15px;
-  }
 }
 
 @media screen and (max-width: 1024px){
@@ -102,11 +84,12 @@
   .mainContainer{
     width: 90%;
   }
+  .inputsTitle{
+    font-size: 12px;
+    line-height: 14px;
+  }
   .form{
     row-gap: 15px;
-  }
-  .removeAdvantageContainer{
-    padding-bottom: 10px;
   }
 }
 
@@ -118,13 +101,11 @@
   .mainContainer{
     gap: 50px;
   }
+  .inputsTitle{
+    font-size: 10px;
+    line-height: 12px;
+  }
   .form{
     row-gap: 14px;
-  }
-  .inputContainer{
-    width: 100%;
-  }
-  .removeAdvantageContainer{
-    padding-bottom: 7px;
   }
 }
