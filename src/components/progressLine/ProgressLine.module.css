@@ -31,14 +31,6 @@
   top: 0;
 }
 
-.checkpoint{
-  width: 16px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-}
-
 .dot{
   width: 16px;
   height: 16px;
@@ -82,4 +74,35 @@
 
 .dotDigitActive{
   color: #5558FA;
+}
+
+@media screen and (max-width: 768px){
+  .line{
+    height: 7px;
+    border-radius: 5px;
+  }
+  .dot{
+    width: 14px;
+    height: 14px;
+  }
+  .dotDigit{
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
+
+@media screen and (max-width: 576px){
+  .line{
+    height: 7px;
+    border-radius: 5px;
+  }
+  .dot{
+    width: 12px;
+    height: 12px;
+  }
+  .dotDigit{
+    font-size: 10px;
+    line-height: 12px;
+    top: 20px;
+  }
 }
