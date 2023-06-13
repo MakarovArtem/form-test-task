@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import style from "./Input.module.css";
 
 interface InputProps {
@@ -10,7 +10,7 @@ interface InputProps {
   id: string;
 }
 
-const Input: FC<InputProps> = ({width, title, type, placeholder, tip, id}) => {
+const Input: FC<InputProps> = ({width, title, type, placeholder, tip, id, ...rest}) => {
   
   return (
     <div className={style.inputContainer}>
@@ -21,8 +21,9 @@ const Input: FC<InputProps> = ({width, title, type, placeholder, tip, id}) => {
         type={type}
         placeholder={placeholder ? placeholder : 'Placeholder'}
         id={id}
+        {...rest}
       />
-      {tip && <p className={style.inputTip}>{tip}</p>}
+      {tip && <p className={style.inputTip}>{tip || "Error!"}</p>}
     </div>
   )
 }
