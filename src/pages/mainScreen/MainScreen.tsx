@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import { useForm, Controller } from "react-hook-form";
+import { Link } from "react-router-dom";
 import Input from "../../components/input/Input";
 import Button from "../../components/button/Button";
 import style from "./MainScreen.module.css";
@@ -11,20 +12,21 @@ const MainScreen: FC<MainScreenProps> = () => {
 
   const {
     control,
-    register,
-    formState: {errors},
     handleSubmit,
-    reset,
   } = useForm({ mode: "onBlur" });
 
   const onSubmit = (data: any) => {
+    if (data?.errors) {
+
+    }
     console.log(JSON.stringify(data))
   }
 
   return (
     <main className={style.main}>
-      <Info />
-      <div className={style.line}></div>
+      <div className={style.infoContainer}>
+        <Info />
+      </div>
       <form onSubmit={handleSubmit(onSubmit)} className={style.form} action="#">
         <div className={style.inputContainer}>
           <Controller
@@ -74,9 +76,8 @@ const MainScreen: FC<MainScreenProps> = () => {
             )}
           />
         </div>
-
         <div className={style.buttonContainer}>
-          <Button text="Начать" themeBlue={false} id="button-start"/>
+            <Button text="Начать" themeBlue={false} id="button-start"/>
         </div>
       </form>
     </main>

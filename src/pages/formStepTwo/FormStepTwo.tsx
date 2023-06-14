@@ -1,6 +1,6 @@
 import React, { FC, useState, useEffect } from "react";
 import ProgressLine from "../../components/progressLine/ProgressLine";
-import AdvantageList from "../../components/AdvantageList/AdvantageList";
+import AdvantageList from "../../components/advantageList/AdvantageList";
 import Button from "../../components/button/Button";
 import Checkbox from "../../components/checkbox/Checkbox";
 import Radio from "../../components/radio/Radio";

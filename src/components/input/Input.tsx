@@ -8,9 +8,12 @@ interface InputProps {
   placeholder?: string;
   tip?: string;
   id: string;
+  field?: any;
 }
 
-const Input: FC<InputProps> = ({width, title, type, placeholder, tip, id, ...rest}) => {
+// field: {onChange, onBlur, value, name, ref}
+
+const Input: FC<InputProps> = ({width, title, type, placeholder, tip, id, ...field}) => {
   
   return (
     <div className={style.inputContainer}>
@@ -21,7 +24,12 @@ const Input: FC<InputProps> = ({width, title, type, placeholder, tip, id, ...res
         type={type}
         placeholder={placeholder ? placeholder : 'Placeholder'}
         id={id}
-        {...rest}
+        {...field}
+        ref={null}
+        // onChange={onChange}
+        // onBlur={onBlur}
+        // value={value}
+        // name={name}
       />
       {tip && <p className={style.inputTip}>{tip || "Error!"}</p>}
     </div>

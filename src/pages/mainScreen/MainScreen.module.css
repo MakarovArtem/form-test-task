@@ -5,12 +5,8 @@
   border-radius: 12px 12px 0px 0px;
   background-color: #fff;
 }
-
-.line{
-  width: 95%;
-  height: 0;
-  margin: 24px auto;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+.infoContainer{
+  margin-bottom: 24px;
 }
 
 .form{
@@ -43,11 +39,11 @@
     width: 500px;
     padding: 20px;
   }
+  .infoContainer{
+    margin-bottom: 20px;
+  }
   .inputContainer{
     width: 100%;
-  }
-  .line{
-    margin: 16px auto;
   }
 }
 
@@ -56,8 +52,8 @@
     width: 300px;
     padding: 10px;
   }
-  .line{
-    margin: 16px auto;
+  .infoContainer{
+    margin-bottom: 16px;
   }
   .form{
     align-items: center;
