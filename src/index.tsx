@@ -2,9 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import FormStepOne from './pages/Form/FormStepOne/FormStepOne';
-import FormStepTwo from './pages/Form/FormStepTwo/FormStepTwo';
-import FormStepThree from './pages/Form/FormStepThree/FormStepThree';
+import Form from './pages/Form/Form';
 import Error from './pages/Error/Error';
 
 const router = createBrowserRouter([
@@ -14,16 +12,9 @@ const router = createBrowserRouter([
     errorElement: <Error />
   },
   {
-    path: "/form-step-one",
-    element: <FormStepOne />
-  },
-  {
-    path: "/form-step-two",
-    element: <FormStepTwo />
-  },
-  {
-    path: "/form-step-three",
-    element: <FormStepThree />
+    path: "/create",
+    element: <Form />,
+    errorElement: <Error />
   },
   {
     path: "*",
