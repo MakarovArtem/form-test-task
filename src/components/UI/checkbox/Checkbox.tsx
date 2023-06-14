@@ -18,7 +18,7 @@ const Checkbox: FC<CheckboxProps> = ({title, groupName, options, id}) => {
   return (
     <fieldset className={style.checkboxGroupContainer} id={id}>
       <legend className={style.checkboxTitle}>{title}</legend>
-      {options.map((option, ind) =>
+      {options.map((option) =>
         <div className={style.checkboxContainer} key={option.id}>
           <input
             className={style.checkbox}

@@ -37,13 +37,12 @@ const FormStepTwo: FC<FormStepTwoProps> = () => {
           <div className={style.radioContainer}>
             <Radio 
               title="Radio group" 
-              groupName="radioGroup" 
-              options={["1", "2", "3"]} 
-              optionsId={[
-                "field-radio-group-option-1",
-                "field-radio-group-option-2",
-                "field-radio-group-option-3",
-              ]}
+              groupName="radioGroup"
+              options={[
+                {value: "1", id: "field-radio-group-option-1"},
+                {value: "2", id: "field-radio-group-option-2"},
+                {value: "3", id: "field-radio-group-option-3"},
+              ]} 
               id="radio-group"
             />
           </div>
