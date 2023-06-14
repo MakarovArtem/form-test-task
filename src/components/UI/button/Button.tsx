@@ -10,7 +10,7 @@ interface ButtonProps {
 
 const Button: FC<ButtonProps> = ({text, id, theme}) => {
 
-    const style = theme === "blue" ? styleBlue :
+  const style = theme === "blue" ? styleBlue :
     theme === "white" ? styleWhite : styleWhite;
 
   return (
