@@ -61,7 +61,7 @@
 }
 
 .dotDone:before{
-  content: url("../../../public/check-icon.svg");
+  content: url("../../../public/icons/check-icon.svg");
 }
 
 .dotDigit{

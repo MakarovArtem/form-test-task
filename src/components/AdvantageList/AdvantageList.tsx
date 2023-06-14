@@ -28,7 +28,7 @@ const AdvantageList: FC<AdvantageListProps> = ({count = 3}) => {
             </div>
             <div className={style.removeAdvantageContainer}>
               <ButtonIcon
-                picURL="delete-icon.svg"
+                picURL="icons/delete-icon.svg"
                 alt="delete-button-icon"
                 id={`button-remove-${count}`}
               />
