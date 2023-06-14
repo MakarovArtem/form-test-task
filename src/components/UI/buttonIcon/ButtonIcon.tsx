@@ -1,21 +1,20 @@
 import React, { FC } from "react";
+import { ReactSVG } from "react-svg";
 import style from "./ButtonIcon.module.css";
 
 interface ButtonIconProps {
   maxWidth?: string;
   picURL: string;
-  alt: string;
   id: string;
 }
 
-const ButtonIcon: FC<ButtonIconProps> = ({maxWidth, picURL, alt, id}) => {
+const ButtonIcon: FC<ButtonIconProps> = ({maxWidth, picURL, id}) => {
 
   return (
-    <img 
+    <ReactSVG
       style={{maxWidth: maxWidth ? maxWidth : "auto"}}
       className={style.buttonIcon}
       src={picURL}
-      alt={alt}
       id={id}
     />
   )

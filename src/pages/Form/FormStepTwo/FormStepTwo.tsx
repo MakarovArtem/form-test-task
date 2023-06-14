@@ -17,7 +17,7 @@ const FormStepTwo: FC<FormStepTwoProps> = () => {
         <form className={style.form} action="post">
           <div className={style.inputsContainer}>
             <p className={style.inputsTitle}>Advantages</p>
-            <AdvantageList count={3} />
+            <AdvantageList count={5} />
           </div>
           <div className={style.buttonAddContainer}>
             <Button text="+" theme={"white"} id="button-add"/>
