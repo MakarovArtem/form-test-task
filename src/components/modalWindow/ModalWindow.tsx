@@ -22,7 +22,7 @@ const ModalWindow: FC<ModalWindowProps> = ({isSuccessfull}) => {
         <div className={style.pictogram}></div>
       </div>
       <div className={style.buttonContainer}>
-        <Button text={buttonText} themeBlue={true} id={buttonID} />
+        <Button text={buttonText} theme={"blue"} id={buttonID} />
       </div>
     </article>
   )

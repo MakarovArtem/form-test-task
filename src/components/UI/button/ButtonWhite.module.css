@@ -11,11 +11,6 @@
   transition: .3s ease;
 }
 
-.buttonBlue{
-  background: #5558FA;
-  color: #FFFFFF;
-}
-
 .button:hover{
   box-shadow: 0px 0px 8px 1px rgba(0, 4, 251, 0.28);
 }

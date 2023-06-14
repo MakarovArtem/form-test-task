@@ -17,10 +17,10 @@ const FormStepThree: FC<FormStepThreeProps> = () => {
             <Textarea title="About" width="auto" id="field-about" placeholder="Placeholder" tip="Tip" />
           </div>
           <div className={style.backContaier}>
-            <Button text="Назад" themeBlue={false} id="button-back"/>
+            <Button text="Назад" theme={"white"} id="button-back"/>
           </div>
           <div className={style.nextContaier}>
-            <Button text="Отправить" themeBlue={true} id="button-send"/>
+            <Button text="Отправить" theme={"blue"} id="button-send"/>
           </div>
         </form>
       </div>

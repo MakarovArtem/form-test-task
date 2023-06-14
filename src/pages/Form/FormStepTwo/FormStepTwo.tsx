@@ -20,7 +20,7 @@ const FormStepTwo: FC<FormStepTwoProps> = () => {
             <AdvantageList count={3} />
           </div>
           <div className={style.buttonAddContainer}>
-            <Button text="+" themeBlue={false} id="button-add"/>
+            <Button text="+" theme={"white"} id="button-add"/>
           </div>
           <div className={style.checkboxContainer}>
             <Checkbox 
@@ -49,10 +49,10 @@ const FormStepTwo: FC<FormStepTwoProps> = () => {
             />
           </div>
           <div className={style.backContainer}>
-            <Button text="Назад" themeBlue={false} id="button-back" />
+            <Button text="Назад" theme={"white"} id="button-back" />
           </div>
           <div className={style.nextContainer}>
-            <Button text="Далее" themeBlue={true} id="button-next" />
+            <Button text="Далее" theme={"blue"} id="button-next" />
           </div>
         </form>
       </div>

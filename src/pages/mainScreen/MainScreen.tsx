@@ -77,7 +77,7 @@ const MainScreen: FC<MainScreenProps> = () => {
           />
         </div>
         <div className={style.buttonContainer}>
-            <Button text="Начать" themeBlue={false} id="button-start"/>
+            <Button text="Начать" theme={"white"} id="button-start"/>
         </div>
       </form>
     </main>

@@ -1,20 +1,20 @@
 import React, { FC } from "react";
-import style from "./Button.module.css";
+import styleBlue from "./ButtonBlue.module.css";
+import styleWhite from "./ButtonWhite.module.css";
 
 interface ButtonProps {
   text: string;
   id: string;
-  themeBlue?: boolean;
+  theme?: string;
 }
 
-const Button: FC<ButtonProps> = ({text, id, themeBlue}) => {
+const Button: FC<ButtonProps> = ({text, id, theme}) => {
 
-    const mixedStyle = themeBlue ?
-    style.button + " " + style.buttonBlue
-    : style.button;
+    const style = theme === "blue" ? styleBlue :
+    theme === "white" ? styleWhite : styleWhite;
 
   return (
-    <button className={mixedStyle} id={id}>{text}</button>
+    <button className={style.button} id={id}>{text}</button>
   )
 }
 

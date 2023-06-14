@@ -9,7 +9,7 @@ const Error = () => {
       <p className={style.text}>Такой страницы нет</p>
       <p className={style.text}>Проверьте, правильно ли вы ввели адрес, или вернитесь на главную ! :)</p>
       <div className={style.buttonContainer}>
-        <Button text="На главную" themeBlue={true} id="back-to-main"/>
+        <Button text="На главную" theme={"blue"} id="back-to-main"/>
       </div>
     </article>
   )

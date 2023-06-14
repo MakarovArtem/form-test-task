@@ -48,10 +48,10 @@ const FormStepOne: FC<FormStepOneProps> = () => {
             />
           </div>
           <div className={style.backContainer}>
-            <Button text="Назад" themeBlue={false} id="button-back" />
+            <Button text="Назад" theme={"white"} id="button-back" />
           </div>
           <div className={style.nextContainer}>
-            <Button text="Далее" themeBlue={true} id="button-next" />
+            <Button text="Далее" theme={"blue"} id="button-next" />
           </div>
         </form>
       </div>
