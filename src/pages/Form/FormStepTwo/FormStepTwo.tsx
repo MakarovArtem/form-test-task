@@ -26,12 +26,11 @@ const FormStepTwo: FC<FormStepTwoProps> = () => {
             <Checkbox 
               title="Checkbox group" 
               groupName="checkboxGroup" 
-              options={["1", "2", "3"]} 
-              optionsId={[
-                "field-checkbox-group-option-1",
-                "field-checkbox-group-option-2",
-                "field-checkbox-group-option-3",
-              ]}
+              options={[
+                {value: "1", id: "field-checkbox-group-option-1"},
+                {value: "2", id: "field-checkbox-group-option-2"},
+                {value: "3", id: "field-checkbox-group-option-3"},
+              ]} 
               id="checkbox-group"
             />
           </div>

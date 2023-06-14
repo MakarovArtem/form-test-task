@@ -1,29 +1,33 @@
 import React, { FC } from "react";
 import style from "./Checkbox.module.css";
 
-interface CheckboxProps {
-  title: string;
-  groupName: string;
-  options: string[];
-  optionsId: string[];
+interface Options {
+  value: string;
   id: string;
 }
 
-const Checkbox: FC<CheckboxProps> = ({title, groupName, options, optionsId, id}) => {
+interface CheckboxProps {
+  title: string;
+  groupName: string;
+  options: Options[];
+  id: string;
+}
+
+const Checkbox: FC<CheckboxProps> = ({title, groupName, options, id}) => {
   
   return (
     <fieldset className={style.checkboxGroupContainer} id={id}>
       <legend className={style.checkboxTitle}>{title}</legend>
       {options.map((option, ind) =>
-        <div className={style.checkboxContainer}>
+        <div className={style.checkboxContainer} key={option.id}>
           <input
             className={style.checkbox}
             type="checkbox"
-            value={option}
+            value={option.value}
             name={groupName}
-            id={optionsId?.[ind]}
+            id={option.id}
           />
-          <label className={style.checkboxLabel} htmlFor={option}>{option}</label>
+          <label className={style.checkboxLabel} htmlFor={option.value}>{option.value}</label>
         </div>
       )}
     </fieldset>
