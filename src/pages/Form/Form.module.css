@@ -1,0 +1,75 @@
+.main{
+  width: 66vw;
+  padding-top: 60px;
+  padding-bottom: 80px;
+  border-radius: 24px;
+  background-color: #fff;
+}
+
+.mainContainer{
+  width: 75%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-areas: 
+    "stepper stepper"
+    "form       form"
+    "back       next";
+  row-gap: 70px;
+}
+
+.progressLineContainer{
+  grid-area: stepper;
+}
+
+.form{
+  grid-area: form;
+}
+
+.backContainer{
+  justify-self: flex-start;
+  align-self: flex-end;
+  grid-area: back;
+}
+
+.nextContainer{
+  justify-self: flex-end;
+  align-self: flex-end;
+  grid-area: next;
+}
+
+@media screen and (max-width: 1368px){
+  .main{
+    width: 900px;
+  }
+}
+
+@media screen and (max-width: 1024px){
+  .main{
+    width: 700px;
+    padding: 50px 0;
+  }
+  .mainContainer{
+    width: 85%;
+  }
+}
+
+@media screen and (max-width: 768px){
+  .main{
+    width: 500px;
+    padding: 40px 0;
+  }
+  .mainContainer{
+    width: 90%;
+    row-gap: 50px;
+  }
+}
+
+@media screen and (max-width: 576px){
+  .main{
+    width: 300px;
+    padding: 20px 0;
+  }
+  .mainContainer{
+    row-gap: 30px;
+  }
+}

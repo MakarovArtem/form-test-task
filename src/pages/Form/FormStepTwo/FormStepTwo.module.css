@@ -1,32 +1,11 @@
-.main{
-  width: 66vw;
-  padding-top: 60px;
-  padding-bottom: 80px;
-  border-radius: 24px;
-  background-color: #fff;
-}
-
-.mainContainer{
-  width: 75%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: stretch;
-  gap: 67px;
-}
-
-.form{
+.stepContainer{
   display: grid;
   grid-template-areas: 
-    "advantages advantages"
-    "adding         adding"
-    "checkbox     checkbox"
-    "radio           radio"
-    "back             next";
-  grid-template-columns: 1fr 1fr;
+    "advantages"
+    "adding"
+    "checkbox"
+    "radio";
   row-gap: 25px;
-  column-gap: 16px;
 }
 
 .inputsContainer{
@@ -45,67 +24,25 @@
   grid-area: radio;
 }
 
-.backContainer{
-  justify-self: start;
-  align-self: flex-end;
-  grid-area: back;
-}
-
-.nextContainer{
-  justify-self: end;
-  align-self: flex-end;
-  grid-area: next;
-}
-
-@media screen and (max-width: 1368px){
-  .main{
-    width: 900px;
-  }
-}
-
 @media screen and (max-width: 1024px){
-  .main{
-    width: 700px;
-    padding: 50px 0;
-  }
-  .mainContainer{
-    width: 85%;
-  }
-  .form{
+  .stepContainer{
     row-gap: 15px;
   }
 }
 
 @media screen and (max-width: 768px){
-  .main{
-    width: 500px;
-    padding: 40px 0;
-  }
-  .mainContainer{
-    width: 90%;
-  }
   .inputsTitle{
     font-size: 12px;
     line-height: 14px;
   }
-  .form{
-    row-gap: 15px;
-  }
 }
 
 @media screen and (max-width: 576px){
-  .main{
-    width: 300px;
-    padding: 20px 0;
-  }
-  .mainContainer{
-    gap: 50px;
-  }
   .inputsTitle{
     font-size: 10px;
     line-height: 12px;
   }
-  .form{
-    row-gap: 14px;
+  .stepContainer{
+    row-gap: 10px;
   }
 }

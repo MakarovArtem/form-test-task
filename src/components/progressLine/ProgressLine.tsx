@@ -2,7 +2,7 @@ import React, { FC, useEffect, useState } from "react";
 import style from "./ProgressLine.module.css";
 
 interface ProgressLineProps {
-  step?: string;
+  step?: number;
 }
 
 const ProgressLine: FC<ProgressLineProps> = ({step}) => {
@@ -15,7 +15,7 @@ const ProgressLine: FC<ProgressLineProps> = ({step}) => {
   const [digitThree, setDigitThree] = useState('');
   const [lineStyle, setLineStyle] = useState('');
 
-  const combineStyles = (switcher: string | undefined): void => {
+  const combineStyles = (switcher: number | undefined): void => {
     let dotOne: string;
     let dotTwo: string;
     let dotThree: string;
@@ -25,7 +25,7 @@ const ProgressLine: FC<ProgressLineProps> = ({step}) => {
     let line: string;
 
     switch(switcher) {
-      case "one":
+      case 1:
         dotOne = style.dot + " " + style.dotActive;
         dotTwo = style.dot;
         dotThree = style.dot;
@@ -34,7 +34,7 @@ const ProgressLine: FC<ProgressLineProps> = ({step}) => {
         digitThree = style.dotDigit;
         line = style.line;
         break;
-      case "two":
+      case 2:
         dotOne = style.dot + " " + style.dotDone;
         dotTwo = style.dot + " " + style.dotActive;
         dotThree = style.dot;
@@ -43,7 +43,7 @@ const ProgressLine: FC<ProgressLineProps> = ({step}) => {
         digitThree = style.dotDigit;
         line = style.line+ " " + style.lineHalf;
         break;
-      case "three":
+      case 3:
         dotOne = style.dot + " " + style.dotDone;
         dotTwo = style.dot + " " + style.dotDone;
         dotThree = style.dot + " " + style.dotActive;
