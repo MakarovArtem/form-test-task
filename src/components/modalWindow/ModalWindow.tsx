@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import Button from "../button/Button";
+import Button from "../UI/button/Button";
 import styleSucces from "./ModalWindowSuccess.module.css";
 import styleError from "./ModalWindowError.module.css";
 
@@ -8,18 +8,6 @@ interface ModalWindowProps {
 }
 
 const ModalWindow: FC<ModalWindowProps> = ({isSuccessfull}) => {
-
-  // if(isSuccessfull){
-  //   const style = styleSucces;
-  //   const title = "Форма успешно отправлена";
-  //   const buttonText = "На главную";
-  //   const buttonID = "button-to-main";
-  // } else {
-  //   const style = styleError;
-  //   const title = "Ошибка";
-  //   const buttonText = "Закрыть";
-  //   const buttonID = "button-close";
-  // }
 
   const style = isSuccessfull ? styleSucces : styleError;
   const title = isSuccessfull ? "Форма успешно отправлена" : "Ошибка";

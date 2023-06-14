@@ -1,8 +1,8 @@
 import React, { FC } from "react";
-import ProgressLine from "../../components/progressLine/ProgressLine";
-import Input from "../../components/input/Input";
-import Select from "../../components/select/Select";
-import Button from "../../components/button/Button";
+import ProgressLine from "../../../components/progressLine/ProgressLine";
+import Input from "../../../components/UI/input/Input";
+import Select from "../../../components/UI/select/Select";
+import Button from "../../../components/UI/button/Button";
 import style from "./FormStepOne.module.css";
 
 interface FormStepOneProps {}

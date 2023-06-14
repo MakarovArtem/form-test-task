@@ -1,9 +1,9 @@
 import React, { FC, useState, useEffect } from "react";
-import ProgressLine from "../../components/progressLine/ProgressLine";
-import AdvantageList from "../../components/advantageList/AdvantageList";
-import Button from "../../components/button/Button";
-import Checkbox from "../../components/checkbox/Checkbox";
-import Radio from "../../components/radio/Radio";
+import ProgressLine from "../../../components/progressLine/ProgressLine";
+import AdvantageList from "../../../components/advantageList/AdvantageList";
+import Button from "../../../components/UI/button/Button";
+import Checkbox from "../../../components/UI/checkbox/Checkbox";
+import Radio from "../../../components/UI/radio/Radio";
 import style from "./FormStepTwo.module.css";
 
 interface FormStepTwoProps {}

@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import FormStepOne from './pages/formStepOne/FormStepOne';
-import FormStepTwo from './pages/formStepTwo/FormStepTwo';
-import FormStepThree from './pages/formStepThree/FormStepThree';
+import FormStepOne from './pages/Form/FormStepOne/FormStepOne';
+import FormStepTwo from './pages/Form/FormStepTwo/FormStepTwo';
+import FormStepThree from './pages/Form/FormStepThree/FormStepThree';
 import Error from './pages/Error/Error';
 
 const router = createBrowserRouter([

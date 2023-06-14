@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { Link } from "react-router-dom";
-import Input from "../../components/input/Input";
-import Button from "../../components/button/Button";
+import Input from "../../components/UI/input/Input";
+import Button from "../../components/UI/button/Button";
 import style from "./MainScreen.module.css";
 import Info from "../../components/info/Info";
 

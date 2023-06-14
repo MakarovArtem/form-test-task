@@ -1,6 +1,6 @@
 import React, { FC, useState, useEffect } from "react";
-import Input from "../input/Input";
-import ButtonIcon from "../buttonIcon/ButtonIcon";
+import Input from "../UI/input/Input";
+import ButtonIcon from "../UI/buttonIcon/ButtonIcon";
 import style from "./AdvantageList.module.css";
 
 interface AdvantageListProps {

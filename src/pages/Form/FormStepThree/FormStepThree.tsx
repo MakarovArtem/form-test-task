@@ -1,7 +1,7 @@
 import React, { FC } from "react";
-import ProgressLine from "../../components/progressLine/ProgressLine";
-import Textarea from "../../components/textArea/Textarea";
-import Button from "../../components/button/Button";
+import ProgressLine from "../../../components/progressLine/ProgressLine";
+import Textarea from "../../../components/UI/textArea/Textarea";
+import Button from "../../../components/UI/button/Button";
 import style from "./FormStepThree.module.css";
 
 interface FormStepThreeProps {}

@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../../components/button/Button";
+import Button from "../../components/UI/button/Button";
 import style from "./Error.module.css";
 
 const Error = () => {
