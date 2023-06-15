@@ -21,7 +21,7 @@
   grid-area: stepper;
 }
 
-.form{
+.formContainer{
   grid-area: form;
 }
 

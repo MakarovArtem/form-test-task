@@ -4,7 +4,6 @@ import styleWhite from "./ButtonWhite.module.css";
 
 interface ButtonProps {
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => any;
-  // props: any;
   disabled?: boolean;
   text: string;
   id: string;

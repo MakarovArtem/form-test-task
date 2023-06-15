@@ -14,19 +14,11 @@ const MainScreen: FC<MainScreenProps> = () => {
     control,
     handleSubmit,
     formState: {isValid}
-  } = useForm({ mode: "onChange" });
+  } = useForm({ mode: "onBlur" });
 
-  const onSubmit = (data: any) => {
-    if (data?.errors) {
-
-    }
-    console.log(JSON.stringify(data))
+  const onSubmit = () => {
+    
   }
-
-  const handleClick = () => {
-    alert("Button clicked!");
-  };
-
 
   return (
     <main className={style.main}>

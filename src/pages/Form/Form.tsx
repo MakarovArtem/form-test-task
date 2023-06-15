@@ -6,12 +6,11 @@ import FormStepThree from "./FormStepThree/FormStepThree";
 import Button from "../../components/UI/button/Button";
 import style from "./Form.module.css";
 
-
 interface FormProps {}
 
 const Form: FC<FormProps> = () => {
 
-  const [step, setStep] = useState(3);
+  const [step, setStep] = useState(1);
 
   return (
     <article className={style.main}>
@@ -19,13 +18,13 @@ const Form: FC<FormProps> = () => {
         <div className={style.progressLineContainer}>
           <ProgressLine step={step} />
         </div>
-        <form className={style.form}>
+        <div className={style.formContainer}>
           {
             step === 1 ? <FormStepOne /> :
             step === 2 ? <FormStepTwo /> :
-            <FormStepThree />
+            step === 3 ? <FormStepThree /> : false
           }
-        </form>
+        </div>
         <div className={style.backContainer}>
           <Button text="Назад" theme={"white"} id="button-back" />
         </div>

@@ -1,4 +1,4 @@
-.stepContainer{
+.form{
   display: grid;
   grid-template-areas: 
     "nickname"
@@ -34,7 +34,7 @@
 }
 
 @media screen and (max-width: 1024px){
-  .stepContainer{
+  .form{
     row-gap: 15px;
   }
 }
@@ -44,7 +44,7 @@
 }
 
 @media screen and (max-width: 576px){
-  .stepContainer{
+  .form{
     row-gap: 10px;
   }
   .nickContainer,
