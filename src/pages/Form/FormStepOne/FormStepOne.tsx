@@ -96,14 +96,29 @@ const FormStepOne: FC<FormStepOneProps> = () => {
         />
       </div>
       <div className={style.sexContainer}>
-        <Select 
-          title="Sex"
-          tip="Tip"
-          options={[
-            {value: "man", id: "field-sex-option-man"},
-            {value: "woman", id: "field-sex-option-woman"},
-          ]} 
-          id="field-sex"
+        <Controller
+          name="sex"
+          control={control}
+          defaultValue=" "
+          rules={{
+            required: true,
+            pattern: {value: /^(man|woman)$/, message: "You should choose your sex"}
+          }}
+          render={({
+            field,
+            fieldState: { error },
+          }) => (
+            <Select 
+              {...field}
+              title="Sex"
+              options={[
+                {value: "man", id: "field-sex-option-man"},
+                {value: "woman", id: "field-sex-option-woman"},
+              ]}
+              tip={error?.message || "Allrighty"}
+              id="field-sex"
+            />
+          )}
         />
       </div>
     </form>
