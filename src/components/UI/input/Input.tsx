@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from "react";
+import React, { FC, forwardRef } from "react";
 import style from "./Input.module.css";
 
 interface InputProps {
@@ -9,12 +9,11 @@ interface InputProps {
   tip?: string;
   id: string;
   field?: any;
+  ref?: any;
 }
 
-// field: {onChange, onBlur, value, name, ref}
+const Input: FC<InputProps> = forwardRef(({width, title, type, placeholder, tip, id,  ...rest}, ref) => {
 
-const Input: FC<InputProps> = ({width, title, type, placeholder, tip, id, ...field}) => {
-  
   return (
     <div className={style.inputContainer}>
       <p className={style.inputTitle}>{title}</p>
@@ -24,16 +23,12 @@ const Input: FC<InputProps> = ({width, title, type, placeholder, tip, id, ...fie
         type={type}
         placeholder={placeholder ? placeholder : 'Placeholder'}
         id={id}
-        {...field}
-        ref={null}
-        // onChange={onChange}
-        // onBlur={onBlur}
-        // value={value}
-        // name={name}
+        ref={ref}
+        {...rest}
       />
       {tip && <p className={style.inputTip}>{tip || "Error!"}</p>}
     </div>
   )
-}
+})
 
 export default Input;

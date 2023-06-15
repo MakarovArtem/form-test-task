@@ -1,9 +1,8 @@
 import React, { FC } from "react";
 import { useForm, Controller } from "react-hook-form";
-import { Link } from "react-router-dom";
 import Input from "../../components/UI/input/Input";
 import Button from "../../components/UI/button/Button";
-import style from "./MainScreen.module.css";
+import style from "./MainPage.module.css";
 import Info from "../../components/info/Info";
 
 interface MainScreenProps {}
@@ -13,7 +12,7 @@ const MainScreen: FC<MainScreenProps> = () => {
   const {
     control,
     handleSubmit,
-  } = useForm({ mode: "onBlur" });
+  } = useForm({ mode: "onChange" });
 
   const onSubmit = (data: any) => {
     if (data?.errors) {
@@ -27,15 +26,15 @@ const MainScreen: FC<MainScreenProps> = () => {
       <div className={style.infoContainer}>
         <Info />
       </div>
-      <form onSubmit={handleSubmit(onSubmit)} className={style.form} action="#">
+      <form onSubmit={handleSubmit(onSubmit)} className={style.form}>
         <div className={style.inputContainer}>
           <Controller
             name="phoneNumber"
             control={control}
-            defaultValue="+7 961 026-29-17"
+            defaultValue="+7 961 026-**-**"
             rules={{ 
               required: true, 
-              pattern: {value: /^[0-9]+$/, message: "Wrong phone number format"}
+              pattern: {value: /^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/, message: "Wrong phone number format"}
             }}
             render={({
               field,
@@ -45,7 +44,7 @@ const MainScreen: FC<MainScreenProps> = () => {
                 {...field}
                 title='Номер телефона' 
                 type='tel' 
-                placeholder="+7 (961) 026-29-17"
+                placeholder="+7 (961) 026-**-**"
                 tip={error?.message || "Allrighty"}
                 id="filed-number"
               />
