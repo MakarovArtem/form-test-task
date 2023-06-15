@@ -3,6 +3,7 @@ import style from "./Input.module.css";
 
 interface InputProps {
   width?: string;
+  disabled?: boolean;
   title: string;
   type: string;
   placeholder?: string;

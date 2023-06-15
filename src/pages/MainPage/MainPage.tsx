@@ -4,6 +4,7 @@ import Input from "../../components/UI/input/Input";
 import Button from "../../components/UI/button/Button";
 import style from "./MainPage.module.css";
 import Info from "../../components/info/Info";
+import { Link } from "react-router-dom";
 
 interface MainScreenProps {}
 
@@ -12,6 +13,7 @@ const MainScreen: FC<MainScreenProps> = () => {
   const {
     control,
     handleSubmit,
+    formState: {isValid}
   } = useForm({ mode: "onChange" });
 
   const onSubmit = (data: any) => {
@@ -20,6 +22,11 @@ const MainScreen: FC<MainScreenProps> = () => {
     }
     console.log(JSON.stringify(data))
   }
+
+  const handleClick = () => {
+    alert("Button clicked!");
+  };
+
 
   return (
     <main className={style.main}>
@@ -31,10 +38,10 @@ const MainScreen: FC<MainScreenProps> = () => {
           <Controller
             name="phoneNumber"
             control={control}
-            defaultValue="+7 961 026-**-**"
+            defaultValue="+7 (961) 026-29-17"
             rules={{ 
               required: true, 
-              pattern: {value: /^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/, message: "Wrong phone number format"}
+              pattern: {value: /^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/, message: "Wrong phone number format"},
             }}
             render={({
               field,
@@ -42,6 +49,7 @@ const MainScreen: FC<MainScreenProps> = () => {
             }) => (
               <Input
                 {...field}
+                disabled={true}
                 title='Номер телефона' 
                 type='tel' 
                 placeholder="+7 (961) 026-**-**"
@@ -66,6 +74,7 @@ const MainScreen: FC<MainScreenProps> = () => {
             }) => (
               <Input
                 {...field}
+                disabled={true}
                 title='Email' 
                 type='email'
                 placeholder="ARTEMMAKAROV76@YANDEX.RU"
@@ -76,7 +85,9 @@ const MainScreen: FC<MainScreenProps> = () => {
           />
         </div>
         <div className={style.buttonContainer}>
-            <Button text="Начать" theme={"white"} id="button-start"/>
+          <Link to={"/create"}>
+            <Button disabled={!isValid} text="Начать" theme={"white"} id="button-start"/>
+          </Link>
         </div>
       </form>
     </main>
