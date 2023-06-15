@@ -1,16 +1,23 @@
-import React, { FC } from "react";
+import React, { FC, forwardRef } from "react";
 import style from "./Select.module.css";
 
-interface SelectProps {
-  width?: string;
-  title: string;
-  variants: string[];
-  optionsId: string[];
-  tip?: string;
+interface Options {
+  value: string;
   id: string;
 }
 
-const Select: FC<SelectProps> = ({width, title, variants, tip, optionsId, id}) => {
+interface SelectProps {
+  width?: string;
+  disabled?: boolean;
+  title: string;
+  options: Options[];
+  tip?: string;
+  id: string;
+  field?: any;
+  ref?: any;
+}
+
+const Select: FC<SelectProps> = forwardRef(({width, title, options, tip, id, ...rest}, ref) => {
   return (
     <div className={style.selectContainer}>
       <p className={style.selectTitle}>{title}</p>
@@ -18,20 +25,22 @@ const Select: FC<SelectProps> = ({width, title, variants, tip, optionsId, id}) =
         style={{width: width ? width : "auto"}}
         className={style.select}
         id={id}
+        ref={ref}
+        {...rest}
       >
-        {variants?.map((variant, ind) => 
+        {options?.map((option) => 
           <option
             className={style.option}
-            value={variant}
-            id={optionsId?.[ind]}
+            value={option.value}
+            id={option.id}
           >
-            {variant}
+            {option.value}
           </option>
         )}
       </select>
       {tip && <p className={style.selectTip}>{tip}</p>}
     </div>
   )
-}
+})
 
 export default Select;

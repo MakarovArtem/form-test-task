@@ -99,8 +99,10 @@ const FormStepOne: FC<FormStepOneProps> = () => {
         <Select 
           title="Sex"
           tip="Tip"
-          variants={["man", "woman"]} 
-          optionsId={["field-sex-option-man", "field-sex-option-woman"]}
+          options={[
+            {value: "man", id: "field-sex-option-man"},
+            {value: "woman", id: "field-sex-option-woman"},
+          ]} 
           id="field-sex"
         />
       </div>
