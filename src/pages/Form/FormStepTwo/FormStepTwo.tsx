@@ -1,6 +1,6 @@
 import React, { FC } from "react";
+import { useForm, Controller } from "react-hook-form";
 import AdvantageList from "../../../components/advantageList/AdvantageList";
-import Button from "../../../components/UI/button/Button";
 import Checkbox from "../../../components/UI/checkbox/Checkbox";
 import Radio from "../../../components/UI/radio/Radio";
 import style from "./FormStepTwo.module.css";
@@ -8,16 +8,24 @@ import style from "./FormStepTwo.module.css";
 interface FormStepTwoProps {}
 
 const FormStepTwo: FC<FormStepTwoProps> = () => {
-  
+
+  const {
+    control,
+    handleSubmit,
+    formState: {isValid}
+  } = useForm({ mode: "onBlur" });
+
+  const onSubmit = () => {
+
+  }
+
   return (
-    <aside className={style.stepContainer}>
+    <form onSubmit={handleSubmit(onSubmit)} className={style.form}>
       <div className={style.inputsContainer}>
         <p className={style.inputsTitle}>Advantages</p>
         <AdvantageList count={3} />
       </div>
-      <div className={style.buttonAddContainer}>
-        <Button text="+" theme={"white"} id="button-add"/>
-      </div>
+
       <div className={style.checkboxContainer}>
         <Checkbox 
           title="Checkbox group" 
@@ -42,7 +50,7 @@ const FormStepTwo: FC<FormStepTwoProps> = () => {
           id="radio-group"
         />
       </div>
-    </aside>
+    </form>
   )
 }
 

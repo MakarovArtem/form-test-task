@@ -1,4 +1,6 @@
-import React, { FC, useState, useEffect } from "react";
+import React, { FC, useState } from "react";
+import { useForm, Controller } from "react-hook-form";
+import Button from "../../components/UI/button/Button";
 import Input from "../UI/input/Input";
 import ButtonIcon from "../UI/buttonIcon/ButtonIcon";
 import style from "./AdvantageList.module.css";
@@ -8,6 +10,10 @@ interface AdvantageListProps {
 }
 
 const AdvantageList: FC<AdvantageListProps> = ({count = 3}) => {
+
+  const {
+    control,
+  } = useForm({ mode: "onBlur" });
 
   const [advantagesCount, setAdvantagesCount] = useState<number[]>(() => {
     let arrCount = [];
@@ -22,7 +28,27 @@ const AdvantageList: FC<AdvantageListProps> = ({count = 3}) => {
       {advantagesCount?.map((count) =>
         <div className={style.advantageContainer}>
           <div className={style.inputContainer}>
-            <Input title="" type="text" id={`field-advantages-${count}`} />
+          <Controller
+            name={`field-advantages-${count}`}
+            control={control}
+            defaultValue="Advantage"
+            rules={{
+              required: true,
+            }}
+            render={({
+              field,
+              fieldState: { error },
+            }) => (
+              <Input
+                {...field}
+                title=' '
+                type='text' 
+                placeholder={`Mega Advantage${count}`}
+                tip={error?.message || "Allrighty"}
+                id={`field-advantages-${count}`}
+              />
+            )}
+          />
           </div>
           <div className={style.removeAdvantageContainer}>
             <ButtonIcon
@@ -32,6 +58,9 @@ const AdvantageList: FC<AdvantageListProps> = ({count = 3}) => {
           </div>
         </div>
       )}
+      <div className={style.buttonAddContainer}>
+        <Button text="+" theme={"white"} id="button-add"/>
+      </div>
     </>
   )
 }
