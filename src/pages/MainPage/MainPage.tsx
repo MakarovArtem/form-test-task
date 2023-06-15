@@ -17,7 +17,7 @@ const MainScreen: FC<MainScreenProps> = () => {
   } = useForm({ mode: "onBlur" });
 
   const onSubmit = () => {
-    
+  
   }
 
   return (

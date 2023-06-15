@@ -1,12 +1,17 @@
-import React, { FC } from "react";
+import React, { FC ,useEffect} from "react";
 import { useForm, Controller } from "react-hook-form";
+import Button from "../../../components/UI/button/Button";
+
 import Input from "../../../components/UI/input/Input";
 import Select from "../../../components/UI/select/Select";
 import style from "./FormStepOne.module.css";
 
-interface FormStepOneProps {}
+interface FormStepOneProps {
+  getFormState: (o: object) => any;
+  form: object;
+}
 
-const FormStepOne: FC<FormStepOneProps> = () => {
+const FormStepOne: FC<FormStepOneProps> = ({getFormState, form}) => {
 
   const {
     control,
@@ -15,8 +20,12 @@ const FormStepOne: FC<FormStepOneProps> = () => {
   } = useForm({ mode: "onBlur" });
 
   const onSubmit = () => {
-    
+
   }
+
+  useEffect(()=>{
+    getFormState({...form, formOne: isValid});
+  }, [isValid])
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={style.form}>
