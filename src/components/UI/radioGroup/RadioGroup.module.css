@@ -5,7 +5,7 @@
   gap: 8px;
 }
 
-.radioTitle{
+.radioGroupTitle{
   margin-bottom: 10px;
   font-size: 14px;
   line-height: 20px;
@@ -38,7 +38,7 @@
 }
 
 @media screen and (max-width: 768px){
-  .radioTitle{
+  .radioGroupTitle{
     margin-bottom: 8px;
     font-size: 10px;
     line-height: 12px;

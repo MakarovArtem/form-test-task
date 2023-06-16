@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import style from "./Radio.module.css";
+import style from "./RadioGroup.module.css";
 
 interface Options {
   value: string;
@@ -7,31 +7,39 @@ interface Options {
 }
 
 interface RadioProps {
+  register: any;
   title: string;
   groupName: string;
   options: Options[];
   id: string;
 }
 
-const Radio: FC<RadioProps> = ({title, groupName, options, id}) => {
-  
+const RadioGroup: FC<RadioProps> = ({register, title, groupName, options, id}) => {
+
   return (
     <fieldset className={style.radioGroupContainer} id={id}>
-      <legend className={style.radioTitle}>{title}</legend>
+      <legend className={style.radioGroupTitle}>{title}</legend>
       {options.map((option) =>
         <div className={style.radioContainer} key={option.id}>
           <input 
             className={style.radio}
+            {...register(groupName)}
             type="radio"
             value={option.value}
-            name={groupName}
             id={option.id}
+            key={option.id}
           />
-          <label className={style.radioLabel} htmlFor={option.value}>{option.value}</label>
+          <label
+            className={style.radioLabel}
+            htmlFor={option.value}
+            key={option.id}
+          >
+            {option.value}
+          </label>
         </div>
       )}
     </fieldset>
   )
 }
 
-export default Radio;
+export default RadioGroup;

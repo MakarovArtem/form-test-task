@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import { useForm, Controller } from "react-hook-form";
 import AdvantageList from "../../../components/advantageList/AdvantageList";
 import Checkbox from "../../../components/UI/checkboxGroup/CheckboxGroup";
-import Radio from "../../../components/UI/radio/Radio";
+import Radio from "../../../components/UI/radioGroup/RadioGroup";
 import style from "./FormStepTwo.module.css";
 
 interface FormStepTwoProps {}
@@ -11,13 +11,15 @@ const FormStepTwo: FC<FormStepTwoProps> = () => {
 
   const {
     register,
-    control,
     handleSubmit,
     formState: {isValid}
   } = useForm({ mode: "onBlur" });
 
   const onSubmit = (data: any) => {
-    console.log(data.checkboxGroup)
+    const check = data.checkboxGroup;
+    const arr = check.map((str: string) => parseInt(str));
+    data.checkboxGroup = arr
+    console.log(arr)
   }
 
   return (
@@ -40,7 +42,8 @@ const FormStepTwo: FC<FormStepTwoProps> = () => {
         />
       </div>
       <div className={style.radioContainer}>
-        <Radio 
+        <Radio
+          register={register}
           title="Radio group" 
           groupName="radioGroup"
           options={[

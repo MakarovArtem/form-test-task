@@ -25,7 +25,7 @@ const CheckboxGroup: FC<CheckboxGroupProps> = ({register, title, groupName, opti
             className={style.checkbox}
             {...register(groupName)}
             type="checkbox"
-            value={Number(option.value)}
+            value={option.value}
             id={option.id}
             key={option.id}
           />
