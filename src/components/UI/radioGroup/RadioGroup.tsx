@@ -25,14 +25,13 @@ const RadioGroup: FC<RadioProps> = ({register, title, groupName, options, id}) =
             className={style.radio}
             {...register(groupName)}
             type="radio"
+            name={groupName}
             value={option.value}
             id={option.id}
-            key={option.id}
           />
           <label
             className={style.radioLabel}
             htmlFor={option.value}
-            key={option.id}
           >
             {option.value}
           </label>

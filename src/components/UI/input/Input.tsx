@@ -4,6 +4,8 @@ import style from "./Input.module.css";
 interface InputProps {
   width?: string;
   disabled?: boolean;
+  register?: any;
+  groupName?: string;
   title: string;
   type: string;
   placeholder?: string;
@@ -13,7 +15,7 @@ interface InputProps {
   ref?: any;
 }
 
-const Input: FC<InputProps> = forwardRef(({width, title, type, placeholder, tip, id,  ...rest}, ref) => {
+const Input: FC<InputProps> = forwardRef(({width, title, type, placeholder, tip, id, register, groupName, ...rest}, ref) => {
 
   return (
     <div className={style.inputContainer}>
@@ -25,6 +27,7 @@ const Input: FC<InputProps> = forwardRef(({width, title, type, placeholder, tip,
         placeholder={placeholder ? placeholder : 'Placeholder'}
         id={id}
         ref={ref}
+        {...register(groupName)}
         {...rest}
       />
       {tip && <p className={style.inputTip}>{tip || "Error!"}</p>}

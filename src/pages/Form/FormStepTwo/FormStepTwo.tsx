@@ -16,17 +16,18 @@ const FormStepTwo: FC<FormStepTwoProps> = () => {
   } = useForm({ mode: "onBlur" });
 
   const onSubmit = (data: any) => {
-    // const check = data.checkboxGroup;
-    // const arr = check.map((str: string) => parseInt(str));
-    // data.checkboxGroup = arr
-    // console.log('heu',data)
+    const check = data.checkboxGroup;
+    const arr = check.map((str: string) => parseInt(str));
+    data.checkboxGroup = arr
+    console.log('heu',data)
   }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={style.form}>
       <div className={style.inputsContainer}>
         <p className={style.inputsTitle}>Advantages</p>
-        <AdvantageList count={3} />
+        <AdvantageList groupName={"advantages"}
+        register={register} count={3} />
       </div>
       <div className={style.checkboxContainer}>
         <Checkbox
