@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { useForm, Controller } from "react-hook-form";
 import AdvantageList from "../../../components/advantageList/AdvantageList";
-import Checkbox from "../../../components/UI/checkbox/Checkbox";
+import Checkbox from "../../../components/UI/checkboxGroup/CheckboxGroup";
 import Radio from "../../../components/UI/radio/Radio";
 import style from "./FormStepTwo.module.css";
 
@@ -10,13 +10,14 @@ interface FormStepTwoProps {}
 const FormStepTwo: FC<FormStepTwoProps> = () => {
 
   const {
+    register,
     control,
     handleSubmit,
     formState: {isValid}
   } = useForm({ mode: "onBlur" });
 
-  const onSubmit = () => {
-
+  const onSubmit = (data: any) => {
+    console.log(data.checkboxGroup)
   }
 
   return (
@@ -25,16 +26,16 @@ const FormStepTwo: FC<FormStepTwoProps> = () => {
         <p className={style.inputsTitle}>Advantages</p>
         <AdvantageList count={3} />
       </div>
-
       <div className={style.checkboxContainer}>
-        <Checkbox 
-          title="Checkbox group" 
-          groupName="checkboxGroup" 
+        <Checkbox
+          register={register}
+          title="Checkbox group"
+          groupName={"checkboxGroup"}
           options={[
-            {value: "1", id: "field-checkbox-group-option-1"},
-            {value: "2", id: "field-checkbox-group-option-2"},
-            {value: "3", id: "field-checkbox-group-option-3"},
-          ]} 
+            { value: "1", id: "field-checkbox-group-option-1" }, 
+            { value: "2", id: "field-checkbox-group-option-2" }, 
+            { value: "3", id: "field-checkbox-group-option-3" }, 
+          ]}
           id="checkbox-group"
         />
       </div>
@@ -50,6 +51,7 @@ const FormStepTwo: FC<FormStepTwoProps> = () => {
           id="radio-group"
         />
       </div>
+      <input type="submit" />
     </form>
   )
 }

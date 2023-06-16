@@ -16,7 +16,7 @@ interface Form {
 
 const Form: FC<FormProps> = () => {
 
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(2);
   const [form, setForm] = useState(
     {
       formOne: false,
