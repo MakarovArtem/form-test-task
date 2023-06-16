@@ -7,13 +7,10 @@ import style from "./AdvantageList.module.css";
 
 interface AdvantageListProps {
   count?: number;
+  register?: any;
 }
 
-const AdvantageList: FC<AdvantageListProps> = ({count = 3}) => {
-
-  const {
-    control,
-  } = useForm({ mode: "onBlur" });
+const AdvantageList: FC<AdvantageListProps> = ({count = 3, register}) => {
 
   const [advantagesCount, setAdvantagesCount] = useState<number[]>(() => {
     let arrCount = [];
@@ -23,12 +20,25 @@ const AdvantageList: FC<AdvantageListProps> = ({count = 3}) => {
     return arrCount;
   });
 
+  const removeAdvantage = (count: number) => {
+    setAdvantagesCount((prevCount) =>
+      prevCount.filter((elem) => elem !== count)
+    );
+  };
+
+  const addAdvantage = () => {
+    setAdvantagesCount((prevCount) => {
+      let newDigit = prevCount[prevCount.length - 1] + 1;
+      return [...prevCount, newDigit];
+    })
+  };
+
   return (
-    <>
+    <fieldset>
       {advantagesCount?.map((count) =>
         <div className={style.advantageContainer}>
           <div className={style.inputContainer}>
-          <Controller
+          {/* <Controller
             name={`field-advantages-${count}`}
             control={control}
             defaultValue="Advantage"
@@ -48,20 +58,34 @@ const AdvantageList: FC<AdvantageListProps> = ({count = 3}) => {
                 id={`field-advantages-${count}`}
               />
             )}
-          />
+          /> */}
+              <Input
+                title=' '
+                type='text' 
+                placeholder={`Mega Advantage${count}`}
+                // tip={error?.message || "Allrighty"}
+                id={`field-advantages-${count}`}
+              />
           </div>
           <div className={style.removeAdvantageContainer}>
             <ButtonIcon
               picURL="icons/delete-icon.svg"
               id={`button-remove-${count}`}
+              key={count}
+              onClick={() => removeAdvantage(count)}
             />
           </div>
         </div>
       )}
       <div className={style.buttonAddContainer}>
-        <Button text="+" theme={"white"} id="button-add"/>
+        <Button 
+          text="+" 
+          theme={"white"} 
+          id="button-add" 
+          onClick={() => addAdvantage()}
+        />
       </div>
-    </>
+    </fieldset>
   )
 }
 

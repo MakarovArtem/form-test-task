@@ -3,20 +3,23 @@ import { ReactSVG } from "react-svg";
 import style from "./ButtonIcon.module.css";
 
 interface ButtonIconProps {
+  onClick?: (key: any) => void;
   maxWidth?: string;
   picURL: string;
   id: string;
 }
 
-const ButtonIcon: FC<ButtonIconProps> = ({maxWidth, picURL, id}) => {
+const ButtonIcon: FC<ButtonIconProps> = ({onClick, maxWidth, picURL, id}) => {
 
   return (
-    <ReactSVG
-      style={{maxWidth: maxWidth ? maxWidth : "auto"}}
-      className={style.buttonIcon}
-      src={picURL}
-      id={id}
-    />
+    <button type="button" onClick={onClick}>
+      <ReactSVG
+        style={{maxWidth: maxWidth ? maxWidth : "auto"}}
+        className={style.buttonIcon}
+        src={picURL}
+        id={id}
+      />
+    </button>
   )
 }
 

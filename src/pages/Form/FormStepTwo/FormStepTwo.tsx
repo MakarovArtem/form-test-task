@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import AdvantageList from "../../../components/advantageList/AdvantageList";
 import Checkbox from "../../../components/UI/checkboxGroup/CheckboxGroup";
 import Radio from "../../../components/UI/radioGroup/RadioGroup";
@@ -16,10 +16,10 @@ const FormStepTwo: FC<FormStepTwoProps> = () => {
   } = useForm({ mode: "onBlur" });
 
   const onSubmit = (data: any) => {
-    const check = data.checkboxGroup;
-    const arr = check.map((str: string) => parseInt(str));
-    data.checkboxGroup = arr
-    console.log(arr)
+    // const check = data.checkboxGroup;
+    // const arr = check.map((str: string) => parseInt(str));
+    // data.checkboxGroup = arr
+    // console.log('heu',data)
   }
 
   return (
