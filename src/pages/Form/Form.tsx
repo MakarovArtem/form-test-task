@@ -1,4 +1,5 @@
 import React, { FC, useState } from "react";
+import { useForm, useFieldArray } from "react-hook-form";
 import ProgressLine from "../../components/progressLine/ProgressLine";
 import FormStepOne from "./FormStepOne/FormStepOne";
 import FormStepTwo from "./FormStepTwo/FormStepTwo";
@@ -16,7 +17,7 @@ interface Form {
 
 const Form: FC<FormProps> = () => {
 
-  const [step, setStep] = useState(2);
+  const [step, setStep] = useState(3);
   const [form, setForm] = useState(
     {
       formOne: false,
@@ -57,6 +58,18 @@ const Form: FC<FormProps> = () => {
     setForm(prev => object);
   }
 
+  const {
+    control,
+    register,
+    handleSubmit,
+    formState: {isValid}
+  } = useForm({ mode: "onBlur" });
+
+  const { fields, append, remove } = useFieldArray({
+    control,
+    name: "advantages"
+  });
+
   return (
     <article className={style.main}>
       <div className={style.mainContainer}>
@@ -64,12 +77,21 @@ const Form: FC<FormProps> = () => {
           <ProgressLine step={step} />
         </div>
         <div className={style.formContainer}>
-          {
-            step === 1 ? <FormStepOne getFormState={getFormState} form={form} /> :
-            step === 2 ? <FormStepTwo /> :
-            step === 3 ? <FormStepThree /> : false
-          }
+          <form onSubmit={handleSubmit(data => console.log(JSON.stringify(data)))} >
+            {
+              step === 1 ? <FormStepOne control={control} /> :
+              step === 2 ? <FormStepTwo 
+                              register={register}
+                              append={append}
+                              remove={remove}
+                              fields={fields}
+                            /> :
+              step === 3 ? <FormStepThree control={control} /> : false
+            }
+            <input type="submit" />
+          </form>
         </div>
+
         <div className={style.backContainer}>
           <Button onClick={decreaseStep} text="Назад" theme={"white"} id="button-back" />
         </div>

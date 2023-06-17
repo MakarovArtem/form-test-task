@@ -1,5 +1,5 @@
 import React, { FC ,useEffect} from "react";
-import { useForm, Controller } from "react-hook-form";
+import { Controller } from "react-hook-form";
 import Button from "../../../components/UI/button/Button";
 
 import Input from "../../../components/UI/input/Input";
@@ -7,28 +7,13 @@ import Select from "../../../components/UI/select/Select";
 import style from "./FormStepOne.module.css";
 
 interface FormStepOneProps {
-  getFormState: (o: object) => any;
-  form: object;
+  control: any;
 }
 
-const FormStepOne: FC<FormStepOneProps> = ({getFormState, form}) => {
-
-  const {
-    control,
-    handleSubmit,
-    formState: {isValid}
-  } = useForm({ mode: "onBlur" });
-
-  const onSubmit = () => {
-
-  }
-
-  useEffect(()=>{
-    getFormState({...form, formOne: isValid});
-  }, [isValid])
+const FormStepOne: FC<FormStepOneProps> = ({control}) => {
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className={style.form}>
+    <div className={style.form}>
       <div className={style.nickContainer}>
         <Controller
           name="nickname"
@@ -108,7 +93,7 @@ const FormStepOne: FC<FormStepOneProps> = ({getFormState, form}) => {
         <Controller
           name="sex"
           control={control}
-          defaultValue=" "
+          defaultValue="man"
           rules={{
             required: true,
             pattern: {value: /^(man|woman)$/, message: "You should choose your sex"}
@@ -130,7 +115,7 @@ const FormStepOne: FC<FormStepOneProps> = ({getFormState, form}) => {
           )}
         />
       </div>
-    </form>
+    </div>
   )
 }
 

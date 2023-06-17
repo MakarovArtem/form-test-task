@@ -6,39 +6,33 @@ import Checkbox from "../../../components/UI/checkboxGroup/CheckboxGroup";
 import Radio from "../../../components/UI/radioGroup/RadioGroup";
 import style from "./FormStepTwo.module.css";
 
-interface FormStepTwoProps {}
+interface FormStepTwoProps {
+  register: any;
+  remove: any;
+  append: any;
+  fields: any;
+}
 
-const FormStepTwo: FC<FormStepTwoProps> = () => {
-
-  const {
-    control,
-    register,
-    handleSubmit,
-    formState: {isValid}
-  } = useForm({ mode: "onBlur" });
-
-  const { fields, append, remove } = useFieldArray({
-    control,
-    name: "advantages"
-  });
-
-  // const onSubmit = (data: any) => {
-  //   // const check = data.checkboxGroup;
-  //   const adv = JSON.stringify(data);
-  //   // const arr = check.map((str: string) => parseInt(str));
-  //   // data.checkboxGroup = arr
-  //   console.log('adv',adv)
-  // }
+const FormStepTwo: FC<FormStepTwoProps> = ({register, remove, append, fields}) => {
 
   return (
-    <form onSubmit={handleSubmit(data => console.log(JSON.stringify(data)))} className={style.form}>
+    <div className={style.form}>
       <div className={style.inputsContainer}>
         <p className={style.inputsTitle}>Advantages</p>
         <ul>
-          {fields.map((item, index) => (
+          {fields.map((item: any, index: any) => (
             <li key={item.id}>
-              <input {...register(`advantages.${index}.field-advantages-${index + 1}`)} />
-              <button type="button" onClick={() => remove(index)}>Delete</button>
+              <input 
+                {...register(`advantages.${index}.field-advantages-${index + 1}`)}
+                id={`field-advantages-${index + 1}`}
+              />
+              <button
+                type="button"
+                onClick={() => remove(index)}
+                id={`button-remove-${index + 1}`}
+              >
+                Delete
+              </button>
             </li>
           ))}
         </ul>
@@ -48,10 +42,9 @@ const FormStepTwo: FC<FormStepTwoProps> = () => {
         >
           append
         </button>
-        <input type="submit" />
       </div>
 
-      {/* <div className={style.checkboxContainer}>
+      <div className={style.checkboxContainer}>
         <Checkbox
           register={register}
           title="Checkbox group"
@@ -76,9 +69,9 @@ const FormStepTwo: FC<FormStepTwoProps> = () => {
           ]} 
           id="radio-group"
         />
-      </div> */}
+      </div>
 
-    </form>
+    </div>
   )
 }
 
