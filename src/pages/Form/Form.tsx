@@ -11,6 +11,7 @@ import FormStepOne from "./FormStepOne/FormStepOne";
 import FormStepTwo from "./FormStepTwo/FormStepTwo";
 import FormStepThree from "./FormStepThree/FormStepThree";
 import Button from "../../components/UI/button/Button";
+import ModalWindow from "../../components/modalWindow/ModalWindow";
 
 import style from "./Form.module.css";
 import { useNavigate } from "react-router-dom";
@@ -20,6 +21,7 @@ interface FormProps {}
 const Form: FC<FormProps> = () => {
 
   const [step, setStep] = useState(1);
+  const [modalOn, setModalOn] = useState(true);
   const navigate = useNavigate();
 
   const dispatch = useAppDispatch();
@@ -71,7 +73,6 @@ const Form: FC<FormProps> = () => {
         dispatch(setAbout(data.about));
         // сделать запрос и вызвать модалку
         return;
-      default:
     }
     // console.log(JSON.stringify(data))
   }
@@ -99,7 +100,6 @@ const Form: FC<FormProps> = () => {
                             /> :
               step === 3 ? <FormStepThree control={control} /> : false
             }
-            <input type="submit" />
           </form>
         </div>
         <div className={style.backContainer}>
@@ -109,6 +109,11 @@ const Form: FC<FormProps> = () => {
           <Button onClick={handleSubmit(onSubmit)} text="Далее" theme={"blue"} id="button-next" />
         </div>
       </div>
+      {modalOn && 
+        // <div className={style.modalWindow}>
+          <ModalWindow isSuccessfull={false} setModalOn={setModalOn} />
+        // </div>
+      }
     </article>
   )
 }

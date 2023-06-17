@@ -34,7 +34,6 @@ const FormStepThree: FC<FormStepThreeProps> = ({control}) => {
             />
           )}
         />
-        
       </div>
     </div>
   )
