@@ -1,9 +1,10 @@
 import React, { FC ,useEffect} from "react";
 import { Controller } from "react-hook-form";
-import Button from "../../../components/UI/button/Button";
+import { useAppSelector } from "../../../store/hooks/hooks";
 
 import Input from "../../../components/UI/input/Input";
 import Select from "../../../components/UI/select/Select";
+
 import style from "./FormStepOne.module.css";
 
 interface FormStepOneProps {
@@ -12,13 +13,18 @@ interface FormStepOneProps {
 
 const FormStepOne: FC<FormStepOneProps> = ({control}) => {
 
+  const nickname = useAppSelector(state => state.stepOne.nickname);
+  const name = useAppSelector(state => state.stepOne.name);
+  const surname = useAppSelector(state => state.stepOne.surname);
+  const sex = useAppSelector(state => state.stepOne.sex);
+
   return (
     <div className={style.form}>
       <div className={style.nickContainer}>
         <Controller
           name="nickname"
           control={control}
-          defaultValue="EineApfelsine"
+          defaultValue={nickname}
           rules={{
             required: true,
             maxLength: {value: 30, message: "Max length is 30 symbols"},
@@ -43,7 +49,7 @@ const FormStepOne: FC<FormStepOneProps> = ({control}) => {
         <Controller
           name="name"
           control={control}
-          defaultValue="Artem"
+          defaultValue={name}
           rules={{
             required: true,
             maxLength: {value: 50, message: "Max length is 50 symbols"},
@@ -68,7 +74,7 @@ const FormStepOne: FC<FormStepOneProps> = ({control}) => {
         <Controller
           name="surname"
           control={control}
-          defaultValue="Makarov"
+          defaultValue={surname}
           rules={{
             required: true,
             maxLength: {value: 50, message: "Max length is 50 symbols"},
@@ -93,7 +99,7 @@ const FormStepOne: FC<FormStepOneProps> = ({control}) => {
         <Controller
           name="sex"
           control={control}
-          defaultValue="man"
+          defaultValue={sex}
           rules={{
             required: true,
             pattern: {value: /^(man|woman)$/, message: "You should choose your sex"}

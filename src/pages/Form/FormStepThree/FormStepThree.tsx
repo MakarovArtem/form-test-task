@@ -13,7 +13,7 @@ const FormStepThree: FC<FormStepThreeProps> = ({control}) => {
     <div className={style.form}>
       <div className={style.textareaContaier}>
         <Controller
-          name="textarea"
+          name="about"
           control={control}
           defaultValue=" "
           rules={{

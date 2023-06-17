@@ -1,10 +1,10 @@
-import React, { FC } from "react";
-import { useForm, useFieldArray } from "react-hook-form";
+import React, { FC, useEffect } from "react";
 // import AdvantageList from "../../../components/advantageList/AdvantageList";
-import Button from "../../../components/UI/button/Button";
+// import Button from "../../../components/UI/button/Button";
 import Checkbox from "../../../components/UI/checkboxGroup/CheckboxGroup";
 import Radio from "../../../components/UI/radioGroup/RadioGroup";
 import style from "./FormStepTwo.module.css";
+import { useAppDispatch, useAppSelector } from "../../../store/hooks/hooks";
 
 interface FormStepTwoProps {
   register: any;
@@ -15,15 +15,23 @@ interface FormStepTwoProps {
 
 const FormStepTwo: FC<FormStepTwoProps> = ({register, remove, append, fields}) => {
 
+  const advantages = useAppSelector(state => state.stepTwo.advantages);
+  const checkboxGroup = useAppSelector(state => state.stepTwo.checkboxGroup);
+  const radioGroup = useAppSelector(state => state.stepTwo.radioGroup);
+
   return (
     <div className={style.form}>
+      <button onClick={() => console.log(advantages)}>advantages</button>
+      <button onClick={() => console.log(checkboxGroup)}>checkboxGroup</button>
+      <button onClick={() => console.log(radioGroup)}>radioGroup</button>
       <div className={style.inputsContainer}>
         <p className={style.inputsTitle}>Advantages</p>
         <ul>
           {fields.map((item: any, index: any) => (
             <li key={item.id}>
               <input 
-                {...register(`advantages.${index}.field-advantages-${index + 1}`)}
+                {...register(`advantages.${index}.field-advantages-${index + 1}`, )}
+                placeholder="Advantage"
                 id={`field-advantages-${index + 1}`}
               />
               <button
@@ -70,7 +78,6 @@ const FormStepTwo: FC<FormStepTwoProps> = ({register, remove, append, fields}) =
           id="radio-group"
         />
       </div>
-
     </div>
   )
 }

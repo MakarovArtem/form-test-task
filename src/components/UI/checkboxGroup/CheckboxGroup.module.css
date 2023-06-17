@@ -34,7 +34,7 @@
   font-size: 14px;
   line-height: 20px;
   color: #333333;
-  cursor: default;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 768px){

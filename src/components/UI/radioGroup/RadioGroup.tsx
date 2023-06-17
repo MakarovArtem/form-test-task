@@ -31,7 +31,7 @@ const RadioGroup: FC<RadioProps> = ({register, title, groupName, options, id}) =
           />
           <label
             className={style.radioLabel}
-            htmlFor={option.value}
+            htmlFor={option.id}
           >
             {option.value}
           </label>
