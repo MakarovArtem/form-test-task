@@ -10,60 +10,34 @@ import style from "./Form.module.css";
 interface FormProps {}
 
 interface Form {
-  formOne: boolean;
-  formTwo:boolean;
-  formThree: boolean;
+
 }
 
 const Form: FC<FormProps> = () => {
 
-  const [step, setStep] = useState(3);
-  const [form, setForm] = useState(
-    {
-      formOne: false,
-      formTwo: false,
-      formThree: false,
-    }
-  )
+  const [step, setStep] = useState(2);
 
-  function decreaseAllowed() {
-    if (step !== 1) return true
-    return false;
-  }
-
-  function increaseAllowed() {
-    if (step === 1 && form.formOne) return true;
-    if (step === 2 && form.formTwo) return true;
-    if (step === 3 && form.formThree) return true;
-    return false;
-  }
-
+  const {
+    watch,
+    control,
+    register,
+    handleSubmit,
+    formState: {isValid}
+  } = useForm({ mode: "onBlur" });
+  
   function decreaseStep(){
-    if (decreaseAllowed()) {
+    if (step !== 1) {
       setStep(prev => prev - 1);
       console.log("decrease");
     }
     console.log("no decrease");
   }
 
-  function increaseStep(){
-    if(increaseAllowed()) { 
-      setStep(prev => prev + 1);
-      console.log("increase");
-    }
-    console.log("no increase");
+  const onSubmit = (data:any) => {
+    // тут записываю в стор
+    setStep(prev => prev + 1);// тут увеличиваю страничку
+    console.log(JSON.stringify(data))
   }
-
-  function getFormState(object: any){
-    setForm(prev => object);
-  }
-
-  const {
-    control,
-    register,
-    handleSubmit,
-    formState: {isValid}
-  } = useForm({ mode: "onBlur" });
 
   const { fields, append, remove } = useFieldArray({
     control,
@@ -77,7 +51,7 @@ const Form: FC<FormProps> = () => {
           <ProgressLine step={step} />
         </div>
         <div className={style.formContainer}>
-          <form onSubmit={handleSubmit(data => console.log(JSON.stringify(data)))} >
+          <form onSubmit={handleSubmit(onSubmit)} >
             {
               step === 1 ? <FormStepOne control={control} /> :
               step === 2 ? <FormStepTwo 
@@ -91,14 +65,14 @@ const Form: FC<FormProps> = () => {
             <input type="submit" />
           </form>
         </div>
-
         <div className={style.backContainer}>
           <Button onClick={decreaseStep} text="Назад" theme={"white"} id="button-back" />
         </div>
         <div className={style.nextContainer}>
-          <Button onClick={increaseStep} text="Далее" theme={"blue"} id="button-next" />
+          <Button onClick={handleSubmit(onSubmit)} text="Далее" theme={"blue"} id="button-next" />
         </div>
       </div>
+      <p onClick={()=> console.log(watch())}>Данные</p>
     </article>
   )
 }
