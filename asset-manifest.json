@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/form-test-task/static/css/main.3b7a044b.css",
-    "main.js": "/form-test-task/static/js/main.ddd3b75f.js",
+    "main.css": "/form-test-task/static/css/main.b25e7e5e.css",
+    "main.js": "/form-test-task/static/js/main.5f455138.js",
     "index.html": "/form-test-task/index.html",
     "static/media/modal-error-icon.svg": "/form-test-task/static/media/modal-error-icon.fd1a8448dacc4a5af170.svg",
     "static/media/modal-success-icon.svg": "/form-test-task/static/media/modal-success-icon.a20946ae27d9e9492ba1.svg",
     "static/media/cross-icon.svg": "/form-test-task/static/media/cross-icon.12697ca38f724dc86c5f.svg",
     "static/media/check-icon.svg": "/form-test-task/static/media/check-icon.501987ca8dd4487a7609.svg",
-    "main.3b7a044b.css.map": "/form-test-task/static/css/main.3b7a044b.css.map",
-    "main.ddd3b75f.js.map": "/form-test-task/static/js/main.ddd3b75f.js.map"
+    "main.b25e7e5e.css.map": "/form-test-task/static/css/main.b25e7e5e.css.map",
+    "main.5f455138.js.map": "/form-test-task/static/js/main.5f455138.js.map"
   },
   "entrypoints": [
-    "static/css/main.3b7a044b.css",
-    "static/js/main.ddd3b75f.js"
+    "static/css/main.b25e7e5e.css",
+    "static/js/main.5f455138.js"
   ]
 }
