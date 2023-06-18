@@ -32,8 +32,7 @@ const MainScreen: FC<MainScreenProps> = () => {
   const onSubmit = (data: any) => {
     dispatch(setNumber(data.phoneNumber));
     dispatch(setEmail(data.emailAdress));
-    console.log(numberDef)
-    // navigate("/create");
+    navigate("/create");
   }
 
   return (
