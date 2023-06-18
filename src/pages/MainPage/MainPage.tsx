@@ -55,6 +55,8 @@ const MainScreen: FC<MainScreenProps> = () => {
                 <PatternFormat
                   format="+7 (###) ###-##-##"
                   {...field}
+                  disabled={true}
+                  style={{background: "rgba(0, 0, 0, 0.04)"}}
                   className={styleInput.input}
                   id="field-number"
                 />
@@ -76,7 +78,7 @@ const MainScreen: FC<MainScreenProps> = () => {
             }) => (
               <InputController
                 {...field}
-                disabled={false}
+                disabled={true}
                 title='Email' 
                 type='email'
                 placeholder="ARTEMMAKAROV76@YANDEX.RU"
@@ -87,7 +89,7 @@ const MainScreen: FC<MainScreenProps> = () => {
           />
         </div>
         <div className={style.buttonContainer}>
-          <Button disabled={isValid ? false : true} onClick={handleSubmit(onSubmit)} text="Начать" theme={"white"} id="button-start"/>
+          <Button disabled={isValid ? false : true} onClick={handleSubmit(onSubmit)} text="Начать" theme={"blue"} id="button-start"/>
         </div>
       </form>
     </main>

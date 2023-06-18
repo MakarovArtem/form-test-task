@@ -19,6 +19,10 @@
   width: 50%;
 }
 
+.buttonContainer{
+  margin-top: 24px;
+}
+
 @media screen and (max-width: 1368px){
   .main{
     width: 900px;

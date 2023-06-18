@@ -119,10 +119,22 @@ const Form: FC<FormProps> = () => {
           </form>
         </div>
         <div onClick={back} className={style.backContainer}>
-          <Button disabled={isValid ? false : true} onClick={handleSubmit(onSubmit)} text="Назад" theme={"white"} id="button-back" />
+          <Button 
+            disabled={isValid ? false : true} 
+            onClick={handleSubmit(onSubmit)} 
+            text="Назад" 
+            theme={"white"} 
+            id="button-back"
+          />
         </div>
         <div onClick={forward} className={style.nextContainer}>
-          <Button disabled={isValid ? false : true} onClick={handleSubmit(onSubmit)} text="Далее" theme={"blue"} id="button-next" />
+          <Button 
+            disabled={isValid ? false : true}
+            onClick={handleSubmit(onSubmit)}
+            text={step !== 3? "Далее" : "Отправить"}
+            theme={"blue"}
+            id={step !== 3? "button-next" : "button-send"}
+          />
         </div>
       </div>
       {modalOn && <ModalWindow isSuccessfull={modalOn} setModalOn={setModalOn} />}

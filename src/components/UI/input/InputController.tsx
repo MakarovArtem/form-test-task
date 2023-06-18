@@ -19,7 +19,10 @@ const InputController: FC<InputControllerProps> = forwardRef(({width, disabled, 
       <p className={style.inputTitle}>{title}</p>
       <input
         disabled={disabled}
-        style={{width: width ? width : "auto"}}
+        style={{
+          width: width ? width : "auto",
+          background: disabled ? "rgba(0, 0, 0, 0.04)" : "white", 
+        }}
         className={style.input}
         type={type}
         placeholder={placeholder ? placeholder : 'Placeholder'}
