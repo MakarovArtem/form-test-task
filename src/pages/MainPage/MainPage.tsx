@@ -2,11 +2,13 @@ import React, { FC } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 // import MaskedInput from "react-text-mask";
+import { PatternFormat } from "react-number-format";
+import { NumericFormat } from "react-number-format";
+
 import Input from "../../components/UI/input/Input";
 import Button from "../../components/UI/button/Button";
 import style from "./MainPage.module.css";
 import Info from "../../components/info/Info";
-import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../store/hooks/hooks";
 import { setEmail, setNumber } from "../../store/reducers/mainSlice";
 
@@ -32,10 +34,6 @@ const MainScreen: FC<MainScreenProps> = () => {
     navigate("/create");
   }
 
-  // const normalizeCardNumber = (value:string) => {
-  //   return value.replace(/\s/g, "").match(/.{1,4}/g)?.join(" ").substr(0, 19) || ""
-  // }
-
   return (
     <main className={style.main}>
       <div className={style.infoContainer}>
@@ -56,7 +54,13 @@ const MainScreen: FC<MainScreenProps> = () => {
               // field: {onChange},
               fieldState: { error },
             }) => (
-              <Input
+              <PatternFormat
+                format="+7 (###) ###-##-##"
+                {...field}
+                // customInput={Input}
+              />
+
+              /* <Input
                 {...field}
                 disabled={false}
                 title='Номер телефона' 
@@ -64,11 +68,7 @@ const MainScreen: FC<MainScreenProps> = () => {
                 placeholder="+7 (961) 026-29-17"
                 tip={error?.message || "Allrighty"}
                 id="filed-number"
-                // onChange={(event: any) => {
-                //   const {value} = event.target
-                //   event.target.value = normalizeCardNumber(value)
-                // }}
-              />
+                /> */
             )}
           />
         </div>

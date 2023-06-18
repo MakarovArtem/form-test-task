@@ -11,6 +11,27 @@
   grid-area: advantages;
 }
 
+.advantagesContainer{
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 8px;
+}
+
+.advantage{
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.inputContainer{
+  width: 300px;
+}
+
+.removeAdvantageContainer{
+  padding-top: 10px;
+}
+
 .checkboxContainer{
   grid-area: checkbox;
 }
@@ -39,5 +60,8 @@
   }
   .form{
     row-gap: 10px;
+  }
+  .inputContainer{
+    width: 100%;
   }
 }

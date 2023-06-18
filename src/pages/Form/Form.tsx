@@ -20,7 +20,7 @@ interface FormProps {}
 
 const Form: FC<FormProps> = () => {
 
-  const [step, setStep] = useState(3);
+  const [step, setStep] = useState(2);
   const [modalOn, setModalOn] = useState(true);
   const navigate = useNavigate();
 
@@ -31,7 +31,6 @@ const Form: FC<FormProps> = () => {
   const aboutDef = useAppSelector(state => state.stepThree.about);
 
   const numberDef = useAppSelector(state => state.main.phoneNumber);
-
 
   const {
     watch,

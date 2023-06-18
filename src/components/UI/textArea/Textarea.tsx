@@ -15,7 +15,7 @@ interface TextareaProps {
 const Textarea: FC<TextareaProps> = forwardRef(({width, title, placeholder, tip, id, watch, ...rest}, ref) => {
   
   const textareaValue = watch("about");
-  const count = textareaValue.length;
+  const count = textareaValue?.length;
 
   return (
     <div className={style.textareaContainer}>

@@ -4,20 +4,21 @@ import style from "./Input.module.css";
 interface InputProps {
   width?: string;
   disabled?: boolean;
-  // register?: any;
   name?: string;
   title: string;
-  type: string;
+  type?: string;
   placeholder?: string;
   tip?: string;
   id: string;
   field?: any;
   ref?: any;
-  onChange: any;
-  // index?: any
+  onChange?: any;
+  register?: any;
+  registerProps?: string;
+  index?: number;
 }
 
-const Input: FC<InputProps> = forwardRef(({width, title, type, placeholder, tip, id, name,  ...rest}, ref) => {
+const Input: FC<InputProps> = forwardRef(({width, title, type, placeholder, tip, id, name, register, registerProps, index, ...rest}, ref) => {
 
   return (
     <div className={style.inputContainer}>
@@ -30,8 +31,7 @@ const Input: FC<InputProps> = forwardRef(({width, title, type, placeholder, tip,
         id={id}
         ref={ref}
         {...rest}
-        // {...register(name)}
-        // index={index}
+        {...register(registerProps)}
       />
       {tip && <p className={style.inputTip}>{tip || "Error!"}</p>}
     </div>
