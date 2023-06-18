@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Controller } from "react-hook-form";
+import { Controller, Control } from "react-hook-form";
 import { useAppSelector } from "../../../store/hooks/hooks";
 
 import Select from "../../../components/UI/select/Select";

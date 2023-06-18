@@ -16,15 +16,8 @@ interface FormStepTwoProps {
 
 const FormStepTwo: FC<FormStepTwoProps> = ({register, remove, append, fields}) => {
 
-  const advantages = useAppSelector(state => state.stepTwo.advantages);
-  const checkboxGroup = useAppSelector(state => state.stepTwo.checkboxGroup);
-  const radioGroup = useAppSelector(state => state.stepTwo.radioGroup);
-
   return (
     <div className={style.form}>
-      <button onClick={() => console.log(advantages)}>advantages</button>
-      <button onClick={() => console.log(checkboxGroup)}>checkboxGroup</button>
-      <button onClick={() => console.log(radioGroup)}>radioGroup</button>
       <div className={style.inputsContainer}>
         <p className={style.inputsTitle}>Advantages</p>
         <ul className={style.advantagesContainer}>

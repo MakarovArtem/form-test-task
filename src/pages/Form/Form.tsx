@@ -28,9 +28,6 @@ const Form: FC<FormProps> = () => {
   const advantagesDef = useAppSelector(state => state.stepTwo.advantages);
   const checkboxDef = useAppSelector(state => state.stepTwo.checkboxGroup);
   const radioDef = useAppSelector(state => state.stepTwo.radioGroup);
-  const aboutDef = useAppSelector(state => state.stepThree.about);
-
-  const numberDef = useAppSelector(state => state.main.phoneNumber);
 
   const {
     watch,
@@ -41,39 +38,43 @@ const Form: FC<FormProps> = () => {
     advantages: [...advantagesDef],
     checkboxGroup: checkboxDef,
     radioGroup: radioDef,
-    // about: aboutDef,
   }});
   
   function back(){
-    if (step !== 1 ) {
+    if (step !== 1) {
       setStep(prev => prev - 1);
-      handleSubmit(onSubmit);// надо как-то сабмитить
      } else {
       navigate("/");
     } 
   }
 
+  function forward() {
+    if (step !== 3) {
+      setStep(prev => prev + 1);
+    } else {
+      // request
+    }
+  }
+
   const onSubmit = (data: any) => {
+    alert("submit")
     switch(step){
       case 1:
         dispatch(setNickname(data.nickname));
         dispatch(setName(data.name));
         dispatch(setSurname(data.surname));
         dispatch(setSex(data.sex));
-        setStep(prev => prev + 1);
         break;
       case 2:
         dispatch(setAdvantages(data.advantages));
         dispatch(setRadioGroup(data.radioGroup));
         dispatch(setCheckboxGroup(data.checkboxGroup));
-        setStep(prev => prev + 1);
         break;
       case 3:
         dispatch(setAbout(data.about));
         // сделать запрос и вызвать модалку
         return;
     }
-    // console.log(JSON.stringify(data))
   }
 
   const { fields, append, remove } = useFieldArray({
@@ -101,10 +102,10 @@ const Form: FC<FormProps> = () => {
             }
           </form>
         </div>
-        <div className={style.backContainer}>
-          <Button onClick={back} text="Назад" theme={"white"} id="button-back" />
+        <div onClick={back} className={style.backContainer}>
+          <Button onClick={handleSubmit(onSubmit)} text="Назад" theme={"white"} id="button-back" />
         </div>
-        <div className={style.nextContainer}>
+        <div onClick={forward} className={style.nextContainer}>
           <Button onClick={handleSubmit(onSubmit)} text="Далее" theme={"blue"} id="button-next" />
         </div>
       </div>

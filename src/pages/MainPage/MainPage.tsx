@@ -5,12 +5,12 @@ import { useNavigate } from "react-router-dom";
 import { PatternFormat } from "react-number-format";
 import { NumericFormat } from "react-number-format";
 
-import Input from "../../components/UI/input/Input";
-import Button from "../../components/UI/button/Button";
 import style from "./MainPage.module.css";
 import Info from "../../components/info/Info";
 import { useAppDispatch, useAppSelector } from "../../store/hooks/hooks";
 import { setEmail, setNumber } from "../../store/reducers/mainSlice";
+import InputController from "../../components/UI/input/InputController";
+import Button from "../../components/UI/button/Button";
 
 interface MainScreenProps {}
 
@@ -85,7 +85,7 @@ const MainScreen: FC<MainScreenProps> = () => {
               field,
               fieldState: { error },
             }) => (
-              <Input
+              <InputController
                 {...field}
                 disabled={false}
                 title='Email' 
