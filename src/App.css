@@ -89,13 +89,17 @@ legend {
 }
 
 /* Fonts */
-@import url(//db.onlinewebfonts.com/c/c68e21ad1a10803b1ef491fd0392b067?family=SB+Sans+Text);
-@import url(//db.onlinewebfonts.com/c/37086b994764dba84b2ee0f1083bfeed?family=SB+Sans+Interface);
-@import url(https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansDisplay.0.1.0.css);
+@import url(https://cloud.ru/fonts/sb-sans-interface/SBSansInterface-Semibold.woff2);
+@import url(https://cloud.ru/fonts/sb-sans-display/SBSansDisplaySemiBold.woff2);
 
 @font-face {
   font-family: "SB Sans Interface";
-  src: url(//db.onlinewebfonts.com/c/37086b994764dba84b2ee0f1083bfeed?family=SB+Sans+Interface) format("woff2");
+  src: url(https://cloud.ru/fonts/sb-sans-interface/SBSansInterface-Semibold.woff2) format("woff2");
+ }
+
+@font-face {
+  font-family: "SB Sans Display";
+  src: url(https://cloud.ru/fonts/sb-sans-display/SBSansDisplaySemiBold.woff2) format("woff2");
  }
 
  @font-face {
