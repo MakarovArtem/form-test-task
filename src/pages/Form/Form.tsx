@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm, useFieldArray } from "react-hook-form";
 import { useAppDispatch, useAppSelector } from "../../store/hooks/hooks";
@@ -49,8 +49,6 @@ const Form: FC<FormProps> = () => {
   function back(){
     if (step !== 1) {
       setStep(prev => prev - 1);
-    } else if (step > 3){
-      setStep(prev => prev - 2);
     } else {
       navigate("/");
     } 
@@ -62,7 +60,7 @@ const Form: FC<FormProps> = () => {
     }
   }
 
-  function getFormData(stateForm: any, lastStepData: any) {
+  function getFormData(stateForm: any) {
     //@ts-ignore
     function getKeysFromObj(array) {
       //@ts-ignore
@@ -74,13 +72,28 @@ const Form: FC<FormProps> = () => {
       ...stateForm.main,
       ...stateForm.stepOne,
       ...stateForm.stepTwo,
-      about: lastStepData,
       advantages: getKeysFromObj(stateForm.stepTwo.advantages),
       checkboxGroup: stateForm.stepTwo.checkboxGroup !== false ?
         stateForm.stepTwo.checkboxGroup.map((item: string) => parseInt(item)) : false,
       radioGroup: parseInt(stateForm.stepTwo.radioGroup),
     };
   }
+
+  useEffect(() => {
+    if(step === 4) {
+      const dataForm = getFormData(state);
+      sendData(dataForm)
+        .then(data => {
+          console.log(data)
+          setModalOn(true);
+          if (data.status === "success") {
+            setModalSuccessfull(true);
+          } else {
+            setModalSuccessfull(false)
+          }
+        })
+    }
+  }, [step])
 
    const onSubmit = (data: any) => {
     switch(step){
@@ -97,19 +110,6 @@ const Form: FC<FormProps> = () => {
         break;
       case 3:
         dispatch(setAbout(data.about));
-        break;
-      case 4:
-        const dataForm = getFormData(state, data.about);
-        sendData(dataForm)
-          .then(data => {
-            console.log(data)
-            setModalOn(true);
-            if (data.status === "success") {
-              setModalSuccessfull(true);
-            } else {
-              setModalSuccessfull(false)
-            }
-          })
         break;
     }
   }

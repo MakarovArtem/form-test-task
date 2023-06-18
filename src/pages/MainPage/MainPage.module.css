@@ -41,7 +41,7 @@
 
 @media screen and (max-width: 768px){
   .main{
-    width: 500px;
+    width: 80vw;
     padding: 20px;
   }
   .infoContainer{
@@ -54,7 +54,7 @@
 
 @media screen and (max-width: 576px){
   .main{
-    width: 300px;
+    width: 90vw;
     padding: 10px;
   }
   .infoContainer{
