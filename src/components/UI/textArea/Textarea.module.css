@@ -4,6 +4,8 @@
   flex-direction: column;
   justify-content: space-between;
   gap: 8px;
+  position: relative;
+
 }
 
 .textarea{
@@ -41,6 +43,13 @@
   color: rgba(0, 0, 0, 0.48);
 }
 
+.textareaCount{
+  position: absolute;
+  right: 25px;
+  bottom: 35px;
+  color: rgba(0, 0, 0, 0.48);
+}
+
 @media screen and (max-width: 768px){
   .textareaContainer{
     gap: 8px;
@@ -58,6 +67,11 @@
   .textareaTip{
     font-size: 10px;
     line-height: 12px;
+  }
+  .textareaCount{
+    right: 20px;
+    bottom: 25px;
+    font-size: 10px;
   }
 }
 
@@ -77,5 +91,10 @@
   .textareaTip{
     font-size: 8px;
     line-height: 10px;
+  }
+  .textareaCount{
+    right: 15px;
+    bottom: 20px;
+    font-size: 8px;
   }
 }

@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+// import MaskedInput from "react-text-mask";
 import Input from "../../components/UI/input/Input";
 import Button from "../../components/UI/button/Button";
 import style from "./MainPage.module.css";
@@ -31,6 +32,10 @@ const MainScreen: FC<MainScreenProps> = () => {
     navigate("/create");
   }
 
+  // const normalizeCardNumber = (value:string) => {
+  //   return value.replace(/\s/g, "").match(/.{1,4}/g)?.join(" ").substr(0, 19) || ""
+  // }
+
   return (
     <main className={style.main}>
       <div className={style.infoContainer}>
@@ -48,16 +53,21 @@ const MainScreen: FC<MainScreenProps> = () => {
             }}
             render={({
               field,
+              // field: {onChange},
               fieldState: { error },
             }) => (
               <Input
                 {...field}
-                disabled={true}
+                disabled={false}
                 title='Номер телефона' 
                 type='tel' 
-                placeholder="+7 (961) 026-**-**"
+                placeholder="+7 (961) 026-29-17"
                 tip={error?.message || "Allrighty"}
                 id="filed-number"
+                // onChange={(event: any) => {
+                //   const {value} = event.target
+                //   event.target.value = normalizeCardNumber(value)
+                // }}
               />
             )}
           />

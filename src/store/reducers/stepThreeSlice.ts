@@ -7,7 +7,7 @@ interface stepThreeSlice {
 }
 
 const initialState: stepThreeSlice = {
-  about: "I'm transngender",
+  about: "I'm an about section",
 }
 
 export const stepThreeSlice = createSlice({

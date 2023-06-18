@@ -1,5 +1,6 @@
-import React, { FC, forwardRef } from "react";
+import React, { FC, useState, forwardRef } from "react";
 import style from "./Textarea.module.css";
+import { useAppSelector } from "../../../store/hooks/hooks";
 
 interface TextareaProps {
   width?: string;
@@ -8,11 +9,14 @@ interface TextareaProps {
   tip?: string;
   id: string;
   ref?: any;
-  field?: any;
+  watch: any;
 }
 
-const Textarea: FC<TextareaProps> = forwardRef(({width, title, placeholder, tip, id, ...rest}, ref) => {
+const Textarea: FC<TextareaProps> = forwardRef(({width, title, placeholder, tip, id, watch, ...rest}, ref) => {
   
+  const textareaValue = watch("about");
+  const count = textareaValue.length;
+
   return (
     <div className={style.textareaContainer}>
       <p className={style.textareaTitle}>{title}</p>
@@ -25,6 +29,7 @@ const Textarea: FC<TextareaProps> = forwardRef(({width, title, placeholder, tip,
         {...rest}
       />
       {tip && <p className={style.textareaTip}>{tip}</p>}
+      {count && <p className={style.textareaCount}>{count}</p>}
     </div>
   )
 })

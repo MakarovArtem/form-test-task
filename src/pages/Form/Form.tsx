@@ -20,7 +20,7 @@ interface FormProps {}
 
 const Form: FC<FormProps> = () => {
 
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(3);
   const [modalOn, setModalOn] = useState(true);
   const navigate = useNavigate();
 
@@ -38,11 +38,11 @@ const Form: FC<FormProps> = () => {
     control,
     register,
     handleSubmit,
-  } = useForm({ defaultValues: {
+  } = useForm({  defaultValues: {
     advantages: [...advantagesDef],
     checkboxGroup: checkboxDef,
     radioGroup: radioDef,
-    about: aboutDef,
+    // about: aboutDef,
   }});
   
   function back(){
@@ -98,7 +98,7 @@ const Form: FC<FormProps> = () => {
                               remove={remove}
                               fields={fields}
                             /> :
-              step === 3 ? <FormStepThree control={control} /> : false
+              step === 3 ? <FormStepThree control={control} watch={watch} /> : false
             }
           </form>
         </div>

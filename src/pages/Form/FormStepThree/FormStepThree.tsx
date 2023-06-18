@@ -2,20 +2,24 @@ import React, { FC } from "react";
 import { Controller } from "react-hook-form";
 import Textarea from "../../../components/UI/textArea/Textarea";
 import style from "./FormStepThree.module.css";
+import { useAppSelector } from "../../../store/hooks/hooks";
 
 interface FormStepThreeProps {
   control: any;
+  watch: any;
 }
 
-const FormStepThree: FC<FormStepThreeProps> = ({control}) => {
+const FormStepThree: FC<FormStepThreeProps> = ({control, watch}) => {
   
+  const about = useAppSelector(state => state.stepThree.about);
+
   return (
     <div className={style.form}>
       <div className={style.textareaContaier}>
         <Controller
           name="about"
           control={control}
-          defaultValue=" "
+          defaultValue={about}
           rules={{
             required: true,
             maxLength: {value: 200, message: "Max length is 200 symbols"},
@@ -26,6 +30,7 @@ const FormStepThree: FC<FormStepThreeProps> = ({control}) => {
           }) => (
             <Textarea
               {...field}
+              watch={watch}
               title="About"
               width="auto"
               placeholder="Placeholder"

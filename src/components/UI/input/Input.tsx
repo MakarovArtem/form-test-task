@@ -13,6 +13,7 @@ interface InputProps {
   id: string;
   field?: any;
   ref?: any;
+  onChange: any;
   // index?: any
 }
 
