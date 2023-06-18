@@ -1,7 +1,7 @@
 import React from 'react';
 import { Provider } from "react-redux";
 import { store } from "./store/store";
-
+import { HashRouter } from "react-router-dom";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ReactDOM from 'react-dom/client';
 import App from './App';
@@ -29,9 +29,11 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <Provider store={store}>
-    <React.StrictMode>
-      <RouterProvider router={router} />
-    </React.StrictMode>
-  </Provider>
+  <HashRouter basename={process.env.PUBLIC_URL}>
+    <Provider store={store}>
+      <React.StrictMode>
+        <RouterProvider router={router} />
+      </React.StrictMode>
+    </Provider>
+  </HashRouter>
 );

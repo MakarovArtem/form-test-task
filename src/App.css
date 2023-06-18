@@ -90,13 +90,10 @@ legend {
 
 /* Common styles */
 body{
-  background-color: red;
   padding: 22px 0;
-
   display: flex;
   justify-content: center;
-  /* background: #F4F4F5; */
-
+  background: #F4F4F5;
   font-family: 'SB Sans Interface';
   font-style: normal;
   font-weight: 400;
