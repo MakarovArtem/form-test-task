@@ -19,6 +19,7 @@ const MainScreen: FC<MainScreenProps> = () => {
   const {
     control,
     handleSubmit,
+    formState: {isValid}
   } = useForm({ mode: "onBlur" });
 
   const dispatch = useAppDispatch();
@@ -86,7 +87,7 @@ const MainScreen: FC<MainScreenProps> = () => {
           />
         </div>
         <div className={style.buttonContainer}>
-          <Button onClick={handleSubmit(onSubmit)} text="Начать" theme={"white"} id="button-start"/>
+          <Button disabled={isValid ? false : true} onClick={handleSubmit(onSubmit)} text="Начать" theme={"white"} id="button-start"/>
         </div>
       </form>
     </main>

@@ -32,7 +32,8 @@ const Form: FC<FormProps> = () => {
     control,
     register,
     handleSubmit,
-  } = useForm({  defaultValues: {
+    formState: {isValid}
+  } = useForm({ mode: "onBlur", defaultValues: {
     advantages: [...advantages],
     checkboxGroup: checkbox,
     radioGroup: radio,
@@ -118,10 +119,10 @@ const Form: FC<FormProps> = () => {
           </form>
         </div>
         <div onClick={back} className={style.backContainer}>
-          <Button onClick={handleSubmit(onSubmit)} text="Назад" theme={"white"} id="button-back" />
+          <Button disabled={isValid ? false : true} onClick={handleSubmit(onSubmit)} text="Назад" theme={"white"} id="button-back" />
         </div>
         <div onClick={forward} className={style.nextContainer}>
-          <Button onClick={handleSubmit(onSubmit)} text="Далее" theme={"blue"} id="button-next" />
+          <Button disabled={isValid ? false : true} onClick={handleSubmit(onSubmit)} text="Далее" theme={"blue"} id="button-next" />
         </div>
       </div>
       {modalOn && <ModalWindow isSuccessfull={modalOn} setModalOn={setModalOn} />}
