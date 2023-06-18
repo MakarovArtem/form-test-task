@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/form-test-task/static/css/main.4f7e70c6.css",
-    "main.js": "/form-test-task/static/js/main.5be5b466.js",
+    "main.js": "/form-test-task/static/js/main.55adb45c.js",
     "index.html": "/form-test-task/index.html",
     "static/media/modal-error-icon.svg": "/form-test-task/static/media/modal-error-icon.fd1a8448dacc4a5af170.svg",
     "static/media/modal-success-icon.svg": "/form-test-task/static/media/modal-success-icon.a20946ae27d9e9492ba1.svg",
     "static/media/cross-icon.svg": "/form-test-task/static/media/cross-icon.12697ca38f724dc86c5f.svg",
     "static/media/check-icon.svg": "/form-test-task/static/media/check-icon.501987ca8dd4487a7609.svg",
     "main.4f7e70c6.css.map": "/form-test-task/static/css/main.4f7e70c6.css.map",
-    "main.5be5b466.js.map": "/form-test-task/static/js/main.5be5b466.js.map"
+    "main.55adb45c.js.map": "/form-test-task/static/js/main.55adb45c.js.map"
   },
   "entrypoints": [
     "static/css/main.4f7e70c6.css",
-    "static/js/main.5be5b466.js"
+    "static/js/main.55adb45c.js"
   ]
 }
