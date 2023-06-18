@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import React, { FC, forwardRef } from "react";
 import style from "./Input.module.css";
 
-interface InputProps {
+interface InputControllerProps {
   width?: string;
   disabled?: boolean;
   title: string;
@@ -10,11 +10,9 @@ interface InputProps {
   tip?: string;
   id: string;
   ref?: any;
-  register?: any;
-  registerProps?: string;
 }
 
-const Input: FC<InputProps> = ({width, title, placeholder, type, tip, id, register, registerProps}) => {
+const InputController: FC<InputControllerProps> = forwardRef(({width, title, placeholder, type, tip, id, ...rest}, ref) => {
 
   return (
     <div className={style.inputContainer}>
@@ -25,11 +23,12 @@ const Input: FC<InputProps> = ({width, title, placeholder, type, tip, id, regist
         type={type}
         placeholder={placeholder ? placeholder : 'Placeholder'}
         id={id}
-        {...register(registerProps)}
+        ref={ref}
+        {...rest}
       />
       {tip && <p className={style.inputTip}>{tip || "Error!"}</p>}
     </div>
   )
-}
+})
 
-export default Input;
+export default InputController;

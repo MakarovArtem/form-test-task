@@ -1,10 +1,8 @@
-import React, { FC, useEffect } from "react";
-// import AdvantageList from "../../../components/advantageList/AdvantageList";
-// import Button from "../../../components/UI/button/Button";
+import React, { FC } from "react";
 import Checkbox from "../../../components/UI/checkboxGroup/CheckboxGroup";
 import Radio from "../../../components/UI/radioGroup/RadioGroup";
 import style from "./FormStepTwo.module.css";
-import { useAppDispatch, useAppSelector } from "../../../store/hooks/hooks";
+import { useAppSelector } from "../../../store/hooks/hooks";
 import Input from "../../../components/UI/input/Input";
 import Button from "../../../components/UI/button/Button";
 import ButtonIcon from "../../../components/UI/buttonIcon/ButtonIcon";
@@ -35,7 +33,6 @@ const FormStepTwo: FC<FormStepTwoProps> = ({register, remove, append, fields}) =
               <div className={style.inputContainer}>
                 <Input
                   register={register}
-                  index={index}
                   registerProps={(`advantages.${index}.field-advantages-${index}`)}
                   title=""
                   placeholder="Advantage"

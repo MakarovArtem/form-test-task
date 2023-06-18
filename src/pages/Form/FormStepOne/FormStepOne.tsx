@@ -1,11 +1,11 @@
-import React, { FC ,useEffect} from "react";
+import React, { FC } from "react";
 import { Controller } from "react-hook-form";
 import { useAppSelector } from "../../../store/hooks/hooks";
 
-import Input from "../../../components/UI/input/Input";
 import Select from "../../../components/UI/select/Select";
 
 import style from "./FormStepOne.module.css";
+import InputController from "../../../components/UI/input/InputController";
 
 interface FormStepOneProps {
   control: any;
@@ -34,7 +34,7 @@ const FormStepOne: FC<FormStepOneProps> = ({control}) => {
             field,
             fieldState: { error },
           }) => (
-            <Input
+            <InputController
               {...field}
               title='Nickname'
               type='text' 
@@ -59,7 +59,7 @@ const FormStepOne: FC<FormStepOneProps> = ({control}) => {
             field,
             fieldState: { error },
           }) => (
-            <Input
+            <InputController
               {...field}
               title='Name'
               type='text' 
@@ -84,7 +84,7 @@ const FormStepOne: FC<FormStepOneProps> = ({control}) => {
             field,
             fieldState: { error },
           }) => (
-            <Input
+            <InputController
               {...field}
               title='Surname'
               type='text' 
