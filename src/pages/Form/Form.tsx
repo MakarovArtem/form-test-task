@@ -76,6 +76,12 @@ const Form: FC<FormProps> = () => {
         // сделать запрос и вызвать модалку
         return;
     }
+
+    const rawCheckboxGroupArr = data.checkboxGroup;
+    const numberCheckboxGroupArray = rawCheckboxGroupArr.map((item: any) => parseInt(item));
+
+    const rawRadioGroupVal = data.radioGroup;
+    
   }
 
   const { fields, append, remove } = useFieldArray({
