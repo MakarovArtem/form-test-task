@@ -12,6 +12,7 @@ import FormStepThree from "./FormStepThree/FormStepThree";
 import ModalWindow from "../../components/modalWindow/ModalWindow";
 import sendData from "../../api/sendData";
 import style from "./Form.module.css";
+import { setAbout } from "../../store/reducers/stepThreeSlice";
 
 interface FormProps {}
 
@@ -95,6 +96,9 @@ const Form: FC<FormProps> = () => {
         dispatch(setCheckboxGroup(data.checkboxGroup));
         break;
       case 3:
+        dispatch(setAbout(data.about));
+        break;
+      case 4:
         const dataForm = getFormData(state, data.about);
         sendData(dataForm)
           .then(data => {
