@@ -15,6 +15,7 @@ import ModalWindow from "../../components/modalWindow/ModalWindow";
 
 import style from "./Form.module.css";
 import { useNavigate } from "react-router-dom";
+import sendData from "../../api/sendData";
 
 interface FormProps {}
 
@@ -52,7 +53,7 @@ const Form: FC<FormProps> = () => {
     if (step !== 3) {
       setStep(prev => prev + 1);
     } else {
-      // request
+      // const status = sendData(url,data)
     }
   }
 

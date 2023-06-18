@@ -2,11 +2,9 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 8px;
 }
 
 .radioGroupTitle{
-  margin-bottom: 10px;
   font-size: 14px;
   line-height: 20px;
   color: #333333;
@@ -42,6 +40,9 @@
     margin-bottom: 8px;
     font-size: 10px;
     line-height: 12px;
+  }
+  .radioGroupContainer{
+    gap: 4px;
   }
   .radioContainer{
     gap: 10px;

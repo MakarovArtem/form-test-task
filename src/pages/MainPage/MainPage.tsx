@@ -11,6 +11,7 @@ import { useAppDispatch, useAppSelector } from "../../store/hooks/hooks";
 import { setEmail, setNumber } from "../../store/reducers/mainSlice";
 import InputController from "../../components/UI/input/InputController";
 import Button from "../../components/UI/button/Button";
+import Input from "../../components/UI/input/Input";
 
 interface MainScreenProps {}
 
@@ -31,7 +32,8 @@ const MainScreen: FC<MainScreenProps> = () => {
   const onSubmit = (data: any) => {
     dispatch(setNumber(data.phoneNumber));
     dispatch(setEmail(data.emailAdress));
-    navigate("/create");
+    console.log(numberDef)
+    // navigate("/create");
   }
 
   return (
@@ -54,12 +56,12 @@ const MainScreen: FC<MainScreenProps> = () => {
               // field: {onChange},
               fieldState: { error },
             }) => (
+              
               <PatternFormat
                 format="+7 (###) ###-##-##"
                 {...field}
-                // customInput={Input}
+                style={{border: "1px solid red"}}
               />
-
               /* <Input
                 {...field}
                 disabled={false}
