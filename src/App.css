@@ -89,23 +89,7 @@ legend {
 }
 
 /* Fonts */
-@import url(https://cloud.ru/fonts/sb-sans-interface/SBSansInterface-Semibold.woff2);
-@import url(https://cloud.ru/fonts/sb-sans-display/SBSansDisplaySemiBold.woff2);
-
-@font-face {
-  font-family: "SB Sans Interface";
-  src: url(https://cloud.ru/fonts/sb-sans-interface/SBSansInterface-Semibold.woff2) format("woff2");
- }
-
-@font-face {
-  font-family: "SB Sans Display";
-  src: url(https://cloud.ru/fonts/sb-sans-display/SBSansDisplaySemiBold.woff2) format("woff2");
- }
-
- @font-face {
-  font-family: "SB Sans Text";
-  src: "https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.1.0.css" rel="stylesheet";
- }
+@font-face {font-family: "SB Sans Interface"; src: url("//db.onlinewebfonts.com/t/37086b994764dba84b2ee0f1083bfeed.eot"); src: url("//db.onlinewebfonts.com/t/37086b994764dba84b2ee0f1083bfeed.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/37086b994764dba84b2ee0f1083bfeed.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/37086b994764dba84b2ee0f1083bfeed.woff") format("woff"), url("//db.onlinewebfonts.com/t/37086b994764dba84b2ee0f1083bfeed.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/37086b994764dba84b2ee0f1083bfeed.svg#SB Sans Interface") format("svg"); }
 
 /* Common styles */
 body{
