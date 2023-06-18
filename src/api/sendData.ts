@@ -1,4 +1,5 @@
-const sendData = async (url:any, data:any) => {
+const sendData = async (url: string, data: any) => {
+  
   const response = await fetch (url,{
     method: 'POST',
     headers: {
@@ -6,8 +7,9 @@ const sendData = async (url:any, data:any) => {
     },
     body: JSON.stringify(data)
     });
-  if (response.ok){
-    return true;
-  }
+    
+    let result = await response.json();
+    return result;
 }
+
 export default sendData;

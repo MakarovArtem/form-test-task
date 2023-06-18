@@ -25,7 +25,7 @@ const FormStepTwo: FC<FormStepTwoProps> = ({register, remove, append, fields}) =
               <div className={style.inputContainer}>
                 <Input
                   register={register}
-                  registerProps={(`advantages.${index}.field-advantages-${index}`)}
+                  registerProps={(`advantages.${index}.advantage`)}
                   title=""
                   placeholder="Advantage"
                   id={`field-advantages-${index+1}`}

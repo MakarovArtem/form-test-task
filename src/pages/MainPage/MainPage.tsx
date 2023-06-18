@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { PatternFormat } from "react-number-format";
 import { NumericFormat } from "react-number-format";
 
+import styleInput from "../../components/UI/input/Input.module.css";
 import style from "./MainPage.module.css";
 import Info from "../../components/info/Info";
 import { useAppDispatch, useAppSelector } from "../../store/hooks/hooks";
@@ -16,6 +17,8 @@ import Input from "../../components/UI/input/Input";
 interface MainScreenProps {}
 
 const MainScreen: FC<MainScreenProps> = () => {
+  
+  const navigate = useNavigate();
 
   const {
     control,
@@ -23,11 +26,9 @@ const MainScreen: FC<MainScreenProps> = () => {
     formState: {isValid}
   } = useForm({ mode: "onBlur" });
 
-  
+  const dispatch = useAppDispatch();
   const numberDef = useAppSelector(state => state.main.phoneNumber);
   const emailDef = useAppSelector(state => state.main.emailAdress);
-  const dispatch = useAppDispatch();
-  const navigate = useNavigate();
   
   const onSubmit = (data: any) => {
     dispatch(setNumber(data.phoneNumber));
@@ -52,15 +53,16 @@ const MainScreen: FC<MainScreenProps> = () => {
             }}
             render={({
               field,
-              // field: {onChange},
-              fieldState: { error },
             }) => (
-              
-              <PatternFormat
-                format="+7 (###) ###-##-##"
-                {...field}
-                style={{border: "1px solid red"}}
-              />
+              <div className={styleInput.inputContainer}>
+                <p className={styleInput.inputTitle}>Number</p>
+                <PatternFormat
+                  format="+7 (###) ###-##-##"
+                  {...field}
+                  className={styleInput.input}
+                  id="field-number"
+                />
+              </div>
               /* <Input
                 {...field}
                 disabled={false}
@@ -84,7 +86,6 @@ const MainScreen: FC<MainScreenProps> = () => {
             }}
             render={({
               field,
-              fieldState: { error },
             }) => (
               <InputController
                 {...field}
@@ -92,7 +93,7 @@ const MainScreen: FC<MainScreenProps> = () => {
                 title='Email' 
                 type='email'
                 placeholder="ARTEMMAKAROV76@YANDEX.RU"
-                tip={error?.message || "Allrighty"}
+                tip={""}
                 id="filed-email"
               />
             )}

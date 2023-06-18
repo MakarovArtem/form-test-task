@@ -1,5 +1,5 @@
-import React, { FC, useState } from "react";
-
+import React, { FC, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useForm, useFieldArray } from "react-hook-form";
 import { useAppDispatch, useAppSelector } from "../../store/hooks/hooks";
 import { setName, setNickname, setSex, setSurname } from "../../store/reducers/stepOneSlice";
@@ -13,22 +13,23 @@ import FormStepThree from "./FormStepThree/FormStepThree";
 import Button from "../../components/UI/button/Button";
 import ModalWindow from "../../components/modalWindow/ModalWindow";
 
-import style from "./Form.module.css";
-import { useNavigate } from "react-router-dom";
 import sendData from "../../api/sendData";
+
+import style from "./Form.module.css";
 
 interface FormProps {}
 
 const Form: FC<FormProps> = () => {
 
   const [step, setStep] = useState(1);
-  const [modalOn, setModalOn] = useState(true);
+  const [modalOn, setModalOn] = useState(false);
   const navigate = useNavigate();
 
   const dispatch = useAppDispatch();
-  const advantagesDef = useAppSelector(state => state.stepTwo.advantages);
-  const checkboxDef = useAppSelector(state => state.stepTwo.checkboxGroup);
-  const radioDef = useAppSelector(state => state.stepTwo.radioGroup);
+  const advantages = useAppSelector(state => state.stepTwo.advantages);
+  const checkbox = useAppSelector(state => state.stepTwo.checkboxGroup);
+  const radio = useAppSelector(state => state.stepTwo.radioGroup);
+  const state = useAppSelector(state => state);
 
   const {
     watch,
@@ -36,10 +37,15 @@ const Form: FC<FormProps> = () => {
     register,
     handleSubmit,
   } = useForm({  defaultValues: {
-    advantages: [...advantagesDef],
-    checkboxGroup: checkboxDef,
-    radioGroup: radioDef,
+    advantages: [...advantages],
+    checkboxGroup: checkbox,
+    radioGroup: radio,
   }});
+
+  const { fields, append, remove } = useFieldArray({
+    control,
+    name: "advantages",
+  });
   
   function back(){
     if (step !== 1) {
@@ -50,15 +56,37 @@ const Form: FC<FormProps> = () => {
   }
 
   function forward() {
-    if (step !== 3) {
+    if (step !== 4) {
       setStep(prev => prev + 1);
-    } else {
-      // const status = sendData(url,data)
     }
   }
 
+  function transformAdvantages() {
+    //@ts-ignore
+    const advantagesStringArr = advantages.map((obj) => obj.advantage);
+    //@ts-ignore
+    dispatch(setAdvantages(advantagesStringArr))
+  }
+
+  function transformCheckbox() {
+    if (checkbox !== false) {
+      //@ts-ignore
+      const checkboxGroupNumberArray = checkbox.map((item: string) => parseInt(item));
+      //@ts-ignore
+      dispatch(setCheckboxGroup(checkboxGroupNumberArray))
+    } else {
+      dispatch(setCheckboxGroup(false))
+    }
+  }
+
+  function transformRadio() {
+    const radioGroupNumber = parseInt(radio);
+    //@ts-ignore
+    dispatch(setRadioGroup(radioGroupNumber))
+  }
+
   const onSubmit = (data: any) => {
-    alert("submit")
+    // console.log(data.advantages)
     switch(step){
       case 1:
         dispatch(setNickname(data.nickname));
@@ -73,21 +101,37 @@ const Form: FC<FormProps> = () => {
         break;
       case 3:
         dispatch(setAbout(data.about));
-        // сделать запрос и вызвать модалку
-        return;
+        break;
     }
-
-    const rawCheckboxGroupArr = data.checkboxGroup;
-    const numberCheckboxGroupArray = rawCheckboxGroupArr.map((item: any) => parseInt(item));
-
-    const rawRadioGroupVal = data.radioGroup;
-    
   }
 
-  const { fields, append, remove } = useFieldArray({
-    control,
-    name: "advantages",
-  });
+  useEffect(()=>{
+    if (step === 4) {
+      // transformAdvantages();
+      transformCheckbox();
+      transformRadio();
+
+      const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(state)
+      };
+
+      const url = "https://api.sbercloud.ru/content/v1/bootcamp/frontend";
+
+      fetch(url, requestOptions)
+          .then(response => response.json())
+          .then(data => data.status === "success" ? setModalOn(true) : setModalOn(false));
+
+      // const url = "https://api.sbercloud.ru/content/v1/bootcamp/frontend";
+      // const isRequestSuccessful = sendData(url, state);
+      // //@ts-ignore
+      // // setModalOn(isRequestSuccessful);
+      // console.log("staaaaaaaaaaaaaaaaaaaaaaaate",state)
+      // console.log("advaaaaaaaaaaaaantage",advantages)
+      // console.log(isRequestSuccessful, "response")
+    }
+  },[step,advantages, checkbox, radio])
 
   return (
     <article className={style.main}>
@@ -104,8 +148,8 @@ const Form: FC<FormProps> = () => {
                               append={append}
                               remove={remove}
                               fields={fields}
-                            /> :
-              step === 3 ? <FormStepThree control={control} watch={watch} /> : false
+                            /> 
+              : <FormStepThree control={control} watch={watch} />
             }
           </form>
         </div>
