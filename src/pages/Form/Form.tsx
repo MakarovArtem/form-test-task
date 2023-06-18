@@ -18,7 +18,8 @@ interface FormProps {}
 const Form: FC<FormProps> = () => {
 
   const [step, setStep] = useState<number>(1);
-  const [modalOn, setModalOn] = useState<boolean>();
+  const [modalOn, setModalOn] = useState<boolean>(false);
+  const [modalSuccessfull, setModalSuccessfull] = useState<boolean>(false)
   const navigate = useNavigate();
 
   const dispatch = useAppDispatch();
@@ -47,7 +48,9 @@ const Form: FC<FormProps> = () => {
   function back(){
     if (step !== 1) {
       setStep(prev => prev - 1);
-     } else {
+    } else if (step > 3){
+      setStep(prev => prev - 2);
+    } else {
       navigate("/");
     } 
   }
@@ -93,7 +96,16 @@ const Form: FC<FormProps> = () => {
         break;
       case 3:
         const dataForm = getFormData(state, data.about);
-        sendData(dataForm).then(data => data.status === "success" ? setModalOn(true) :  setModalOn(false));
+        sendData(dataForm)
+          .then(data => {
+            console.log(data)
+            setModalOn(true);
+            if (data.status === "success") {
+              setModalSuccessfull(true);
+            } else {
+              setModalSuccessfull(false)
+            }
+          })
         break;
     }
   }
@@ -131,13 +143,13 @@ const Form: FC<FormProps> = () => {
           <Button 
             disabled={isValid ? false : true}
             onClick={handleSubmit(onSubmit)}
-            text={step !== 3? "Далее" : "Отправить"}
+            text={step >= 3 ? "Отправить" : "Далее"}
             theme={"blue"}
-            id={step !== 3? "button-next" : "button-send"}
+            id={step >= 3 ? "button-send" : "button-next"}
           />
         </div>
       </div>
-      {modalOn && <ModalWindow isSuccessfull={modalOn} setModalOn={setModalOn} />}
+      {modalOn && <ModalWindow isSuccessfull={modalSuccessfull} setModalOn={setModalOn} />}
     </article>
   )
 }
