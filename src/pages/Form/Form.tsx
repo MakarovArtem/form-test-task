@@ -1,11 +1,9 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm, useFieldArray } from "react-hook-form";
 import { useAppDispatch, useAppSelector } from "../../store/hooks/hooks";
 import { setName, setNickname, setSex, setSurname } from "../../store/reducers/stepOneSlice";
 import { setAdvantages, setCheckboxGroup, setRadioGroup } from "../../store/reducers/stepTwoSlice";
-import { setAbout } from "../../store/reducers/stepThreeSlice";
-
 import ProgressLine from "../../components/progressLine/ProgressLine";
 import FormStepOne from "./FormStepOne/FormStepOne";
 import FormStepTwo from "./FormStepTwo/FormStepTwo";
@@ -21,8 +19,8 @@ interface FormProps {}
 
 const Form: FC<FormProps> = () => {
 
-  const [step, setStep] = useState(1);
-  const [modalOn, setModalOn] = useState(false);
+  const [step, setStep] = useState<number>(1);
+  const [modalOn, setModalOn] = useState<boolean>();
   const navigate = useNavigate();
 
   const dispatch = useAppDispatch();
@@ -61,23 +59,6 @@ const Form: FC<FormProps> = () => {
     }
   }
 
-  function transformCheckbox() {
-    if (checkbox !== false) {
-      //@ts-ignore
-      const checkboxGroupNumberArray = checkbox.map((item: string) => parseInt(item));
-      //@ts-ignore
-      dispatch(setCheckboxGroup(checkboxGroupNumberArray))
-    } else {
-      dispatch(setCheckboxGroup(false))
-    }
-  }
-
-  function transformRadio() {
-    const radioGroupNumber = parseInt(radio);
-    //@ts-ignore
-    dispatch(setRadioGroup(radioGroupNumber))
-  }
-
   function getFormData(stateForm: any, lastStepData: any) {
     //@ts-ignore
     function getKeysFromObj(array) {
@@ -87,15 +68,18 @@ const Form: FC<FormProps> = () => {
       });
     }
     return {
-      ...stateForm.main,      ...stateForm.stepOne,
-      ...stateForm.stepTwo,      about: lastStepData,
-      //@ts-ignore
+      ...stateForm.main,
+      ...stateForm.stepOne,
+      ...stateForm.stepTwo,
+      about: lastStepData,
       advantages: getKeysFromObj(stateForm.stepTwo.advantages),
+      checkboxGroup: stateForm.stepTwo.checkboxGroup !== false ?
+        stateForm.stepTwo.checkboxGroup.map((item: string) => parseInt(item)) : false,
+      radioGroup: parseInt(stateForm.stepTwo.radioGroup),
     };
   }
 
    const onSubmit = (data: any) => {
-    // console.log(data.advantages)
     switch(step){
       case 1:
         dispatch(setNickname(data.nickname));
@@ -110,7 +94,8 @@ const Form: FC<FormProps> = () => {
         break;
       case 3:
         const dataForm = getFormData(state, data.about);
-        sendData(dataForm).then(data => data.status === "success" ? console.log(true,dataForm) : console.log(false));
+        sendData(dataForm).then(data => data.status === "success" ? setModalOn(true) :  setModalOn(false));
+        // sendData(dataForm).then(data => data.status === "success" ? console.log(true,dataForm) : console.log(false));
         break;
     }
   }
@@ -142,8 +127,7 @@ const Form: FC<FormProps> = () => {
           <Button onClick={handleSubmit(onSubmit)} text="Далее" theme={"blue"} id="button-next" />
         </div>
       </div>
-      {modalOn && <ModalWindow isSuccessfull={modalOn} setModalOn={setModalOn} />
-      }
+      {modalOn && <ModalWindow isSuccessfull={modalOn} setModalOn={setModalOn} />}
     </article>
   )
 }

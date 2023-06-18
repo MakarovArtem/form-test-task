@@ -26,8 +26,8 @@ const ModalWindow: FC<ModalWindowProps> = ({isSuccessfull, setModalOn}) => {
   }
 
   return (
-    <article onClick={setModalOn(false)} className={style.wrapper}>
-      <div onClick={e => e.stopPropagation} className={style.main}>
+    <article className={style.wrapper}>
+      <div className={style.main}>
         <h2 className={style.title}>{title}</h2>
         <div onClick={handleClick} className={style.crossButton}></div>
         <div className={style.pictogramContainer}>
