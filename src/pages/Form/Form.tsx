@@ -5,14 +5,12 @@ import { useAppDispatch, useAppSelector } from "../../store/hooks/hooks";
 import { setName, setNickname, setSex, setSurname } from "../../store/reducers/stepOneSlice";
 import { setAdvantages, setCheckboxGroup, setRadioGroup } from "../../store/reducers/stepTwoSlice";
 import ProgressLine from "../../components/progressLine/ProgressLine";
+import Button from "../../components/UI/button/Button";
 import FormStepOne from "./FormStepOne/FormStepOne";
 import FormStepTwo from "./FormStepTwo/FormStepTwo";
 import FormStepThree from "./FormStepThree/FormStepThree";
-import Button from "../../components/UI/button/Button";
 import ModalWindow from "../../components/modalWindow/ModalWindow";
-
 import sendData from "../../api/sendData";
-
 import style from "./Form.module.css";
 
 interface FormProps {}
@@ -95,7 +93,6 @@ const Form: FC<FormProps> = () => {
       case 3:
         const dataForm = getFormData(state, data.about);
         sendData(dataForm).then(data => data.status === "success" ? setModalOn(true) :  setModalOn(false));
-        // sendData(dataForm).then(data => data.status === "success" ? console.log(true,dataForm) : console.log(false));
         break;
     }
   }

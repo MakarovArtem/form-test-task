@@ -1,18 +1,14 @@
 import React, { FC } from "react";
-import { useForm, Controller } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
-// import MaskedInput from "react-text-mask";
 import { PatternFormat } from "react-number-format";
-import { NumericFormat } from "react-number-format";
-
-import styleInput from "../../components/UI/input/Input.module.css";
-import style from "./MainPage.module.css";
-import Info from "../../components/info/Info";
+import { useNavigate } from "react-router-dom";
+import { useForm, Controller } from "react-hook-form";
 import { useAppDispatch, useAppSelector } from "../../store/hooks/hooks";
 import { setEmail, setNumber } from "../../store/reducers/mainSlice";
+import Info from "../../components/info/Info";
 import InputController from "../../components/UI/input/InputController";
 import Button from "../../components/UI/button/Button";
-import Input from "../../components/UI/input/Input";
+import styleInput from "../../components/UI/input/Input.module.css";
+import style from "./MainPage.module.css";
 
 interface MainScreenProps {}
 
@@ -23,7 +19,6 @@ const MainScreen: FC<MainScreenProps> = () => {
   const {
     control,
     handleSubmit,
-    formState: {isValid}
   } = useForm({ mode: "onBlur" });
 
   const dispatch = useAppDispatch();
@@ -63,15 +58,6 @@ const MainScreen: FC<MainScreenProps> = () => {
                   id="field-number"
                 />
               </div>
-              /* <Input
-                {...field}
-                disabled={false}
-                title='Номер телефона' 
-                type='tel' 
-                placeholder="+7 (961) 026-29-17"
-                tip={error?.message || "Allrighty"}
-                id="filed-number"
-                /> */
             )}
           />
         </div>

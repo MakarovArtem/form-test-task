@@ -1,10 +1,10 @@
 import React, { FC } from "react";
+import Input from "../../../components/UI/input/Input";
+import ButtonIcon from "../../../components/UI/buttonIcon/ButtonIcon";
+import Button from "../../../components/UI/button/Button";
 import Checkbox from "../../../components/UI/checkboxGroup/CheckboxGroup";
 import Radio from "../../../components/UI/radioGroup/RadioGroup";
 import style from "./FormStepTwo.module.css";
-import Input from "../../../components/UI/input/Input";
-import Button from "../../../components/UI/button/Button";
-import ButtonIcon from "../../../components/UI/buttonIcon/ButtonIcon";
 
 interface FormStepTwoProps {
   register: any;

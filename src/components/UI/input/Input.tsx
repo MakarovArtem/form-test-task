@@ -5,8 +5,8 @@ interface InputProps {
   width?: string;
   disabled?: boolean;
   title: string;
-  type?: string;
   placeholder?: string;
+  type?: string;
   tip?: string;
   id: string;
   ref?: any;
@@ -14,12 +14,13 @@ interface InputProps {
   registerProps?: string;
 }
 
-const Input: FC<InputProps> = ({width, title, placeholder, type, tip, id, register, registerProps}) => {
+const Input: FC<InputProps> = ({width, disabled, title, placeholder, type, tip, id, register, registerProps}) => {
 
   return (
     <div className={style.inputContainer}>
       <p className={style.inputTitle}>{title}</p>
-      <input 
+      <input
+        disabled={disabled}
         style={{width: width ? width : "auto"}}
         className={style.input}
         type={type}

@@ -2,7 +2,7 @@ import React, { FC, useEffect, useState } from "react";
 import style from "./ProgressLine.module.css";
 
 interface ProgressLineProps {
-  step?: number;
+  step: number;
 }
 
 const ProgressLine: FC<ProgressLineProps> = ({step}) => {
@@ -44,6 +44,7 @@ const ProgressLine: FC<ProgressLineProps> = ({step}) => {
         line = style.line+ " " + style.lineHalf;
         break;
       case 3:
+      case 4:
         dotOne = style.dot + " " + style.dotDone;
         dotTwo = style.dot + " " + style.dotDone;
         dotThree = style.dot + " " + style.dotActive;

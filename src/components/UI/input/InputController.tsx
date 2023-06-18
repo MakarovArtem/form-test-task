@@ -12,12 +12,13 @@ interface InputControllerProps {
   ref?: any;
 }
 
-const InputController: FC<InputControllerProps> = forwardRef(({width, title, placeholder, type, tip, id, ...rest}, ref) => {
+const InputController: FC<InputControllerProps> = forwardRef(({width, disabled, title, placeholder, type, tip, id, ...rest}, ref) => {
 
   return (
     <div className={style.inputContainer}>
       <p className={style.inputTitle}>{title}</p>
-      <input 
+      <input
+        disabled={disabled}
         style={{width: width ? width : "auto"}}
         className={style.input}
         type={type}

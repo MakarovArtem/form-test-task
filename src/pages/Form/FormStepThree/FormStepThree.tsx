@@ -1,8 +1,8 @@
 import React, { FC } from "react";
+import { useAppSelector } from "../../../store/hooks/hooks";
 import { Controller } from "react-hook-form";
 import Textarea from "../../../components/UI/textArea/Textarea";
 import style from "./FormStepThree.module.css";
-import { useAppSelector } from "../../../store/hooks/hooks";
 
 interface FormStepThreeProps {
   control: any;

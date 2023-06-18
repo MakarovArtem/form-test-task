@@ -1,11 +1,9 @@
 import React, { FC } from "react";
-import { Controller, Control } from "react-hook-form";
+import { Controller } from "react-hook-form";
 import { useAppSelector } from "../../../store/hooks/hooks";
-
-import Select from "../../../components/UI/select/Select";
-
-import style from "./FormStepOne.module.css";
 import InputController from "../../../components/UI/input/InputController";
+import Select from "../../../components/UI/select/Select";
+import style from "./FormStepOne.module.css";
 
 interface FormStepOneProps {
   control: any;

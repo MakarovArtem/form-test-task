@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import type { RootState } from "../store";
 
 interface mainSlice {
   phoneNumber: string;
@@ -16,7 +15,6 @@ export const mainSlice = createSlice({
   name: 'main',
   initialState,
   reducers: {
-    // Use the PayloadAction type to declare the contents of `action.payload`
     setNumber: (state, action: PayloadAction<string>) => {
       state.phoneNumber = action.payload
     },
@@ -27,8 +25,5 @@ export const mainSlice = createSlice({
 })
 
 export const { setNumber, setEmail } = mainSlice.actions;
-
-// // Other code such as selectors can use the imported `RootState` type
-// export const selectCount = (state: RootState) => state.counter.value
 
 export default mainSlice.reducer;

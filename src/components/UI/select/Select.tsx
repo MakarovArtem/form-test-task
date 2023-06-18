@@ -13,15 +13,15 @@ interface SelectProps {
   options: Options[];
   tip?: string;
   id: string;
-  field?: any;
   ref?: any;
 }
 
-const Select: FC<SelectProps> = forwardRef(({width, title, options, tip, id, ...rest}, ref) => {
+const Select: FC<SelectProps> = forwardRef(({width, disabled, title, options, tip, id, ...rest}, ref) => {
   return (
     <div className={style.selectContainer}>
       <p className={style.selectTitle}>{title}</p>
       <select
+        disabled={disabled}
         style={{width: width ? width : "auto"}}
         className={style.select}
         id={id}

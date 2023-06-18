@@ -1,9 +1,8 @@
 import React from 'react';
-import { Provider } from "react-redux";
-import { store } from "./store/store";
-import { HashRouter } from "react-router-dom";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ReactDOM from 'react-dom/client';
+import { store } from "./store/store";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Provider } from "react-redux";
 import App from './App';
 import Form from './pages/Form/Form';
 import Error from './pages/Error/Error';
@@ -29,7 +28,7 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-    <Provider store={store}>
-        <RouterProvider router={router} />
-    </Provider>
+  <Provider store={store}>
+    <RouterProvider router={router} />
+  </Provider>
 );
