@@ -61,13 +61,6 @@ const Form: FC<FormProps> = () => {
     }
   }
 
-  function transformAdvantages() {
-    //@ts-ignore
-    const advantagesStringArr = advantages.map((obj) => obj.advantage);
-    //@ts-ignore
-    dispatch(setAdvantages(advantagesStringArr))
-  }
-
   function transformCheckbox() {
     if (checkbox !== false) {
       //@ts-ignore
@@ -85,7 +78,23 @@ const Form: FC<FormProps> = () => {
     dispatch(setRadioGroup(radioGroupNumber))
   }
 
-  const onSubmit = (data: any) => {
+  function getFormData(stateForm: any, lastStepData: any) {
+    //@ts-ignore
+    function getKeysFromObj(array) {
+      //@ts-ignore
+      return array.map((item) => {
+        return item.advantage;
+      });
+    }
+    return {
+      ...stateForm.main,      ...stateForm.stepOne,
+      ...stateForm.stepTwo,      about: lastStepData,
+      //@ts-ignore
+      advantages: getKeysFromObj(stateForm.stepTwo.advantages),
+    };
+  }
+
+   const onSubmit = (data: any) => {
     // console.log(data.advantages)
     switch(step){
       case 1:
@@ -100,38 +109,11 @@ const Form: FC<FormProps> = () => {
         dispatch(setCheckboxGroup(data.checkboxGroup));
         break;
       case 3:
-        dispatch(setAbout(data.about));
+        const dataForm = getFormData(state, data.about);
+        sendData(dataForm).then(data => data.status === "success" ? console.log(true,dataForm) : console.log(false));
         break;
     }
   }
-
-  useEffect(()=>{
-    if (step === 4) {
-      // transformAdvantages();
-      transformCheckbox();
-      transformRadio();
-
-      const requestOptions = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(state)
-      };
-
-      const url = "https://api.sbercloud.ru/content/v1/bootcamp/frontend";
-
-      fetch(url, requestOptions)
-          .then(response => response.json())
-          .then(data => data.status === "success" ? setModalOn(true) : setModalOn(false));
-
-      // const url = "https://api.sbercloud.ru/content/v1/bootcamp/frontend";
-      // const isRequestSuccessful = sendData(url, state);
-      // //@ts-ignore
-      // // setModalOn(isRequestSuccessful);
-      // console.log("staaaaaaaaaaaaaaaaaaaaaaaate",state)
-      // console.log("advaaaaaaaaaaaaantage",advantages)
-      // console.log(isRequestSuccessful, "response")
-    }
-  },[step,advantages, checkbox, radio])
 
   return (
     <article className={style.main}>
@@ -160,10 +142,7 @@ const Form: FC<FormProps> = () => {
           <Button onClick={handleSubmit(onSubmit)} text="Далее" theme={"blue"} id="button-next" />
         </div>
       </div>
-      {modalOn && 
-        // <div className={style.modalWindow}>
-          <ModalWindow isSuccessfull={false} setModalOn={setModalOn} />
-        // </div>
+      {modalOn && <ModalWindow isSuccessfull={modalOn} setModalOn={setModalOn} />
       }
     </article>
   )

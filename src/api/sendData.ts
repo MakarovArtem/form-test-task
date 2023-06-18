@@ -1,6 +1,8 @@
-const sendData = async (url: string, data: any) => {
+const URL = "https://api.sbercloud.ru/content/v1/bootcamp/frontend";
+
+const sendData = async (data: any) => {
   
-  const response = await fetch (url,{
+  const response = await fetch (URL, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json;charset=utf-8'
