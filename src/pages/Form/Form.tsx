@@ -102,7 +102,7 @@ const Form: FC<FormProps> = () => {
             console.log(data)
             setModalOn(true);
             if (data.status === "success") {
-              setModalSuccessfull(true);
+              setModalSuccessfull(false);
             } else {
               setModalSuccessfull(false)
             }

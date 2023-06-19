@@ -12,13 +12,7 @@ interface ButtonIconProps {
 const ButtonIcon: FC<ButtonIconProps> = ({onClick, maxWidth, picURL, id}) => {
 
   return (
-    <button type="button" onClick={onClick} id={id}>
-      <ReactSVG
-        style={{maxWidth: maxWidth ? maxWidth : "auto"}}
-        className={style.buttonIcon}
-        src={picURL}
-      />
-    </button>
+    <div className={style.ButtonIcon} onClick={onClick} id={id}></div>
   )
 }
 
