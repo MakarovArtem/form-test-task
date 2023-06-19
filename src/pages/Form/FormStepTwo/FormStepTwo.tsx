@@ -34,7 +34,7 @@ const FormStepTwo: FC<FormStepTwoProps> = ({register, remove, append, fields}) =
               <div className={style.removeAdvantageContainer}>
                 <ButtonIcon
                   maxWidth="16px"
-                  picURL="./form-test-task/icons/link-icon.svg"
+                  picURL="./form-test-task/icons/delete-icon.svg"
                   onClick={() => remove(index)}
                   id={`button-remove-${index+1}`}
                 />
