@@ -17,7 +17,27 @@ const Info: FC<InfoProps> = () => {
         <ul className={style.contacts}>
           <li className={style.contactContainer}>
             <div className={style.linkIconContainer}>
+              <img src="link-icon.svg" alt="link-icon" />
+              <img src="/link-icon.svg" alt="link-icon" />
+              <img src="./link-icon.svg" alt="link-icon" />
+              <img src="../link-icon.svg" alt="link-icon" />
+              <img src="/icons/link-icon.svg" alt="link-icon" />
+              <img src="./icons/link-icon.svg" alt="link-icon" />
+              <img src="../icons/link-icon.svg" alt="link-icon" />
+              <img src="public/icons/link-icon.svg" alt="link-icon" />
+              <img src="/public/icons/link-icon.svg" alt="link-icon" />
+              <img src="./public/icons/link-icon.svg" alt="link-icon" />
+              <img src="../public/icons/link-icon.svg" alt="link-icon" />
+              <img src="/../public/icons/link-icon.svg" alt="link-icon" />
+              <img src="./../public/icons/link-icon.svg" alt="link-icon" />
               <img src="../../public/icons/link-icon.svg" alt="link-icon" />
+              <img src="/../../public/icons/link-icon.svg" alt="link-icon" />
+              <img src="./../../public/icons/link-icon.svg" alt="link-icon" />
+              <img src="../../../public/icons/link-icon.svg" alt="link-icon" />
+              <img src="/../../../public/icons/link-icon.svg" alt="link-icon" />
+              <img src="./../../../public/icons/link-icon.svg" alt="link-icon" />
+              <img src="../../../../public/icons/link-icon.svg" alt="link-icon" />
+              <img src="/../../../../public/icons/link-icon.svg" alt="link-icon" />
             </div>
 
             <div className={style.linkContainer}>
