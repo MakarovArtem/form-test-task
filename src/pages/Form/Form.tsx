@@ -91,18 +91,15 @@ const Form: FC<FormProps> = () => {
         dispatch(setAdvantages(data.advantages));
         dispatch(setRadio(data.radio));
         dispatch(setCheckbox(data.checkbox));
-        console.log(data.checkbox, "checkbox")
-        console.log(data.radio, "radio")
         break;
       case 3:
         const dataForm = getFormData(state, data.about);
-        console.log(dataForm)
         sendData(dataForm)
           .then(data => {
             console.log(data)
             setModalOn(true);
             if (data.status === "success") {
-              setModalSuccessfull(false);
+              setModalSuccessfull(true);
             } else {
               setModalSuccessfull(false)
             }
