@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/form-test-task/static/css/main.8042763f.css",
-    "main.js": "/form-test-task/static/js/main.7ac8f834.js",
+    "main.js": "/form-test-task/static/js/main.fbfad0bb.js",
     "index.html": "/form-test-task/index.html",
     "static/media/modal-error-icon.svg": "/form-test-task/static/media/modal-error-icon.fd1a8448dacc4a5af170.svg",
     "static/media/modal-success-icon.svg": "/form-test-task/static/media/modal-success-icon.a20946ae27d9e9492ba1.svg",
     "static/media/cross-icon.svg": "/form-test-task/static/media/cross-icon.12697ca38f724dc86c5f.svg",
     "static/media/check-icon.svg": "/form-test-task/static/media/check-icon.501987ca8dd4487a7609.svg",
     "main.8042763f.css.map": "/form-test-task/static/css/main.8042763f.css.map",
-    "main.7ac8f834.js.map": "/form-test-task/static/js/main.7ac8f834.js.map"
+    "main.fbfad0bb.js.map": "/form-test-task/static/js/main.fbfad0bb.js.map"
   },
   "entrypoints": [
     "static/css/main.8042763f.css",
-    "static/js/main.7ac8f834.js"
+    "static/js/main.fbfad0bb.js"
   ]
 }
