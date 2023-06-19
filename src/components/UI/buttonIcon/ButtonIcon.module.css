@@ -10,7 +10,8 @@
 }
 
 .buttonIcon::before{
-  content: url("./icons/delete-icon.svg");
+  content: " ";
+  background-image: url("./icons/delete-icon.svg");
 }
 
 .buttonIcon:hover{
