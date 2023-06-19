@@ -27,8 +27,8 @@ const MainScreen: FC<MainScreenProps> = () => {
   const emailDef = useAppSelector(state => state.main.email);
   
   const onSubmit = (data: any) => {
-    dispatch(setNumber(data.phoneNumber));
-    dispatch(setEmail(data.emailAdress));
+    dispatch(setNumber(data.phone));
+    dispatch(setEmail(data.email));
     navigate("/create");
   }
 
