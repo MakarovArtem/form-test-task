@@ -2,13 +2,13 @@ import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
 interface mainSlice {
-  phoneNumber: string;
-  emailAdress: string;
+  phone: string;
+  email: string;
 }
 
 const initialState: mainSlice = {
-  phoneNumber: "+7 (961) 026-29-17",
-  emailAdress: "Artemmakarov76@yandex.ru",
+  phone: "+7 (961) 026-29-17",
+  email: "Artemmakarov76@yandex.ru",
 }
 
 export const mainSlice = createSlice({
@@ -16,10 +16,10 @@ export const mainSlice = createSlice({
   initialState,
   reducers: {
     setNumber: (state, action: PayloadAction<string>) => {
-      state.phoneNumber = action.payload
+      state.phone = action.payload
     },
     setEmail: (state, action: PayloadAction<string>) => {
-      state.emailAdress = action.payload
+      state.email = action.payload
     },
   },
 })

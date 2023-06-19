@@ -23,8 +23,8 @@ const MainScreen: FC<MainScreenProps> = () => {
   } = useForm({ mode: "onBlur" });
 
   const dispatch = useAppDispatch();
-  const numberDef = useAppSelector(state => state.main.phoneNumber);
-  const emailDef = useAppSelector(state => state.main.emailAdress);
+  const numberDef = useAppSelector(state => state.main.phone);
+  const emailDef = useAppSelector(state => state.main.email);
   
   const onSubmit = (data: any) => {
     dispatch(setNumber(data.phoneNumber));
@@ -40,7 +40,7 @@ const MainScreen: FC<MainScreenProps> = () => {
       <form onSubmit={handleSubmit(onSubmit)} className={style.form}>
         <div className={style.inputContainer}>
           <Controller
-            name="phoneNumber"
+            name="phone"
             control={control}
             defaultValue={numberDef}
             rules={{ 
@@ -66,7 +66,7 @@ const MainScreen: FC<MainScreenProps> = () => {
         </div>
         <div className={style.inputContainer}>
           <Controller
-            name="emailAdress"
+            name="email"
             control={control}
             defaultValue={emailDef}
             rules={{ 

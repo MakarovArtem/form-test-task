@@ -53,7 +53,7 @@ const FormStepTwo: FC<FormStepTwoProps> = ({register, remove, append, fields}) =
         <Checkbox
           register={register}
           title="Checkbox group"
-          groupName={"checkboxGroup"}
+          groupName={"checkbox"}
           options={[
             { value: "1", id: "field-checkbox-group-option-1" }, 
             { value: "2", id: "field-checkbox-group-option-2" }, 
@@ -66,7 +66,7 @@ const FormStepTwo: FC<FormStepTwoProps> = ({register, remove, append, fields}) =
         <Radio
           register={register}
           title="Radio group" 
-          groupName="radioGroup"
+          groupName="radio"
           options={[
             {value: "1", id: "field-radio-group-option-1"},
             {value: "2", id: "field-radio-group-option-2"},

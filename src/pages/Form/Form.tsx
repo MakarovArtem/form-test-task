@@ -1,9 +1,9 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm, useFieldArray } from "react-hook-form";
 import { useAppDispatch, useAppSelector } from "../../store/hooks/hooks";
 import { setName, setNickname, setSex, setSurname } from "../../store/reducers/stepOneSlice";
-import { setAdvantages, setCheckboxGroup, setRadioGroup } from "../../store/reducers/stepTwoSlice";
+import { setAdvantages, setCheckbox, setRadio } from "../../store/reducers/stepTwoSlice";
 import ProgressLine from "../../components/progressLine/ProgressLine";
 import Button from "../../components/UI/button/Button";
 import FormStepOne from "./FormStepOne/FormStepOne";
@@ -12,7 +12,6 @@ import FormStepThree from "./FormStepThree/FormStepThree";
 import ModalWindow from "../../components/modalWindow/ModalWindow";
 import sendData from "../../api/sendData";
 import style from "./Form.module.css";
-import { setAbout } from "../../store/reducers/stepThreeSlice";
 
 interface FormProps {}
 
@@ -25,8 +24,8 @@ const Form: FC<FormProps> = () => {
 
   const dispatch = useAppDispatch();
   const advantages = useAppSelector(state => state.stepTwo.advantages);
-  const checkbox = useAppSelector(state => state.stepTwo.checkboxGroup);
-  const radio = useAppSelector(state => state.stepTwo.radioGroup);
+  const checkbox = useAppSelector(state => state.stepTwo.checkbox);
+  const radio = useAppSelector(state => state.stepTwo.radio);
   const state = useAppSelector(state => state);
 
   const {
@@ -37,8 +36,8 @@ const Form: FC<FormProps> = () => {
     formState: {isValid}
   } = useForm({ mode: "onBlur", defaultValues: {
     advantages: [...advantages],
-    checkboxGroup: checkbox,
-    radioGroup: radio,
+    checkbox: checkbox,
+    radio: radio,
   }});
 
   const { fields, append, remove } = useFieldArray({
@@ -60,7 +59,7 @@ const Form: FC<FormProps> = () => {
     }
   }
 
-  function getFormData(stateForm: any) {
+  function getFormData(stateForm: any, lastStepData: any) {
     //@ts-ignore
     function getKeysFromObj(array) {
       //@ts-ignore
@@ -72,28 +71,13 @@ const Form: FC<FormProps> = () => {
       ...stateForm.main,
       ...stateForm.stepOne,
       ...stateForm.stepTwo,
+      about: lastStepData,
       advantages: getKeysFromObj(stateForm.stepTwo.advantages),
-      checkboxGroup: stateForm.stepTwo.checkboxGroup !== false ?
-        stateForm.stepTwo.checkboxGroup.map((item: string) => parseInt(item)) : false,
-      radioGroup: parseInt(stateForm.stepTwo.radioGroup),
+      checkbox: stateForm.stepTwo.checkbox !== false ?
+        stateForm.stepTwo.checkbox.map((item: string) => parseInt(item)) : false,
+      radio: parseInt(stateForm.stepTwo.radio),
     };
   }
-
-  useEffect(() => {
-    if(step === 4) {
-      const dataForm = getFormData(state);
-      sendData(dataForm)
-        .then(data => {
-          console.log(data)
-          setModalOn(true);
-          if (data.status === "success") {
-            setModalSuccessfull(true);
-          } else {
-            setModalSuccessfull(false)
-          }
-        })
-    }
-  }, [step])
 
    const onSubmit = (data: any) => {
     switch(step){
@@ -105,11 +89,24 @@ const Form: FC<FormProps> = () => {
         break;
       case 2:
         dispatch(setAdvantages(data.advantages));
-        dispatch(setRadioGroup(data.radioGroup));
-        dispatch(setCheckboxGroup(data.checkboxGroup));
+        dispatch(setRadio(data.radio));
+        dispatch(setCheckbox(data.checkbox));
+        console.log(data.checkbox, "checkbox")
+        console.log(data.radio, "radio")
         break;
       case 3:
-        dispatch(setAbout(data.about));
+        const dataForm = getFormData(state, data.about);
+        console.log(dataForm)
+        sendData(dataForm)
+          .then(data => {
+            console.log(data)
+            setModalOn(true);
+            if (data.status === "success") {
+              setModalSuccessfull(true);
+            } else {
+              setModalSuccessfull(false)
+            }
+          })
         break;
     }
   }

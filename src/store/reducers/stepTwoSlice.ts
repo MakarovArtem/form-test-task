@@ -7,8 +7,8 @@ interface Advantage {
 
 interface stepTwoSlice {
   advantages: Advantage[];
-  checkboxGroup: string[] | boolean;
-  radioGroup: string;
+  checkbox: string[] | boolean;
+  radio: string;
 }
 
 const initialState: stepTwoSlice = {
@@ -17,8 +17,8 @@ const initialState: stepTwoSlice = {
     {"advantage": ""},
     {"advantage": ""},
   ],
-  checkboxGroup: false,
-  radioGroup: "1",
+  checkbox: false,
+  radio: "1",
 }
 
 export const stepTwoSlice = createSlice({
@@ -28,15 +28,15 @@ export const stepTwoSlice = createSlice({
     setAdvantages: (state, action: PayloadAction<Advantage[]>) => {
       state.advantages = action.payload
     },
-    setCheckboxGroup: (state, action: PayloadAction<string[] | boolean>) => {
-      state.checkboxGroup = action.payload
+    setCheckbox: (state, action: PayloadAction<string[] | boolean>) => {
+      state.checkbox = action.payload
     },
-    setRadioGroup: (state, action: PayloadAction<string>) => {
-      state.radioGroup = action.payload
+    setRadio: (state, action: PayloadAction<string>) => {
+      state.radio = action.payload
     },
   },
 })
 
-export const { setAdvantages, setCheckboxGroup, setRadioGroup } = stepTwoSlice.actions;
+export const { setAdvantages, setCheckbox, setRadio } = stepTwoSlice.actions;
 
 export default stepTwoSlice.reducer;
