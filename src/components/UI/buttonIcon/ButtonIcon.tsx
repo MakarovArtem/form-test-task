@@ -11,7 +11,7 @@ interface ButtonIconProps {
 const ButtonIcon: FC<ButtonIconProps> = ({onClick, maxWidth, picURL, id}) => {
 
   return (
-    <div className={style.ButtonIcon} onClick={onClick} id={id}>
+    <div className={style.buttonIcon} onClick={onClick} id={id}>
       <img className={style.icon} src={picURL} alt="delete-icon" />
     </div>
   )
