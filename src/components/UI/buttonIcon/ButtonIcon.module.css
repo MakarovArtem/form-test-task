@@ -9,13 +9,13 @@
   user-select: none;
 }
 
-.buttonIcon::before{
-  content: " ";
-  background-image: url("./icons/delete-icon.svg");
-}
-
 .buttonIcon:hover{
   transform: scale(1.2);
+}
+
+.icon{
+  width: 100%;
+  height: 100%;
 }
 
 @media screen and (max-width: 768px){

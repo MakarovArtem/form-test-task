@@ -1,5 +1,4 @@
 import React, { FC } from "react";
-import { ReactSVG } from "react-svg";
 import style from "./ButtonIcon.module.css";
 
 interface ButtonIconProps {
@@ -12,7 +11,9 @@ interface ButtonIconProps {
 const ButtonIcon: FC<ButtonIconProps> = ({onClick, maxWidth, picURL, id}) => {
 
   return (
-    <div className={style.ButtonIcon} onClick={onClick} id={id}></div>
+    <div className={style.ButtonIcon} onClick={onClick} id={id}>
+      <img className={style.icon} src={picURL} alt="delete-icon" />
+    </div>
   )
 }
 
