@@ -6,19 +6,20 @@ import styleError from "./ModalWindowError.module.css";
 
 interface ModalWindowProps {
   isSuccessfull: boolean;
+  message: string;
   setModalOn: any;
 }
 
-const ModalWindow: FC<ModalWindowProps> = ({isSuccessfull, setModalOn}) => {
+const ModalWindow: FC<ModalWindowProps> = ({isSuccessfull, message, setModalOn}) => {
 
   const style = isSuccessfull ? styleSucces : styleError;
-  const title = isSuccessfull ? "Форма успешно отправлена" : "Ошибка";
   const buttonText = isSuccessfull ? "На главную" : "Закрыть";
   const buttonID = isSuccessfull ? "button-to-main" : "button-close";
 
   const navigate = useNavigate();
   const handleClick = () => {
     if(isSuccessfull) {
+      setModalOn(false);
       navigate("/");
     } else {
       setModalOn(false);
@@ -28,7 +29,7 @@ const ModalWindow: FC<ModalWindowProps> = ({isSuccessfull, setModalOn}) => {
   return (
     <article className={style.wrapper}>
       <div className={style.main}>
-        <h2 className={style.title}>{title}</h2>
+        <h2 className={style.title}>{message}</h2>
         <div onClick={handleClick} className={style.crossButton}></div>
         <div className={style.pictogramContainer}>
           <div className={style.pictogram}></div>

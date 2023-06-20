@@ -19,7 +19,8 @@ const Form: FC<FormProps> = () => {
 
   const [step, setStep] = useState<number>(1);
   const [modalOn, setModalOn] = useState<boolean>(false);
-  const [modalSuccessfull, setModalSuccessfull] = useState<boolean>(false)
+  const [modalSuccessfull, setModalSuccessfull] = useState<boolean>(false);
+  const [modalMessage, setModalMessage] = useState<string>("");
   const navigate = useNavigate();
 
   const dispatch = useAppDispatch();
@@ -96,8 +97,9 @@ const Form: FC<FormProps> = () => {
         const dataForm = getFormData(state, data.about);
         sendData(dataForm)
           .then(data => {
-            console.log(data)
+            // console.log(data)
             setModalOn(true);
+            setModalMessage(data.message);
             if (data.status === "success") {
               setModalSuccessfull(true);
             } else {
@@ -117,14 +119,16 @@ const Form: FC<FormProps> = () => {
         <div className={style.formContainer}>
           <form onSubmit={handleSubmit(onSubmit)} >
             {
-              step === 1 ? <FormStepOne control={control} /> :
-              step === 2 ? <FormStepTwo 
-                              register={register}
-                              append={append}
-                              remove={remove}
-                              fields={fields}
-                            /> 
-              : <FormStepThree control={control} watch={watch} />
+              step === 1 ?
+              <FormStepOne control={control} /> :
+              step === 2 ? 
+              <FormStepTwo 
+                register={register}
+                append={append}
+                remove={remove}
+                fields={fields}
+              /> :
+              <FormStepThree control={control} watch={watch} />
             }
           </form>
         </div>
@@ -147,7 +151,12 @@ const Form: FC<FormProps> = () => {
           />
         </div>
       </div>
-      {modalOn && <ModalWindow isSuccessfull={modalSuccessfull} setModalOn={setModalOn} />}
+      {modalOn &&
+      <ModalWindow
+        isSuccessfull={modalSuccessfull}
+        message={modalMessage}
+        setModalOn={setModalOn}
+      />}
     </article>
   )
 }
