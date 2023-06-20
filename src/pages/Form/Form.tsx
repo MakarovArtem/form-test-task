@@ -29,22 +29,22 @@ const Form: FC<FormProps> = () => {
   const radio = useAppSelector(state => state.stepTwo.radio);
   const state = useAppSelector(state => state);
 
-  const {
-    watch,
-    control,
-    register,
-    handleSubmit,
-    formState: {isValid}
-  } = useForm({ mode: "onBlur", defaultValues: {
-    advantages: [...advantages],
-    checkbox: checkbox,
-    radio: radio,
-  }});
+  // const {
+  //   watch,
+  //   control,
+  //   register,
+  //   handleSubmit,
+  //   formState: {isValid}
+  // } = useForm({ mode: "onBlur", defaultValues: {
+  //   advantages: [...advantages],
+  //   checkbox: checkbox,
+  //   radio: radio,
+  // }});
 
-  const { fields, append, remove } = useFieldArray({
-    control,
-    name: "advantages",
-  });
+  // const { fields, append, remove } = useFieldArray({
+  //   control,
+  //   name: "advantages",
+  // });
   
   function back(){
     if (step !== 1) {
@@ -117,25 +117,24 @@ const Form: FC<FormProps> = () => {
           <ProgressLine step={step} />
         </div>
         <div className={style.formContainer}>
-          <form onSubmit={handleSubmit(onSubmit)} >
+          <div>
             {
               step === 1 ?
-              <FormStepOne control={control} /> :
-              step === 2 ? 
-              <FormStepTwo 
-                register={register}
-                append={append}
-                remove={remove}
-                fields={fields}
-              /> :
-              <FormStepThree control={control} watch={watch} />
+              <FormStepOne /> : false
+              // step === 2 ? 
+              // <FormStepTwo 
+              //   register={register}  
+              //   append={append}
+              //   remove={remove}
+              //   fields={fields}
+              // /> :
+              // <FormStepThree control={control} watch={watch} />
             }
-          </form>
+          </div>
         </div>
         <div onClick={back} className={style.backContainer}>
           <Button 
-            disabled={isValid ? false : true} 
-            onClick={handleSubmit(onSubmit)} 
+            // disabled={isValid ? false : true} 
             text="Назад" 
             theme={"white"} 
             id="button-back"
@@ -143,8 +142,7 @@ const Form: FC<FormProps> = () => {
         </div>
         <div onClick={forward} className={style.nextContainer}>
           <Button 
-            disabled={isValid ? false : true}
-            onClick={handleSubmit(onSubmit)}
+            // disabled={isValid ? false : true}
             text={step >= 3 ? "Отправить" : "Далее"}
             theme={"blue"}
             id={step >= 3 ? "button-send" : "button-next"}

@@ -1,28 +1,54 @@
-import React, { FC } from "react";
-import { Controller } from "react-hook-form";
-import { useAppSelector } from "../../../store/hooks/hooks";
+import React, { FC, useEffect } from "react";
+import { useForm, Controller } from "react-hook-form";
+import { useAppDispatch, useAppSelector } from "../../../store/hooks/hooks";
 import InputController from "../../../components/UI/input/InputController";
 import Select from "../../../components/UI/select/Select";
 import style from "./FormStepOne.module.css";
+import { setName, setNickname, setSex, setSurname } from "store/reducers/stepOneSlice";
+import { setStepOneValid } from "store/reducers/validSlice";
 
-interface FormStepOneProps {
-  control: any;
-}
+interface FormStepOneProps {}
 
-const FormStepOne: FC<FormStepOneProps> = ({control}) => {
+const FormStepOne: FC<FormStepOneProps> = () => {
+  
+  const {
+    watch,
+    control,
+    handleSubmit,
+    formState: {isValid}
+  } = useForm({ mode: "onTouched"});
 
-  const nickname = useAppSelector(state => state.stepOne.nickname);
-  const name = useAppSelector(state => state.stepOne.name);
-  const surname = useAppSelector(state => state.stepOne.surname);
-  const sex = useAppSelector(state => state.stepOne.sex);
+  const dispatch = useAppDispatch();
+
+  const nicknameDefault = useAppSelector(state => state.stepOne.nickname);
+  const nameDefault = useAppSelector(state => state.stepOne.name);
+  const surnameDefault = useAppSelector(state => state.stepOne.surname);
+  const sexDefault = useAppSelector(state => state.stepOne.sex);
+
+  const nickname = watch("nickname");
+  const name = watch("name");
+  const surname = watch("surname");
+  const sex = watch("sex");
+
+  useEffect(() => {
+    dispatch(setNickname(nickname));
+    dispatch(setName(name));
+    dispatch(setSurname(surname));
+    dispatch(setSex(sex));
+    dispatch(setStepOneValid(isValid));
+  }, [nickname, name, surname, sex, isValid])
+
+  function onSubmit(data: any) {
+    console.log("formStepOne data: ", data)
+  }
 
   return (
-    <div className={style.form}>
+    <form onSubmit={handleSubmit(onSubmit)} className={style.form}>
       <div className={style.nickContainer}>
         <Controller
           name="nickname"
           control={control}
-          defaultValue={nickname}
+          defaultValue={nicknameDefault}
           rules={{
             required: true,
             maxLength: {value: 30, message: "Max length is 30 symbols"},
@@ -47,7 +73,7 @@ const FormStepOne: FC<FormStepOneProps> = ({control}) => {
         <Controller
           name="name"
           control={control}
-          defaultValue={name}
+          defaultValue={nameDefault}
           rules={{
             required: true,
             maxLength: {value: 50, message: "Max length is 50 symbols"},
@@ -72,7 +98,7 @@ const FormStepOne: FC<FormStepOneProps> = ({control}) => {
         <Controller
           name="surname"
           control={control}
-          defaultValue={surname}
+          defaultValue={surnameDefault}
           rules={{
             required: true,
             maxLength: {value: 50, message: "Max length is 50 symbols"},
@@ -97,7 +123,7 @@ const FormStepOne: FC<FormStepOneProps> = ({control}) => {
         <Controller
           name="sex"
           control={control}
-          defaultValue={sex}
+          defaultValue={sexDefault}
           rules={{
             required: true,
             pattern: {value: /^(man|woman)$/, message: "You should choose your sex"}
@@ -119,7 +145,7 @@ const FormStepOne: FC<FormStepOneProps> = ({control}) => {
           )}
         />
       </div>
-    </div>
+    </form>
   )
 }
 

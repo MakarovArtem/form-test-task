@@ -3,6 +3,7 @@ import mainReducer from "./reducers/mainSlice";
 import stepOneReducer from "./reducers/stepOneSlice";
 import stepTwoReducer from "./reducers/stepTwoSlice";
 import stepThreeReducer from "./reducers/stepThreeSlice";
+import validReducer from "./reducers/stepThreeSlice";
 
 export const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ export const store = configureStore({
     stepOne: stepOneReducer,
     stepTwo: stepTwoReducer,
     stepThree: stepThreeReducer,
+    valid: validReducer,
   },
 })
 
