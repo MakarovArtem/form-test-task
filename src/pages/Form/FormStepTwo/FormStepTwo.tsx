@@ -25,7 +25,7 @@ const FormStepTwo: FC<FormStepTwoProps> = () => {
     control,
     register,
     handleSubmit,
-    formState: {isValid}
+    formState: { isValid }
   } = useForm({ mode: "onTouched", defaultValues: {
     advantages: [...advantagesDefault],
     checkbox: checkboxDefault,
@@ -42,7 +42,7 @@ const FormStepTwo: FC<FormStepTwoProps> = () => {
   const radio = watch("radio");
 
   useEffect(() => {
-    dispatch(setAdvantages(advantages));
+    dispatch(setAdvantages(JSON.parse(JSON.stringify(advantages))));
     dispatch(setCheckbox(checkbox));
     dispatch(setRadio(radio));
     dispatch(setStepTwoValid(isValid));
@@ -54,6 +54,7 @@ const FormStepTwo: FC<FormStepTwoProps> = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={style.form}>
+      <div onClick={()=>console.log(isValid)}>errors</div>
       <div className={style.inputsContainer}>
         <p className={style.inputsTitle}>Advantages</p>
         <ul className={style.advantagesContainer}>
@@ -61,6 +62,7 @@ const FormStepTwo: FC<FormStepTwoProps> = () => {
             <li className={style.advantage} key={item.id}>
               <div className={style.inputContainer}>
                 <Input
+                  key={item.id}
                   register={register}
                   registerProps={(`advantages.${index}.advantage`)}
                   title=""

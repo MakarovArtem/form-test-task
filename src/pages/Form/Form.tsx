@@ -25,7 +25,7 @@ const Form: FC<FormProps> = () => {
   const stepTwoValid = useAppSelector(state => state.valid.stepTwoValid);
   const stepThreeValid = useAppSelector(state => state.valid.stepThreeValid);
 
-  function back() {
+  function stepBack() {
     if (step !== 1) {
       setStep(prev => prev - 1);
     } else {
@@ -33,7 +33,7 @@ const Form: FC<FormProps> = () => {
     }
   }
 
-  function forward(){
+  function stepForward(){
     if((stepOneValid && step === 1) ||
       (stepTwoValid && step === 2) ||
       (stepThreeValid && step === 3))
@@ -41,9 +41,11 @@ const Form: FC<FormProps> = () => {
       console.log("forward + ", state)
       setStep(prev => prev + 1);
     } else {
-      console.log("forward failed")
-      // написать сообщение что на таком-то шаге неправильно заполненно
-    } 
+      console.log("stepOneValid ? ", stepOneValid)
+      console.log("stepTwoValid ? ", stepTwoValid)
+      console.log("stepThreeValid ? ", stepThreeValid)
+      // alert(`On step ${step} some fields are invalid`)
+    }
   }
 
   function transformFormData(stateForm: any) {
@@ -63,7 +65,7 @@ const Form: FC<FormProps> = () => {
   useEffect(() => {
     if(step === 4) {
       const dataToSend = transformFormData(state);
-      sendData(dataToSend);
+      // sendData(dataToSend);
       console.log("data to send: ", dataToSend)
     }
   }, [step, state])
@@ -80,22 +82,22 @@ const Form: FC<FormProps> = () => {
               step === 1 ?
               <FormStepOne /> : 
               step === 2 ? 
-              // <FormStepTwo /> :
-              // <FormStepThree />
+              <FormStepTwo /> :
+              <FormStepThree />
             }
           </div>
         </div>
-        <div onClick={back} className={style.backContainer}>
-          <Button 
-            // disabled={isValid ? false : true} 
+        <div className={style.backContainer}>
+          <Button
+            onClick={stepBack}
             text="Назад" 
             theme={"white"} 
             id="button-back"
           />
         </div>
-        <div onClick={forward} className={style.nextContainer}>
-          <Button 
-            // disabled={isValid ? false : true}
+        <div className={style.nextContainer}>
+          <Button
+            onClick={stepForward}
             text={step >= 3 ? "Отправить" : "Далее"}
             theme={"blue"}
             id={step >= 3 ? "button-send" : "button-next"}

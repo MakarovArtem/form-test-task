@@ -4,6 +4,7 @@ import { Controller, useForm } from "react-hook-form";
 import Textarea from "../../../components/UI/textArea/Textarea";
 import style from "./FormStepThree.module.css";
 import { setAbout } from "store/reducers/stepThreeSlice";
+import { setStepThreeValid } from "store/reducers/validSlice";
 
 interface FormStepThreeProps {}
 
@@ -13,7 +14,7 @@ const FormStepThree: FC<FormStepThreeProps> = () => {
     watch,
     control,
     handleSubmit,
-    formState: {isValid}
+    formState: { isValid }
   } = useForm({ mode: "onTouched"});
 
   const dispatch = useAppDispatch();
@@ -24,6 +25,7 @@ const FormStepThree: FC<FormStepThreeProps> = () => {
 
   useEffect(() => {
     dispatch(setAbout(about));
+    dispatch(setStepThreeValid(isValid));
   }, [about, isValid])
 
   function onSubmit(data: any) {

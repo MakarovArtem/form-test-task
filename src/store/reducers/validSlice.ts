@@ -21,10 +21,10 @@ export const validSlice = createSlice({
       state.stepOneValid = action.payload
     },
     setStepTwoValid: (state, action: PayloadAction<boolean>) => {
-      state.stepOneValid = action.payload
+      state.stepTwoValid = action.payload
     },
     setStepThreeValid: (state, action: PayloadAction<boolean>) => {
-      state.stepOneValid = action.payload
+      state.stepThreeValid = action.payload
     },
 
   },
