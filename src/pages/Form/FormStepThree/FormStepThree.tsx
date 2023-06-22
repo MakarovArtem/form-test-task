@@ -1,25 +1,42 @@
-import React, { FC } from "react";
-import { useAppSelector } from "../../../store/hooks/hooks";
-import { Controller } from "react-hook-form";
+import React, { FC, useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../../../store/hooks/hooks";
+import { Controller, useForm } from "react-hook-form";
 import Textarea from "../../../components/UI/textArea/Textarea";
 import style from "./FormStepThree.module.css";
+import { setAbout } from "store/reducers/stepThreeSlice";
 
-interface FormStepThreeProps {
-  control: any;
-  watch: any;
-}
+interface FormStepThreeProps {}
 
-const FormStepThree: FC<FormStepThreeProps> = ({control, watch}) => {
+const FormStepThree: FC<FormStepThreeProps> = () => {
   
-  const about = useAppSelector(state => state.stepThree.about);
+  const {
+    watch,
+    control,
+    handleSubmit,
+    formState: {isValid}
+  } = useForm({ mode: "onTouched"});
+
+  const dispatch = useAppDispatch();
+
+  const aboutDefault = useAppSelector(state => state.stepThree.about);
+
+  const about = watch("about");
+
+  useEffect(() => {
+    dispatch(setAbout(about));
+  }, [about, isValid])
+
+  function onSubmit(data: any) {
+    console.log("formStepOne data: ", data)
+  }
 
   return (
-    <div className={style.form}>
+    <form onSubmit={handleSubmit(onSubmit)} className={style.form}>
       <div className={style.textareaContaier}>
         <Controller
           name="about"
           control={control}
-          defaultValue={about}
+          defaultValue={aboutDefault}
           rules={{
             required: true,
             maxLength: {value: 200, message: "Max length is 200 symbols"},
@@ -40,7 +57,7 @@ const FormStepThree: FC<FormStepThreeProps> = ({control, watch}) => {
           )}
         />
       </div>
-    </div>
+    </form>
   )
 }
 
