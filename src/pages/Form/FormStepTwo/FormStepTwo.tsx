@@ -1,22 +1,59 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import Input from "../../../components/UI/input/Input";
 import ButtonIcon from "../../../components/UI/buttonIcon/ButtonIcon";
 import Button from "../../../components/UI/button/Button";
 import Checkbox from "../../../components/UI/checkboxGroup/CheckboxGroup";
 import Radio from "../../../components/UI/radioGroup/RadioGroup";
 import style from "./FormStepTwo.module.css";
+import { useFieldArray, useForm } from "react-hook-form";
+import { useAppDispatch, useAppSelector } from "store/hooks/hooks";
+import { setAdvantages, setCheckbox, setRadio } from "store/reducers/stepTwoSlice";
+import { setStepTwoValid } from "store/reducers/validSlice";
 
-interface FormStepTwoProps {
-  register: any;
-  remove: any;
-  append: any;
-  fields: any;
-}
+interface FormStepTwoProps {}
 
-const FormStepTwo: FC<FormStepTwoProps> = ({register, remove, append, fields}) => {
+const FormStepTwo: FC<FormStepTwoProps> = () => {
+  
+  const dispatch = useAppDispatch();
+
+  const advantagesDefault = useAppSelector(state => state.stepTwo.advantages);
+  const checkboxDefault = useAppSelector(state => state.stepTwo.checkbox);
+  const radioDefault = useAppSelector(state => state.stepTwo.radio);
+
+  const {
+    watch,
+    control,
+    register,
+    handleSubmit,
+    formState: {isValid}
+  } = useForm({ mode: "onTouched", defaultValues: {
+    advantages: [...advantagesDefault],
+    checkbox: checkboxDefault,
+    radio: radioDefault,
+  }});
+
+  const { fields, append, remove } = useFieldArray({
+    control,
+    name: "advantages",
+  });
+ 
+  const advantages = watch("advantages");
+  const checkbox = watch("checkbox");
+  const radio = watch("radio");
+
+  useEffect(() => {
+    dispatch(setAdvantages(advantages));
+    dispatch(setCheckbox(checkbox));
+    dispatch(setRadio(radio));
+    dispatch(setStepTwoValid(isValid));
+  }, [advantages, checkbox, radio, isValid])
+
+  function onSubmit(data: any) {
+    console.log("formStepOne data: ", data)
+  }
 
   return (
-    <div className={style.form}>
+    <form onSubmit={handleSubmit(onSubmit)} className={style.form}>
       <div className={style.inputsContainer}>
         <p className={style.inputsTitle}>Advantages</p>
         <ul className={style.advantagesContainer}>
@@ -45,7 +82,7 @@ const FormStepTwo: FC<FormStepTwoProps> = ({register, remove, append, fields}) =
         <Button
           type="button"
           text="+"
-          onClick={() => append({})}
+          onClick={() => append({advantage: ""})}
           id="button-add"
         />
       </div>
@@ -75,7 +112,7 @@ const FormStepTwo: FC<FormStepTwoProps> = ({register, remove, append, fields}) =
           id="radio-group"
         />
       </div>
-    </div>
+    </form>
   )
 }
 
