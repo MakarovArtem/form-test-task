@@ -26,10 +26,12 @@ const Form: FC<FormProps> = () => {
   const stepThreeValid = useAppSelector(state => state.valid.stepThreeValid);
 
   function stepBack() {
-    if (step !== 1) {
-      setStep(prev => prev - 1);
-    } else {
+    if (step === 1) {
       navigate("/");
+    } else if (step === 4) {
+      setStep(prev => prev - 2);
+    } else {
+      setStep(prev => prev - 1);
     }
   }
 
@@ -38,13 +40,9 @@ const Form: FC<FormProps> = () => {
       (stepTwoValid && step === 2) ||
       (stepThreeValid && step === 3))
     {
-      console.log("forward + ", state)
       setStep(prev => prev + 1);
     } else {
-      console.log("stepOneValid ? ", stepOneValid)
-      console.log("stepTwoValid ? ", stepTwoValid)
-      console.log("stepThreeValid ? ", stepThreeValid)
-      // alert(`On step ${step} some fields are invalid`)
+      alert(`On step ${step} some fields are invalid`);
     }
   }
 
@@ -65,8 +63,13 @@ const Form: FC<FormProps> = () => {
   useEffect(() => {
     if(step === 4) {
       const dataToSend = transformFormData(state);
-      // sendData(dataToSend);
-      console.log("data to send: ", dataToSend)
+      sendData(dataToSend)
+        .then(data => {
+          setModalOn(true);
+          setModalMessage(data.message);
+          const successfull = data.status === "success"; 
+          setModalSuccessfull(successfull);
+        })
     }
   }, [step, state])
 
