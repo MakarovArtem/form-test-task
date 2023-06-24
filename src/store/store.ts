@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import mainReducer from "./reducers/mainSlice";
-import stepOneReducer from "./reducers/stepOneSlice";
-import stepTwoReducer from "./reducers/stepTwoSlice";
-import stepThreeReducer from "./reducers/stepThreeSlice";
-import validReducer from "./reducers/validSlice";
+import mainReducer from "store/reducers/mainSlice";
+import stepOneReducer from "store/reducers/stepOneSlice";
+import stepTwoReducer from "store/reducers/stepTwoSlice";
+import stepThreeReducer from "store/reducers/stepThreeSlice";
+import validReducer from "store/reducers/validSlice";
 
 export const store = configureStore({
   reducer: {

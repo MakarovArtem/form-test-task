@@ -30,7 +30,7 @@ const Textarea: FC<TextareaProps> = forwardRef(({width, disabled, title, placeho
         {...rest}
       />
       {tip && <p className={style.textareaTip}>{tip}</p>}
-      {count && <p className={style.textareaCount}>{count}</p>}
+      {count > 0 && <p className={style.textareaCount}>{count}</p>}
     </div>
   )
 })

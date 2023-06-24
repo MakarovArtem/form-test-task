@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import style from "./Info.module.css";
+const iconUrl = `${process.env.PUBLIC_URL}/icons/`;
 
 interface InfoProps {}
 
@@ -17,7 +18,7 @@ const Info: FC<InfoProps> = () => {
         <ul className={style.contacts}>
           <li className={style.contactContainer}>
             <div className={style.linkIconContainer}>
-              <img src="icons/link-icon.svg" alt="link-icon" />
+              <img src={`${iconUrl}/link-icon.svg`} alt="link-icon" />
             </div>
 
             <div className={style.linkContainer}>
@@ -26,7 +27,7 @@ const Info: FC<InfoProps> = () => {
           </li>
           <li className={style.contactContainer}>
             <div className={style.linkIconContainer}>
-              <img src="icons/link-icon.svg" alt="link-icon" />
+              <img src={`${iconUrl}/link-icon.svg`} alt="link-icon" />
             </div>
             
             <div className={style.linkContainer}>
@@ -35,7 +36,7 @@ const Info: FC<InfoProps> = () => {
           </li>
           <li className={style.contactContainer}>
             <div className={style.linkIconContainer}>
-              <img src="icons/link-icon.svg" alt="link-icon" />
+              <img src={`${iconUrl}/link-icon.svg`} alt="link-icon" />
             </div>
             
             <div className={style.linkContainer}>

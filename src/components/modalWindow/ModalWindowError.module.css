@@ -50,7 +50,7 @@
 }
 
 .crossButton:before{
-  content: url("../../../public/icons/cross-icon.svg");
+  content: url("icons/cross-icon.svg");
 }
 
 .crossButton:hover{
@@ -75,7 +75,7 @@
 }
 
 .pictogram:before{
-  content: url("../../../public/icons/modal-error-icon.svg");
+  content: url("icons/modal-error-icon.svg");
   width: 40px;
   height: 40px;
 }

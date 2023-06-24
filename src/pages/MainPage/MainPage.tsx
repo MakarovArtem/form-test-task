@@ -2,12 +2,12 @@ import React, { FC } from "react";
 import { PatternFormat } from "react-number-format";
 import { useNavigate } from "react-router-dom";
 import { useForm, Controller } from "react-hook-form";
-import { useAppDispatch, useAppSelector } from "../../store/hooks/hooks";
-import { setEmail, setNumber } from "../../store/reducers/mainSlice";
-import Info from "../../components/info/Info";
-import InputController from "../../components/UI/input/InputController";
-import Button from "../../components/UI/button/Button";
-import styleInput from "../../components/UI/input/Input.module.css";
+import { useAppDispatch, useAppSelector } from "store/hooks/hooks";
+import { setEmail, setNumber } from "store/reducers/mainSlice";
+import Info from "components/info/Info";
+import InputController from "components/UI/input/InputController";
+import Button from "components/UI/button/Button";
+import styleInput from "components/UI/input/Input.module.css";
 import style from "./MainPage.module.css";
 
 interface MainScreenProps {}

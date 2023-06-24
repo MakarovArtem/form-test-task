@@ -1,18 +1,16 @@
 import React, { FC, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import {  useAppSelector } from "../../store/hooks/hooks";
-import ProgressLine from "../../components/progressLine/ProgressLine";
-import Button from "../../components/UI/button/Button";
-import FormStepOne from "./FormStepOne/FormStepOne";
-import FormStepTwo from "./FormStepTwo/FormStepTwo";
-import FormStepThree from "./FormStepThree/FormStepThree";
-import ModalWindow from "../../components/modalWindow/ModalWindow";
-import sendData from "../../api/sendData";
+import { useAppSelector } from "store/hooks/hooks";
+import ProgressLine from "components/progressLine/ProgressLine";
+import Button from "components/UI/button/Button";
+import FormStepOne from "pages/Form/FormStepOne/FormStepOne";
+import FormStepTwo from "pages/Form/FormStepTwo/FormStepTwo";
+import FormStepThree from "pages/Form/FormStepThree/FormStepThree";
+import ModalWindow from "components/modalWindow/ModalWindow";
+import sendData from "api/sendData";
 import style from "./Form.module.css";
 
-interface FormProps {}
-
-const Form: FC<FormProps> = () => {
+const Form: FC = () => {
 
   const [step, setStep] = useState<number>(1);
   const [modalOn, setModalOn] = useState<boolean>(false);

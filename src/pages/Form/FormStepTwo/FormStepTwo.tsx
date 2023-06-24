@@ -1,19 +1,22 @@
 import React, { FC, useEffect } from "react";
-import Input from "../../../components/UI/input/Input";
-import ButtonIcon from "../../../components/UI/buttonIcon/ButtonIcon";
-import Button from "../../../components/UI/button/Button";
-import Checkbox from "../../../components/UI/checkboxGroup/CheckboxGroup";
-import Radio from "../../../components/UI/radioGroup/RadioGroup";
+import Input from "components/UI/input/Input";
+import ButtonIcon from "components/UI/buttonIcon/ButtonIcon";
+import Button from "components/UI/button/Button";
+import Checkbox from "components/UI/checkboxGroup/CheckboxGroup";
+import Radio from "components/UI/radioGroup/RadioGroup";
 import style from "./FormStepTwo.module.css";
 import { useFieldArray, useForm } from "react-hook-form";
 import { useAppDispatch, useAppSelector } from "store/hooks/hooks";
 import { setAdvantages, setCheckbox, setRadio } from "store/reducers/stepTwoSlice";
 import { setStepTwoValid } from "store/reducers/validSlice";
 
+const iconUrl = `${process.env.PUBLIC_URL}/icons/`;
+
 interface FormStepTwoProps {}
 
 const FormStepTwo: FC<FormStepTwoProps> = () => {
   
+
   const dispatch = useAppDispatch();
 
   const advantagesDefault = useAppSelector(state => state.stepTwo.advantages);
@@ -73,7 +76,7 @@ const FormStepTwo: FC<FormStepTwoProps> = () => {
               <div className={style.removeAdvantageContainer}>
                 <ButtonIcon
                   maxWidth="16px"
-                  picURL="./form-test-task/icons/delete-icon.svg"
+                  picURL={`${iconUrl}delete-icon.svg`}
                   onClick={() => remove(index)}
                   id={`button-remove-${index+1}`}
                 />
