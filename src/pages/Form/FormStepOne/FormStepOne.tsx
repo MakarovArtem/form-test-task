@@ -1,11 +1,14 @@
 import React, { FC, useEffect } from "react";
-import { useForm, Controller } from "react-hook-form";
+
 import { useAppDispatch, useAppSelector } from "store/hooks/hooks";
-import InputController from "components/UI/input/InputController";
-import Select from "components/UI/select/Select";
-import style from "./FormStepOne.module.css";
 import { setName, setNickname, setSex, setSurname } from "store/reducers/stepOneSlice";
 import { setStepOneValid } from "store/reducers/validSlice";
+
+import { useForm, Controller } from "react-hook-form";
+import InputController from "components/UI/input/InputController";
+import Select from "components/UI/select/Select";
+
+import style from "./FormStepOne.module.css";
 
 interface FormStepOneProps {}
 

@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+
 import style from "./Input.module.css";
 
 interface InputProps {

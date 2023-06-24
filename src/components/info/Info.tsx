@@ -1,5 +1,7 @@
 import React, { FC } from "react";
+
 import style from "./Info.module.css";
+
 const iconUrl = `${process.env.PUBLIC_URL}/icons/`;
 
 interface InfoProps {}

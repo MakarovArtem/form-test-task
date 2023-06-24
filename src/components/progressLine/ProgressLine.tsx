@@ -1,4 +1,5 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useState, useEffect } from "react";
+
 import style from "./ProgressLine.module.css";
 
 interface ProgressLineProps {

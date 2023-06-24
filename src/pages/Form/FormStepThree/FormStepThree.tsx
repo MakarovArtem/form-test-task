@@ -1,10 +1,14 @@
 import React, { FC, useEffect } from "react";
+
 import { useAppDispatch, useAppSelector } from "store/hooks/hooks";
-import { Controller, useForm } from "react-hook-form";
-import Textarea from "components/UI/textArea/Textarea";
-import style from "./FormStepThree.module.css";
 import { setAbout } from "store/reducers/stepThreeSlice";
 import { setStepThreeValid } from "store/reducers/validSlice";
+
+import { Controller, useForm } from "react-hook-form";
+
+import Textarea from "components/UI/textArea/Textarea";
+
+import style from "./FormStepThree.module.css";
 
 interface FormStepThreeProps {}
 

@@ -1,14 +1,19 @@
 import React, { FC, useEffect } from "react";
+
+import { useAppDispatch, useAppSelector } from "store/hooks/hooks";
+import { setAdvantages, setCheckbox, setRadio } from "store/reducers/stepTwoSlice";
+import { setStepTwoValid } from "store/reducers/validSlice";
+
+import { useForm, useFieldArray } from "react-hook-form";
+
 import Input from "components/UI/input/Input";
 import ButtonIcon from "components/UI/buttonIcon/ButtonIcon";
 import Button from "components/UI/button/Button";
 import Checkbox from "components/UI/checkboxGroup/CheckboxGroup";
 import Radio from "components/UI/radioGroup/RadioGroup";
+
 import style from "./FormStepTwo.module.css";
-import { useFieldArray, useForm } from "react-hook-form";
-import { useAppDispatch, useAppSelector } from "store/hooks/hooks";
-import { setAdvantages, setCheckbox, setRadio } from "store/reducers/stepTwoSlice";
-import { setStepTwoValid } from "store/reducers/validSlice";
+
 
 const iconUrl = `${process.env.PUBLIC_URL}/icons/`;
 
