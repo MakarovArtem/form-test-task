@@ -14,8 +14,7 @@ import Radio from "components/UI/radioGroup/RadioGroup";
 
 import style from "./FormStepTwo.module.css";
 
-
-const iconUrl = `${process.env.PUBLIC_URL}/icons/`;
+import removeIcon from "icons/remove-icon.svg";
 
 interface FormStepTwoProps {}
 
@@ -81,7 +80,7 @@ const FormStepTwo: FC<FormStepTwoProps> = () => {
               <div className={style.removeAdvantageContainer}>
                 <ButtonIcon
                   maxWidth="16px"
-                  picURL={`${iconUrl}delete-icon.svg`}
+                  picURL={removeIcon}
                   onClick={() => remove(index)}
                   id={`button-remove-${index+1}`}
                 />
