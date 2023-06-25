@@ -61,7 +61,6 @@ const FormStepTwo: FC<FormStepTwoProps> = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={style.form}>
-      <div onClick={()=>console.log(isValid)}>errors</div>
       <div className={style.inputsContainer}>
         <p className={style.inputsTitle}>Advantages</p>
         <ul className={style.advantagesContainer}>

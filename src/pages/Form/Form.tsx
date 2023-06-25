@@ -80,7 +80,10 @@ const Form: FC = () => {
     <article className={style.main}>
       <div className={style.mainContainer}>
         <div className={style.progressLineContainer}>
-          <ProgressLine step={step} />
+          <ProgressLine 
+            currentStep={step}
+            steps={["1","2","3"]}
+          />
         </div>
         <div className={style.formContainer}>
           <div>

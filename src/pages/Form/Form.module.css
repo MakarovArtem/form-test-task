@@ -18,8 +18,10 @@
 }
 
 .progressLineContainer{
-  margin-bottom: 40px;
+  width: 100%;
+  height: 48px;
   grid-area: stepper;
+  position: relative;
 }
 
 .formContainer{
