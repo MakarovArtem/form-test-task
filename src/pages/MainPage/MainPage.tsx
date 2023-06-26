@@ -6,6 +6,8 @@ import { useAppDispatch, useAppSelector } from "store/hooks/hooks";
 import { setEmail, setNumber } from "store/reducers/mainSlice";
 
 import { useForm, Controller } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
 import { PatternFormat } from "react-number-format";
 
@@ -22,11 +24,26 @@ const MainScreen: FC<MainScreenProps> = () => {
   
   const navigate = useNavigate();
 
+  const schema = yup
+    .object()
+    .shape({
+      phone: yup.string()
+        .required("Phone number is required")
+        .matches(/^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/, "Wrong phone number format"),
+      email: yup.string()
+        .required("Email adress is required")
+        .email("Wrong email format")
+    })
+    .required();
+
   const {
     control,
     handleSubmit,
-    formState: {isValid}
-  } = useForm({ mode: "onBlur" });
+    formState: {isValid, errors}
+  } = useForm({
+    mode: "onTouched",
+    resolver: yupResolver(schema)
+  });
 
   const dispatch = useAppDispatch();
   const numberDef = useAppSelector(state => state.main.phone);
@@ -49,10 +66,6 @@ const MainScreen: FC<MainScreenProps> = () => {
             name="phone"
             control={control}
             defaultValue={numberDef}
-            rules={{ 
-              required: true, 
-              pattern: {value: /^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/, message: "Wrong phone number format"},
-            }}
             render={({
               field,
             }) => (
@@ -60,12 +73,13 @@ const MainScreen: FC<MainScreenProps> = () => {
                 <p className={styleInput.inputTitle}>Number</p>
                 <PatternFormat
                   format="+7 (###) ###-##-##"
+                  placeholder="+7 (800) 555-35-35"
                   {...field}
-                  disabled={true}
                   style={{background: "rgba(0, 0, 0, 0.04)"}}
                   className={styleInput.input}
                   id="field-number"
                 />
+                <p className={styleInput.inputTip}>{errors.phone?.message || "Alrighty"}</p>
               </div>
             )}
           />
@@ -75,27 +89,22 @@ const MainScreen: FC<MainScreenProps> = () => {
             name="email"
             control={control}
             defaultValue={emailDef}
-            rules={{ 
-              required: true,
-              pattern: {value: /^[\w.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z]{2,10})+$/, message: "Wrong email format"}
-            }}
             render={({
               field,
             }) => (
               <InputController
                 {...field}
-                disabled={true}
                 title='Email' 
                 type='email'
                 placeholder="ARTEMMAKAROV76@YANDEX.RU"
-                tip={""}
+                tip={errors.email?.message || "Alrighty"}
                 id="filed-email"
               />
             )}
           />
         </div>
         <div className={style.buttonContainer}>
-          <Button disabled={isValid ? false : true} onClick={handleSubmit(onSubmit)} text="Начать" theme={"blue"} id="button-start"/>
+          <Button onClick={handleSubmit(onSubmit)} text="Начать" theme={"blue"} id="button-start"/>
         </div>
       </form>
     </main>

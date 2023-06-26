@@ -4,7 +4,9 @@ import { useAppDispatch, useAppSelector } from "store/hooks/hooks";
 import { setAbout } from "store/reducers/stepThreeSlice";
 import { setStepThreeValid } from "store/reducers/validSlice";
 
-import { Controller, useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
 import Textarea from "components/UI/textArea/Textarea";
 
@@ -14,18 +16,25 @@ interface FormStepThreeProps {}
 
 const FormStepThree: FC<FormStepThreeProps> = () => {
   
+  const schema = yup
+    .object()
+    .shape({
+      about: yup.string().max(200, "Max length is 200 symbols"),
+    })
+    .required();
+
   const {
     watch,
     control,
     handleSubmit,
-    formState: { isValid }
-  } = useForm({ mode: "onTouched"});
+    formState: { isValid, errors }
+  } = useForm({ mode: "onTouched", resolver: yupResolver(schema)});
 
   const dispatch = useAppDispatch();
 
   const aboutDefault = useAppSelector(state => state.stepThree.about);
 
-  const about = watch("about");
+  const about: any = watch("about");
 
   useEffect(() => {
     dispatch(setAbout(about));
@@ -43,13 +52,8 @@ const FormStepThree: FC<FormStepThreeProps> = () => {
           name="about"
           control={control}
           defaultValue={aboutDefault}
-          rules={{
-            required: true,
-            maxLength: {value: 200, message: "Max length is 200 symbols"},
-          }}
           render={({
             field,
-            fieldState: { error },
           }) => (
             <Textarea
               {...field}
@@ -57,7 +61,7 @@ const FormStepThree: FC<FormStepThreeProps> = () => {
               title="About"
               width="auto"
               placeholder="Placeholder"
-              tip={error?.message || "Allrighty"}
+              tip={errors.about?.message || "Allrighty"}
               id="field-about"
             />
           )}

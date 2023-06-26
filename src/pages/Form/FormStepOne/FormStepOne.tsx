@@ -5,6 +5,9 @@ import { setName, setNickname, setSex, setSurname } from "store/reducers/stepOne
 import { setStepOneValid } from "store/reducers/validSlice";
 
 import { useForm, Controller } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+
 import InputController from "components/UI/input/InputController";
 import Select from "components/UI/select/Select";
 
@@ -13,13 +16,37 @@ import style from "./FormStepOne.module.css";
 interface FormStepOneProps {}
 
 const FormStepOne: FC<FormStepOneProps> = () => {
-  
+
+  const schema = yup
+    .object()
+    .shape({
+      nickname: yup.string()
+        .required("Nickname is required")
+        .max(30, "Max length is 30 symbols")
+        .matches(/^[a-zA-Zа-яА-Я0-9]+$/, "Nickname should consist of only digits and letters"),
+      name: yup.string()
+        .required("Name is required")
+        .max(50, "Max length is 50 symbols")
+        .matches(/^[a-zA-Zа-яА-Я]+$/, "Name should consist of only letters"),
+      surname: yup.string()
+        .required("Surname is required")
+        .max(50, "Max length is 50 symbols")
+        .matches(/^[a-zA-Zа-яА-Я]+$/, "Surname should consist of only letters"),
+      sex: yup.string()
+        .required("Sex is required")
+        .matches(/^(man|woman)$/, "There are only two genders"),
+    })
+    .required();
+
   const {
     watch,
     control,
     handleSubmit,
-    formState: {isValid}
-  } = useForm({ mode: "onTouched"});
+    formState: {isValid, errors}
+  } = useForm({
+    mode: "onTouched",
+    resolver: yupResolver(schema)
+  });
 
   const dispatch = useAppDispatch();
 
@@ -52,21 +79,15 @@ const FormStepOne: FC<FormStepOneProps> = () => {
           name="nickname"
           control={control}
           defaultValue={nicknameDefault}
-          rules={{
-            required: true,
-            maxLength: {value: 30, message: "Max length is 30 symbols"},
-            pattern: {value: /^[a-zA-Zа-яА-Я0-9]+$/, message: "Nickname shouldn't consist of symbols, only digits and letters"}
-          }}
           render={({
             field,
-            fieldState: { error },
           }) => (
             <InputController
               {...field}
               title='Nickname'
               type='text' 
               placeholder="Nagibator777"
-              tip={error?.message || "Allrighty"}
+              tip={errors.nickname?.message || "Allrighty"}
               id="field-nickname"
             />
           )}
@@ -77,21 +98,15 @@ const FormStepOne: FC<FormStepOneProps> = () => {
           name="name"
           control={control}
           defaultValue={nameDefault}
-          rules={{
-            required: true,
-            maxLength: {value: 50, message: "Max length is 50 symbols"},
-            pattern: {value: /^[a-zA-Zа-яА-Я]+$/, message: "Name should consist of only letters"}
-          }}
           render={({
             field,
-            fieldState: { error },
           }) => (
             <InputController
               {...field}
               title='Name'
               type='text' 
               placeholder="Vaslily"
-              tip={error?.message || "Allrighty"}
+              tip={errors.name?.message || "Allrighty"}
               id="field-name"
             />
           )}
@@ -102,21 +117,15 @@ const FormStepOne: FC<FormStepOneProps> = () => {
           name="surname"
           control={control}
           defaultValue={surnameDefault}
-          rules={{
-            required: true,
-            maxLength: {value: 50, message: "Max length is 50 symbols"},
-            pattern: {value: /^[a-zA-Zа-яА-Я]+$/, message: "Surame should consist of only letters"}
-          }}
           render={({
             field,
-            fieldState: { error },
           }) => (
             <InputController
               {...field}
               title='Surname'
               type='text' 
               placeholder="Pupkin"
-              tip={error?.message || "Allrighty"}
+              tip={errors.surname?.message || "Allrighty"}
               id="field-surname"
             />
           )}
@@ -127,22 +136,18 @@ const FormStepOne: FC<FormStepOneProps> = () => {
           name="sex"
           control={control}
           defaultValue={sexDefault}
-          rules={{
-            required: true,
-            pattern: {value: /^(man|woman)$/, message: "You should choose your sex"}
-          }}
           render={({
             field,
-            fieldState: { error },
           }) => (
             <Select 
               {...field}
               title="Sex"
               options={[
+                {value: "not chosen", id: "field-sex-option-not-chosen"},
                 {value: "man", id: "field-sex-option-man"},
                 {value: "woman", id: "field-sex-option-woman"},
               ]}
-              tip={error?.message || "Allrighty"}
+              tip={errors.sex?.message || "Allrighty"}
               id="field-sex"
             />
           )}

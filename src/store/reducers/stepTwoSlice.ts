@@ -5,13 +5,13 @@ interface Advantage {
   "advantage": string;
 }
 
-interface stepTwoSlice {
+export interface IStepTwoSlice {
   advantages: Advantage[];
   checkbox: string[] | boolean;
   radio: string;
 }
 
-const initialState: stepTwoSlice = {
+const initialState: IStepTwoSlice = {
   advantages: [
     {"advantage": ""},
     {"advantage": ""},
