@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { useAppSelector } from "store/hooks/hooks";
+import { useAppSelector } from "redux/hooks/hooks";
 import { useForm, useFieldArray } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -8,15 +8,15 @@ import ButtonIcon from "components/UI/buttonIcon/ButtonIcon";
 import Button from "components/UI/button/Button";
 import Checkbox from "components/UI/checkboxGroup/CheckboxGroup";
 import Radio from "components/UI/radioGroup/RadioGroup";
-import removeIcon from "icons/remove-icon.svg";
-import style from "./FormStepTwo.module.css";
+import removeIcon from "assets/icons/remove-icon.svg";
+import style from "./StepTwo.module.css";
 
-interface FormStepTwoProps {
+interface StepTwoProps {
   stepForward: (data: any) => void;
   stepBack: (data: any) => any;
 }
 
-const FormStepTwo: FC<FormStepTwoProps> = ({stepForward, stepBack}) => {
+const StepTwo: FC<StepTwoProps> = ({stepForward, stepBack}) => {
 
   const schema = yup
     .object()
@@ -136,4 +136,4 @@ const FormStepTwo: FC<FormStepTwoProps> = ({stepForward, stepBack}) => {
   )
 }
 
-export default FormStepTwo;
+export default StepTwo;

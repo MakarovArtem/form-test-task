@@ -1,11 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { store } from "./store/store";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { store } from "redux/store";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
-import App from './App';
-import Form from './pages/Form/Form';
-import Error from './pages/Error/Error';
+import App from "./App";
+import Create from "pages/Create/Create";
+import Error from "pages/Error/Error";
 
 const router = createBrowserRouter([
   {
@@ -15,17 +15,17 @@ const router = createBrowserRouter([
   },
   {
     path: "/create",
-    element: <Form />,
+    element: <Create />,
     errorElement: <Error />
   },
   {
     path: "*",
-    element: <App />
+    element: <Error />
   },
 ]);
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 root.render(
   <Provider store={store}>

@@ -57,7 +57,7 @@
 }
 
 .complete .step::before{
-  content: url("icons/check-icon.svg");
+  content: url("assets/icons/check-icon.svg");
 }
 
 .text{

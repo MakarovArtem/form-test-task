@@ -1,9 +1,6 @@
 import React, { FC } from "react";
-
 import { useNavigate } from "react-router-dom";
-
 import Button from "components/UI/button/Button";
-
 import styleSucces from "./ModalWindowSuccess.module.css";
 import styleError from "./ModalWindowError.module.css";
 

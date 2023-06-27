@@ -1,18 +1,18 @@
 import React, { FC } from "react";
-import { useAppSelector } from "store/hooks/hooks";
+import { useAppSelector } from "redux/hooks/hooks";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import Textarea from "components/UI/textArea/Textarea";
 import Button from "components/UI/button/Button";
-import style from "./FormStepThree.module.css";
+import style from "./StepThree.module.css";
 
-interface FormStepThreeProps {
+interface StepThreeProps {
   stepForward: (data: any) => void;
   stepBack: (data: any) => any;
 }
 
-const FormStepThree: FC<FormStepThreeProps> = ({stepForward, stepBack}) => {
+const StepThree: FC<StepThreeProps> = ({stepForward, stepBack}) => {
   
   const schema = yup
     .object()
@@ -84,4 +84,4 @@ const FormStepThree: FC<FormStepThreeProps> = ({stepForward, stepBack}) => {
   )
 }
 
-export default FormStepThree;
+export default StepThree;

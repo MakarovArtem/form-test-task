@@ -1,18 +1,18 @@
 import React, { FC } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "store/hooks/hooks";
-import { updateFormData } from "store/reducers/formSlice";
+import { useAppDispatch, useAppSelector } from "redux/hooks/hooks";
+import { updateFormData } from "redux/reducers/formSlice";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { PatternFormat } from "react-number-format";
-import Info from "components/info/Info";
+import Info from "components/Info/Info";
 import InputController from "components/UI/input/InputController";
 import Button from "components/UI/button/Button";
 import styleInput from "components/UI/input/Input.module.css";
-import style from "./MainPage.module.css";
+import style from "./Main.module.css";
 
-const MainScreen: FC = () => {
+const Main: FC = () => {
   
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
@@ -102,4 +102,4 @@ const MainScreen: FC = () => {
   )
 }
 
-export default MainScreen;
+export default Main;

@@ -1,19 +1,19 @@
 import React, { FC } from "react";
-import { useAppSelector } from "store/hooks/hooks";
+import { useAppSelector } from "redux/hooks/hooks";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import InputController from "components/UI/input/InputController";
 import Select from "components/UI/select/Select";
 import Button from "components/UI/button/Button";
-import style from "./FormStepOne.module.css";
+import style from "./StepOne.module.css";
 
-interface FormStepOneProps {
+interface StepOneProps {
   stepForward: (data: any) => void;
   stepBack: (data: any) => any;
 }
 
-const FormStepOne: FC<FormStepOneProps> = ({stepForward, stepBack}) => {
+const StepOne: FC<StepOneProps> = ({stepForward, stepBack}) => {
 
   const schema = yup
     .object()
@@ -154,4 +154,4 @@ const FormStepOne: FC<FormStepOneProps> = ({stepForward, stepBack}) => {
   )
 }
 
-export default FormStepOne;
+export default StepOne;

@@ -30,7 +30,7 @@
 }
 
 .removeAdvantageContainer{
-  padding-top: 10px;
+  padding-bottom: 16px;
 }
 
 .checkboxContainer{
@@ -78,5 +78,8 @@
   }
   .inputContainer{
     width: 100%;
+  }
+  .removeAdvantageContainer{
+    padding-bottom: 8px;
   }
 }

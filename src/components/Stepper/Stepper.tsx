@@ -1,13 +1,13 @@
 import React, { FC, useState, useEffect } from "react";
 
-import "./ProgressLine.css";
+import "./Stepper.css";
 
-interface ProgressLineProps {
+interface StepperProps {
   currentStep: number;
   steps: number[] | string[];
 }
 
-const ProgressLine: FC<ProgressLineProps> = ({currentStep, steps}) => {
+const Stepper: FC<StepperProps> = ({currentStep, steps}) => {
 
   const [complete, setComplete] = useState<boolean>(false);
 
@@ -36,4 +36,4 @@ const ProgressLine: FC<ProgressLineProps> = ({currentStep, steps}) => {
   )
 }
 
-export default ProgressLine;
+export default Stepper;

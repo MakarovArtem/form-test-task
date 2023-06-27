@@ -57,7 +57,7 @@
 }
 
 .pictogram:before{
-  content: url("icons/modal-success-icon.svg");
+  content: url("assets/icons/modal-success-icon.svg");
   width: 40px;
   height: 40px;
 }

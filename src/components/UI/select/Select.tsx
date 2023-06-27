@@ -19,7 +19,7 @@ interface SelectProps {
 
 const Select: FC<SelectProps> = forwardRef(({width, disabled, title, options, tip, id, ...rest}, ref) => {
   return (
-    <div className={style.selectContainer}>
+    <div className={style.selectContainer} >
       <p className={style.selectTitle}>{title}</p>
       <select
         disabled={disabled}
@@ -33,6 +33,7 @@ const Select: FC<SelectProps> = forwardRef(({width, disabled, title, options, ti
           <option
             className={style.option}
             value={option.value}
+            key={option.id}
             id={option.id}
           >
             {option.value}

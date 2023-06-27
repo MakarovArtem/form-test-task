@@ -20,9 +20,9 @@
   border-radius: 12px;
   display: grid;
   grid-template-areas: 
-    "title         cross"
+    "title cross"
     "pictogram pictogram"
-    "button       button";
+    "button button";
   row-gap: 25px;
 }
 
@@ -51,7 +51,7 @@
 }
 
 .crossButton:before{
-  content: url("icons/cross-icon.svg");
+  content: url("assets/icons/cross-icon.svg");
 }
 
 .crossButton:hover{
@@ -76,7 +76,7 @@
 }
 
 .pictogram:before{
-  content: url("icons/modal-error-icon.svg");
+  content: url("assets/icons/modal-error-icon.svg");
   width: 40px;
   height: 40px;
 }

@@ -1,8 +1,6 @@
 import React, { FC } from "react";
-
 import style from "./Info.module.css";
-
-import folderIcon from "icons/folder-icon.svg";
+import folderIcon from "assets/icons/folder-icon.svg";
 
 interface InfoProps {}
 

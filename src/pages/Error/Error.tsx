@@ -1,9 +1,6 @@
 import React from "react";
-
 import { useNavigate } from "react-router-dom";
-
 import Button from "components/UI/button/Button";
-
 import style from "./Error.module.css";
 
 const Error = () => {

@@ -1,13 +1,12 @@
 import React from "react";
-
-import MainScreen from "pages/MainPage/MainPage";
+import Main from "pages/Main/Main";
 
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <MainScreen />
+      <Main />
     </div>
   );
 }
