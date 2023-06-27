@@ -2,8 +2,8 @@
   "files": {
     "main.css": "/multiple-step-form/static/css/main.d6e6746b.css",
     "main.js": "/multiple-step-form/static/js/main.aad0edae.js",
-    "static/media/modal-error-icon.svg": "/multiple-step-form/static/media/modal-error-icon.fd1a8448dacc4a5af170.svg",
     "index.html": "/multiple-step-form/index.html",
+    "static/media/modal-error-icon.svg": "/multiple-step-form/static/media/modal-error-icon.fd1a8448dacc4a5af170.svg",
     "static/media/remove-icon.svg": "/multiple-step-form/static/media/remove-icon.1650c7a175b934b2f27aefc55c49453f.svg",
     "static/media/folder-icon.svg": "/multiple-step-form/static/media/folder-icon.adb28c1ea5c60bdbecf7ece7150d6f3c.svg",
     "static/media/modal-success-icon.svg": "/multiple-step-form/static/media/modal-success-icon.a20946ae27d9e9492ba1.svg",
