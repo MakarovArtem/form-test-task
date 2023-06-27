@@ -1,9 +1,10 @@
 .form{
   display: grid;
   grid-template-areas: 
-    "advantages"
-    "checkbox"
-    "radio";
+    "advantages advantages"
+    "checkbox checkbox"
+    "radio radio"
+    "back next";
   row-gap: 24px;
 }
 
@@ -38,6 +39,20 @@
 
 .radioContainer{
   grid-area: radio;
+}
+
+.backContainer{
+  padding-top: 40px;
+  justify-self: flex-start;
+  align-self: flex-start;
+  grid-area: back;
+}
+
+.nextContainer{
+  padding-top: 40px;
+  justify-self: flex-end;
+  align-self: flex-start;
+  grid-area: next;
 }
 
 @media screen and (max-width: 1024px){

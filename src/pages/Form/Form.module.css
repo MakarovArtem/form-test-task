@@ -1,6 +1,6 @@
 .main{
   width: 66vw;
-  padding-top: 65px;
+  padding-top: 64px;
   padding-bottom: 88px;
   border-radius: 24px;
   background-color: #fff;
@@ -11,9 +11,8 @@
   margin: 0 auto;
   display: grid;
   grid-template-areas: 
-    "stepper stepper"
-    "form       form"
-    "back       next";
+    "stepper"
+    "form";
   row-gap: 64px;
 }
 
@@ -26,18 +25,6 @@
 
 .formContainer{
   grid-area: form;
-}
-
-.backContainer{
-  justify-self: flex-start;
-  align-self: flex-end;
-  grid-area: back;
-}
-
-.nextContainer{
-  justify-self: flex-end;
-  align-self: flex-end;
-  grid-area: next;
 }
 
 @media screen and (max-width: 1368px){

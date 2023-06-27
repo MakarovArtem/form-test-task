@@ -1,3 +1,23 @@
 .form{
-  width: 100%;
+  display: grid;
+  grid-template-areas: 
+    "about about"
+    "back next";
+  row-gap: 64px;
+}
+
+.textareaContaier{
+  grid-area: about;
+}
+
+.backContainer{
+  justify-self: flex-start;
+  align-self: flex-start;
+  grid-area: back;
+}
+
+.nextContainer{
+  justify-self: flex-end;
+  align-self: flex-start;
+  grid-area: next;
 }

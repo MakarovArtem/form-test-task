@@ -1,11 +1,12 @@
 .form{
   display: grid;
   grid-template-areas: 
-    "nickname"
-    "name"
-    "surname"
-    "sex";
-  row-gap: 25px;
+    "nickname nickname"
+    "name name"
+    "surname surname"
+    "sex sex"
+    "back next";
+  row-gap: 24px;
 }
 
 .nickContainer{
@@ -22,6 +23,20 @@
 
 .sexContainer{
   grid-area: sex;
+}
+
+.backContainer{
+  padding-top: 40px;
+  justify-self: flex-start;
+  align-self: flex-start;
+  grid-area: back;
+}
+
+.nextContainer{
+  padding-top: 40px;
+  justify-self: flex-end;
+  align-self: flex-start;
+  grid-area: next;
 }
 
 @media screen and (max-width: 1368px){

@@ -1,9 +1,9 @@
 .main{
   width: 66vw;
   height: 704px;
-  padding: 25px;
-  border-radius: 12px 12px 0px 0px;
-  background-color: #fff;
+  padding: 24px;
+  border-radius: 12px;
+  background-color: #FFFFFF;
 }
 
 .infoContainer{
