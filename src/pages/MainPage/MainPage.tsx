@@ -1,28 +1,21 @@
 import React, { FC } from "react";
-
 import { useNavigate } from "react-router-dom";
-
 import { useAppDispatch, useAppSelector } from "store/hooks/hooks";
-import { setEmail, setNumber } from "store/reducers/mainSlice";
-
+import { updateFormData } from "store/reducers/formSlice";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-
 import { PatternFormat } from "react-number-format";
-
 import Info from "components/info/Info";
 import InputController from "components/UI/input/InputController";
 import Button from "components/UI/button/Button";
-
 import styleInput from "components/UI/input/Input.module.css";
 import style from "./MainPage.module.css";
 
-interface MainScreenProps {}
-
-const MainScreen: FC<MainScreenProps> = () => {
+const MainScreen: FC = () => {
   
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
   const schema = yup
     .object()
@@ -36,22 +29,23 @@ const MainScreen: FC<MainScreenProps> = () => {
     })
     .required();
 
+  const defaultValues = useAppSelector(state => ({
+    phone: state.form.phone,
+    email: state.form.email,
+  }));
+
   const {
     control,
     handleSubmit,
-    formState: {isValid, errors}
+    formState: { errors }
   } = useForm({
     mode: "onTouched",
+    defaultValues: defaultValues,
     resolver: yupResolver(schema)
   });
 
-  const dispatch = useAppDispatch();
-  const numberDef = useAppSelector(state => state.main.phone);
-  const emailDef = useAppSelector(state => state.main.email);
-  
   const onSubmit = (data: any) => {
-    dispatch(setNumber(data.phone));
-    dispatch(setEmail(data.email));
+    dispatch(updateFormData(data));
     navigate("/create");
   }
 
@@ -65,7 +59,6 @@ const MainScreen: FC<MainScreenProps> = () => {
           <Controller
             name="phone"
             control={control}
-            defaultValue={numberDef}
             render={({
               field,
             }) => (
@@ -75,7 +68,6 @@ const MainScreen: FC<MainScreenProps> = () => {
                   format="+7 (###) ###-##-##"
                   placeholder="+7 (800) 555-35-35"
                   {...field}
-                  style={{background: "rgba(0, 0, 0, 0.04)"}}
                   className={styleInput.input}
                   id="field-number"
                 />
@@ -88,7 +80,6 @@ const MainScreen: FC<MainScreenProps> = () => {
           <Controller
             name="email"
             control={control}
-            defaultValue={emailDef}
             render={({
               field,
             }) => (
@@ -104,7 +95,7 @@ const MainScreen: FC<MainScreenProps> = () => {
           />
         </div>
         <div className={style.buttonContainer}>
-          <Button onClick={handleSubmit(onSubmit)} text="Начать" theme={"blue"} id="button-start"/>
+          <Button type="submit" text="Начать" theme={"blue"} id="button-start"/>
         </div>
       </form>
     </main>

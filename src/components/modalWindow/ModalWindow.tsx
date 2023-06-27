@@ -8,12 +8,14 @@ import styleSucces from "./ModalWindowSuccess.module.css";
 import styleError from "./ModalWindowError.module.css";
 
 interface ModalWindowProps {
-  isSuccessfull: boolean;
+  status: string;
   message: string;
   setModalOn: any;
 }
 
-const ModalWindow: FC<ModalWindowProps> = ({isSuccessfull, message, setModalOn}) => {
+const ModalWindow: FC<ModalWindowProps> = ({status, message, setModalOn}) => {
+
+  const isSuccessfull = status === "success" ? true : false;
 
   const style = isSuccessfull ? styleSucces : styleError;
   const buttonText = isSuccessfull ? "На главную" : "Закрыть";

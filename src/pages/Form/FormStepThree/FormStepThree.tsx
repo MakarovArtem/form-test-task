@@ -1,20 +1,18 @@
-import React, { FC, useEffect } from "react";
-
-import { useAppDispatch, useAppSelector } from "store/hooks/hooks";
-import { setAbout } from "store/reducers/stepThreeSlice";
-import { setStepThreeValid } from "store/reducers/validSlice";
-
+import React, { FC } from "react";
+import { useAppSelector } from "store/hooks/hooks";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-
 import Textarea from "components/UI/textArea/Textarea";
-
+import Button from "components/UI/button/Button";
 import style from "./FormStepThree.module.css";
 
-interface FormStepThreeProps {}
+interface FormStepThreeProps {
+  stepForward: (data: any) => void;
+  stepBack: (data: any) => any;
+}
 
-const FormStepThree: FC<FormStepThreeProps> = () => {
+const FormStepThree: FC<FormStepThreeProps> = ({stepForward, stepBack}) => {
   
   const schema = yup
     .object()
@@ -23,26 +21,26 @@ const FormStepThree: FC<FormStepThreeProps> = () => {
     })
     .required();
 
+  const defaultValues = useAppSelector(state => ({
+    about: state.form.about,
+    checkbox: state.form.checkbox,
+    radio: state.form.radio,
+  }));
+
   const {
     watch,
     control,
+    getValues,
     handleSubmit,
-    formState: { isValid, errors }
-  } = useForm({ mode: "onTouched", resolver: yupResolver(schema)});
-
-  const dispatch = useAppDispatch();
-
-  const aboutDefault = useAppSelector(state => state.stepThree.about);
-
-  const about: any = watch("about");
-
-  useEffect(() => {
-    dispatch(setAbout(about));
-    dispatch(setStepThreeValid(isValid));
-  }, [about, isValid])
+    formState: { errors }
+  } = useForm({
+    mode: "onTouched",
+    defaultValues: defaultValues,
+    resolver: yupResolver(schema)
+  });
 
   function onSubmit(data: any) {
-    console.log("formStepOne data: ", data)
+    stepForward(data);
   }
 
   return (
@@ -51,7 +49,6 @@ const FormStepThree: FC<FormStepThreeProps> = () => {
         <Controller
           name="about"
           control={control}
-          defaultValue={aboutDefault}
           render={({
             field,
           }) => (
@@ -65,6 +62,22 @@ const FormStepThree: FC<FormStepThreeProps> = () => {
               id="field-about"
             />
           )}
+        />
+      </div>
+      <div className={style.backContainer}>
+        <Button
+          onClick={() => stepBack(getValues())}
+          text="Назад"
+          theme="white"
+          id="button-back"
+        />
+      </div>
+      <div className={style.nextContainer}>
+        <Button
+          type="submit"
+          text="Отправить"
+          theme="blue"
+          id="button-next"
         />
       </div>
     </form>

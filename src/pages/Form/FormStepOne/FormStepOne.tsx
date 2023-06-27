@@ -1,21 +1,19 @@
-import React, { FC, useEffect } from "react";
-
-import { useAppDispatch, useAppSelector } from "store/hooks/hooks";
-import { setName, setNickname, setSex, setSurname } from "store/reducers/stepOneSlice";
-import { setStepOneValid } from "store/reducers/validSlice";
-
+import React, { FC } from "react";
+import { useAppSelector } from "store/hooks/hooks";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-
 import InputController from "components/UI/input/InputController";
 import Select from "components/UI/select/Select";
-
+import Button from "components/UI/button/Button";
 import style from "./FormStepOne.module.css";
 
-interface FormStepOneProps {}
+interface FormStepOneProps {
+  stepForward: (data: any) => void;
+  stepBack: (data: any) => any;
+}
 
-const FormStepOne: FC<FormStepOneProps> = () => {
+const FormStepOne: FC<FormStepOneProps> = ({stepForward, stepBack}) => {
 
   const schema = yup
     .object()
@@ -38,38 +36,26 @@ const FormStepOne: FC<FormStepOneProps> = () => {
     })
     .required();
 
+  const defaultValues = useAppSelector(state => ({
+    nickname: state.form.nickname,
+    name: state.form.name,
+    surname: state.form.surname,
+    sex: state.form.sex,
+  }));
+
   const {
-    watch,
     control,
+    getValues,
     handleSubmit,
-    formState: {isValid, errors}
+    formState: {errors}
   } = useForm({
     mode: "onTouched",
+    defaultValues: defaultValues,
     resolver: yupResolver(schema)
   });
 
-  const dispatch = useAppDispatch();
-
-  const nicknameDefault = useAppSelector(state => state.stepOne.nickname);
-  const nameDefault = useAppSelector(state => state.stepOne.name);
-  const surnameDefault = useAppSelector(state => state.stepOne.surname);
-  const sexDefault = useAppSelector(state => state.stepOne.sex);
-
-  const nickname = watch("nickname");
-  const name = watch("name");
-  const surname = watch("surname");
-  const sex = watch("sex");
-
-  useEffect(() => {
-    dispatch(setNickname(nickname));
-    dispatch(setName(name));
-    dispatch(setSurname(surname));
-    dispatch(setSex(sex));
-    dispatch(setStepOneValid(isValid));
-  }, [nickname, name, surname, sex, isValid])
-
   function onSubmit(data: any) {
-    console.log("formStepOne data: ", data)
+    stepForward(data);
   }
 
   return (
@@ -78,7 +64,6 @@ const FormStepOne: FC<FormStepOneProps> = () => {
         <Controller
           name="nickname"
           control={control}
-          defaultValue={nicknameDefault}
           render={({
             field,
           }) => (
@@ -97,7 +82,6 @@ const FormStepOne: FC<FormStepOneProps> = () => {
         <Controller
           name="name"
           control={control}
-          defaultValue={nameDefault}
           render={({
             field,
           }) => (
@@ -116,7 +100,6 @@ const FormStepOne: FC<FormStepOneProps> = () => {
         <Controller
           name="surname"
           control={control}
-          defaultValue={surnameDefault}
           render={({
             field,
           }) => (
@@ -135,7 +118,6 @@ const FormStepOne: FC<FormStepOneProps> = () => {
         <Controller
           name="sex"
           control={control}
-          defaultValue={sexDefault}
           render={({
             field,
           }) => (
@@ -143,7 +125,6 @@ const FormStepOne: FC<FormStepOneProps> = () => {
               {...field}
               title="Sex"
               options={[
-                {value: "not chosen", id: "field-sex-option-not-chosen"},
                 {value: "man", id: "field-sex-option-man"},
                 {value: "woman", id: "field-sex-option-woman"},
               ]}
@@ -151,6 +132,22 @@ const FormStepOne: FC<FormStepOneProps> = () => {
               id="field-sex"
             />
           )}
+        />
+      </div>
+      <div className={style.backContainer}>
+        <Button
+          onClick={() => stepBack(getValues())}
+          text="Назад"
+          theme="white"
+          id="button-back"
+        />
+      </div>
+      <div className={style.nextContainer}>
+        <Button
+          type="submit"
+          text="Далее"
+          theme="blue"
+          id="button-next"
         />
       </div>
     </form>

@@ -1,56 +1,47 @@
-import React, { FC, useEffect } from "react";
-
-import { useAppDispatch, useAppSelector } from "store/hooks/hooks";
-import { setAdvantages, setCheckbox, setRadio } from "store/reducers/stepTwoSlice";
-import { setStepTwoValid } from "store/reducers/validSlice";
-
+import React, { FC } from "react";
+import { useAppSelector } from "store/hooks/hooks";
 import { useForm, useFieldArray } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-
 import Input from "components/UI/input/Input";
 import ButtonIcon from "components/UI/buttonIcon/ButtonIcon";
 import Button from "components/UI/button/Button";
 import Checkbox from "components/UI/checkboxGroup/CheckboxGroup";
 import Radio from "components/UI/radioGroup/RadioGroup";
-
+import removeIcon from "icons/remove-icon.svg";
 import style from "./FormStepTwo.module.css";
 
-import removeIcon from "icons/remove-icon.svg";
+interface FormStepTwoProps {
+  stepForward: (data: any) => void;
+  stepBack: (data: any) => any;
+}
 
-interface FormStepTwoProps {}
-
-const FormStepTwo: FC<FormStepTwoProps> = () => {
-
-  const dispatch = useAppDispatch();
-
-  const advantagesDefault = useAppSelector(state => state.stepTwo.advantages);
-  const checkboxDefault = useAppSelector(state => state.stepTwo.checkbox);
-  const radioDefault = useAppSelector(state => state.stepTwo.radio);
+const FormStepTwo: FC<FormStepTwoProps> = ({stepForward, stepBack}) => {
 
   const schema = yup
     .object()
     .shape({
       advantages: yup.array(yup.object().shape({advantage: yup.string()})),
-      checkbox: yup.mixed(), // хрен знает почему нижнее выражение не работает
-      // checkbox: yup.mixed().oneOf([yup.array().of(yup.string()), yup.boolean()]),
+      checkbox: yup.array(),
       radio: yup.string()
     })
     .required();
 
+  const defaultValues = useAppSelector(state => ({
+    advantages: state.form.advantages,
+    checkbox: state.form.checkbox,
+    radio: state.form.radio,
+  }));
+
   const {
-    watch,
     control,
     register,
+    getValues,
     handleSubmit,
-    formState: { isValid, errors }
+    formState: { errors }
   } = useForm({
     mode: "onTouched",
-    defaultValues: {
-      advantages: [...advantagesDefault],
-      checkbox: checkboxDefault,
-      radio: radioDefault
-    },
+    defaultValues: defaultValues,
     resolver: yupResolver(schema),
   });
 
@@ -59,30 +50,12 @@ const FormStepTwo: FC<FormStepTwoProps> = () => {
     name: "advantages",
   });
  
-  const advantages = watch("advantages");
-  const checkbox: any = watch("checkbox");
-  const radio: any = watch("radio");
-
-  useEffect(() => {
-    dispatch(setAdvantages(JSON.parse(JSON.stringify(advantages))));
-    dispatch(setCheckbox(checkbox));
-    dispatch(setRadio(radio));
-    dispatch(setStepTwoValid(isValid));
-  }, [advantages, checkbox, radio, isValid])
-
   function onSubmit(data: any) {
-    console.log("formStepOne data: ", data)
+    stepForward(data);
   }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={style.form}>
-      {/* <div onClick={()=> {
-        console.log(errors.checkbox?.message, "check");
-        console.log(errors.advantages?.message, "adv");
-        console.log(errors.radio?.message, "radio");
-      }}>
-        errors
-      </div> */}
       <div className={style.inputsContainer}>
         <p className={style.inputsTitle}>Advantages</p>
         <ul className={style.advantagesContainer}>
@@ -141,6 +114,22 @@ const FormStepTwo: FC<FormStepTwoProps> = () => {
             {value: "3", id: "field-radio-group-option-3"},
           ]} 
           id="radio-group"
+        />
+      </div>
+      <div className={style.backContainer}>
+        <Button
+          onClick={() => stepBack(getValues())}
+          text="Назад"
+          theme="white"
+          id="button-back"
+        />
+      </div>
+      <div className={style.nextContainer}>
+        <Button
+          type="submit"
+          text="Далее"
+          theme="blue"
+          id="button-next"
         />
       </div>
     </form>

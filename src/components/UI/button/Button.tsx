@@ -4,7 +4,8 @@ import styleBlue from "./ButtonBlue.module.css";
 import styleWhite from "./ButtonWhite.module.css";
 
 interface ButtonProps {
-  onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => any;
+  onClick?: (a: any) => any;
+  // onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => any;
   disabled?: boolean;
   type?: "button" | "submit" | "reset" | undefined;
   text: string;
