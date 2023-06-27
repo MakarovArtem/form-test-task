@@ -1,6 +1,6 @@
 {
-  "homepage": "https://makarovartem.github.io/form-test-task/",
-  "name": "form-test-task",
+  "homepage": "https://makarovartem.github.io/multiple-step-form/",
+  "name": "multiple-step-form",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
