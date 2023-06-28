@@ -43,9 +43,12 @@ export const formSlice = createSlice({
       const update = action.payload;
       return {...state, ...update};
     },
+    setDefault: () => {
+      return {...initialState};
+    }
   },
 })
 
-export const { updateFormData } = formSlice.actions;
+export const { updateFormData, setDefault } = formSlice.actions;
 
 export default formSlice.reducer;

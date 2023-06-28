@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "redux/hooks/hooks";
-import { updateFormData } from "redux/reducers/formSlice";
+import { setDefault, updateFormData } from "redux/reducers/formSlice";
 import Stepper from "components/Stepper/Stepper";
 import StepOne from "components/StepOne/StepOne";
 import StepTwo from "components/StepTwo/StepTwo";
@@ -32,25 +32,31 @@ const Create = () => {
     }
   }
 
-  function getResponse(formData: {}) {
-    const dataToSend = transformData(formData);
-    console.log(dataToSend);
-    sendData(dataToSend)
-      .then(data => {
-        setModalOn(true);
-        setModalMessage(data.message);
-        setModalStatus(data.status);
-    })
-  }
-
+  
   function onBack(data: {}) {
     dispatch(updateFormData(data));
     step === 1 ? navigate("/") : setStep(prev => prev - 1);
   }
-
+  
   function onForward(data: {}) {
     dispatch(updateFormData(data));
-    step !== 3 ? setStep(prev => prev + 1) : getResponse(state);
+    step !== 3 ? setStep(prev => prev + 1) : handleSending();
+  }
+
+  async function handleSending() {
+    try {
+      const data = transformData(state);
+      const response = await sendData(data);
+      setModalMessage(response.message);
+      setModalStatus(response.status);
+      dispatch(setDefault());
+    } catch(e) {
+      console.error(e);
+      setModalMessage("An error occured");
+      setModalStatus("failure");
+    } finally {
+      setModalOn(true);
+    }
   }
 
   return (
