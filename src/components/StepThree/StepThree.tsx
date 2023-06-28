@@ -8,11 +8,11 @@ import Button from "components/UI/button/Button";
 import style from "./StepThree.module.css";
 
 interface StepThreeProps {
-  stepForward: (data: FormData) => void;
-  stepBack: (data: {}) => void;
+  forward: (data: FormData) => void;
+  back: (data: {}) => void;
 }
 
-const StepThree: FC<StepThreeProps> = ({stepForward, stepBack}) => {
+const StepThree: FC<StepThreeProps> = ({forward, back}) => {
   
   const schema = yup
     .object()
@@ -42,7 +42,7 @@ const StepThree: FC<StepThreeProps> = ({stepForward, stepBack}) => {
   });
 
   function onSubmit(data: any) {
-    stepForward(data);
+    forward(data);
   }
 
   return (
@@ -68,7 +68,7 @@ const StepThree: FC<StepThreeProps> = ({stepForward, stepBack}) => {
       </div>
       <div className={style.backContainer}>
         <Button
-          onClick={() => stepBack(getValues())}
+          onClick={() => back(getValues())}
           text="Back"
           theme="white"
           id="button-back"

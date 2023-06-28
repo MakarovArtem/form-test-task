@@ -95,7 +95,7 @@ const Main: FC = () => {
           />
         </div>
         <div className={style.buttonContainer}>
-          <Button type="submit" text="Start" theme={"blue"} id="button-start"/>
+          <Button type="submit" text="Start" theme={"blue"} id="button-start" />
         </div>
       </form>
     </main>

@@ -15,7 +15,7 @@ const Info: FC = () => {
       <div className={style.contactsContainer}>
         <ul className={style.contacts}>
           <li className={style.contactContainer}>
-            <div className={style.linkIconContainer}>
+            <div className={style.iconContainer}>
               <img src={folderIcon} alt="link-icon" />
             </div>
 
@@ -24,7 +24,7 @@ const Info: FC = () => {
             </div>
           </li>
           <li className={style.contactContainer}>
-            <div className={style.linkIconContainer}>
+            <div className={style.iconContainer}>
               <img src={folderIcon} alt="link-icon" />
             </div>
             
@@ -33,7 +33,7 @@ const Info: FC = () => {
             </div>
           </li>
           <li className={style.contactContainer}>
-            <div className={style.linkIconContainer}>
+            <div className={style.iconContainer}>
               <img src={folderIcon} alt="link-icon" />
             </div>
             

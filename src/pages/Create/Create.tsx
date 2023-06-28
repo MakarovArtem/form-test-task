@@ -21,7 +21,7 @@ const Create = () => {
   const dispatch = useAppDispatch();
   const state = useAppSelector(state => state);
 
-  function transformFormData(data: any) {
+  function transformData(data: any) {
 
     return {
       ...data.form,
@@ -33,7 +33,7 @@ const Create = () => {
   }
 
   function getResponse(formData: {}) {
-    const dataToSend = transformFormData(formData);
+    const dataToSend = transformData(formData);
     console.log(dataToSend);
     sendData(dataToSend)
       .then(data => {
@@ -43,12 +43,12 @@ const Create = () => {
     })
   }
 
-  function stepBack(data: {}) {
+  function onBack(data: {}) {
     dispatch(updateFormData(data));
     step === 1 ? navigate("/") : setStep(prev => prev - 1);
   }
 
-  function stepForward(data: {}) {
+  function onForward(data: {}) {
     dispatch(updateFormData(data));
     step !== 3 ? setStep(prev => prev + 1) : getResponse(state);
   }
@@ -63,9 +63,9 @@ const Create = () => {
           />
         </div>
         <div className={style.formContainer}>
-          {step === 1 && <StepOne stepForward={stepForward} stepBack={stepBack} />}
-          {step === 2 && <StepTwo stepForward={stepForward} stepBack={stepBack} />}
-          {step === 3 && <StepThree stepForward={stepForward} stepBack={stepBack} />}
+          {step === 1 && <StepOne forward={onForward} back={onBack} />}
+          {step === 2 && <StepTwo forward={onForward} back={onBack} />}
+          {step === 3 && <StepThree forward={onForward} back={onBack} />}
         </div>
       </div>
       {modalOn &&

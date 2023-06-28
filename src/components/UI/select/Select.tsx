@@ -28,11 +28,11 @@ const Select: FC<SelectProps> = forwardRef(({width, disabled, title, options, ti
         ref={ref}
         {...rest}
       >
-        {options?.map((option) => 
+        {options?.map((option, i) => 
           <option
             className={style.option}
             value={option.value}
-            key={option.id}
+            key={i}
             id={option.id}
           >
             {option.value}

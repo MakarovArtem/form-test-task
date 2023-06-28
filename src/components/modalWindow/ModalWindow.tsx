@@ -16,7 +16,7 @@ const ModalWindow: FC<ModalWindowProps> = ({status, message, setModalOn}) => {
 
   const style = isSuccessfull ? styleSucces : styleError;
   const buttonText = isSuccessfull ? "To main" : "Close";
-  const buttonID = isSuccessfull ? "button-to-main" : "button-close";
+  const buttonId = isSuccessfull ? "button-to-main" : "button-close";
 
   const navigate = useNavigate();
   const handleClick = () => {
@@ -37,7 +37,7 @@ const ModalWindow: FC<ModalWindowProps> = ({status, message, setModalOn}) => {
           <div className={style.pictogram}></div>
         </div>
         <div className={style.buttonContainer}>
-          <Button onClick={handleClick} text={buttonText} theme={"blue"} id={buttonID} />
+          <Button onClick={handleClick} text={buttonText} theme={"blue"} id={buttonId} />
         </div>
       </div>
     </article>

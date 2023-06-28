@@ -39,7 +39,7 @@ const Advantages: FC<AdvantagesProps> = ({control, register, errors}) => {
             <div className={style.removeContainer}>
               <ButtonIcon
                 maxWidth="16px"
-                picURL={removeIcon}
+                picUrl={removeIcon}
                 onClick={() => remove(index)}
                 id={`button-remove-${index+1}`}
               />

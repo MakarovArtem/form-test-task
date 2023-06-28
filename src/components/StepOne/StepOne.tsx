@@ -9,11 +9,11 @@ import Button from "components/UI/button/Button";
 import style from "./StepOne.module.css";
 
 interface StepOneProps {
-  stepForward: (data: FormData) => void;
-  stepBack: (data: {}) => void;
+  forward: (data: FormData) => void;
+  back: (data: {}) => void;
 }
 
-const StepOne: FC<StepOneProps> = ({stepForward, stepBack}) => {
+const StepOne: FC<StepOneProps> = ({forward, back}) => {
 
   const schema = yup
     .object()
@@ -55,7 +55,7 @@ const StepOne: FC<StepOneProps> = ({stepForward, stepBack}) => {
   });
 
   function onSubmit(data: any) {
-    stepForward(data);
+    forward(data);
   }
 
   return (
@@ -137,7 +137,7 @@ const StepOne: FC<StepOneProps> = ({stepForward, stepBack}) => {
       </div>
       <div className={style.backContainer}>
         <Button
-          onClick={() => stepBack(getValues())}
+          onClick={() => back(getValues())}
           text="Back"
           theme="white"
           id="button-back"

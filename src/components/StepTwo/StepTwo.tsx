@@ -10,11 +10,11 @@ import style from "./StepTwo.module.css";
 import Advantages from "components/Advantages/Advantages";
 
 interface StepTwoProps {
-  stepForward: (data: FormData) => void;
-  stepBack: (data: {}) => void;
+  forward: (data: FormData) => void;
+  back: (data: {}) => void;
 }
 
-const StepTwo: FC<StepTwoProps> = ({stepForward, stepBack}) => {
+const StepTwo: FC<StepTwoProps> = ({forward, back}) => {
 
   const schema = yup
     .object()
@@ -44,7 +44,7 @@ const StepTwo: FC<StepTwoProps> = ({stepForward, stepBack}) => {
   });
  
   function onSubmit(data: any) {
-    stepForward(data);
+    forward(data);
   }
 
   return (
@@ -84,7 +84,7 @@ const StepTwo: FC<StepTwoProps> = ({stepForward, stepBack}) => {
       </div>
       <div className={style.backContainer}>
         <Button
-          onClick={() => stepBack(getValues())}
+          onClick={() => back(getValues())}
           text="Back"
           theme="white"
           id="button-back"
