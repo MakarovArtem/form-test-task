@@ -15,7 +15,7 @@ const ModalWindow: FC<ModalWindowProps> = ({status, message, setModalOn}) => {
   const isSuccessfull = status === "success" ? true : false;
 
   const style = isSuccessfull ? styleSucces : styleError;
-  const buttonText = isSuccessfull ? "На главную" : "Закрыть";
+  const buttonText = isSuccessfull ? "To main" : "Close";
   const buttonID = isSuccessfull ? "button-to-main" : "button-close";
 
   const navigate = useNavigate();

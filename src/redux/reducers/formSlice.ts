@@ -13,26 +13,26 @@ interface formSlice {
   surname: string;
   sex: string;
   advantages: Advantage[];
-  checkbox: [];
+  checkbox: string[];
   radio: string;
   about: string;
 }
 
 const initialState: formSlice = {
-  phone: "+7 (961) 026-29-17",
-  email: "Artemmakarov76@yandex.ru",
-  nickname: "EineApfelsine",
-  name: "Artem",
-  surname: "Makarov",
-  sex: "man",
+  phone: "",
+  email: "",
+  nickname: "",
+  name: "",
+  surname: "",
+  sex: "not choosen",
   advantages: [
     {"advantage": ""},
     {"advantage": ""},
     {"advantage": ""},
   ],
-  checkbox: [],
+  checkbox: ["1"],
   radio: "1",
-  about: "Never gonna give you up",
+  about: "",
 }
 
 export const formSlice = createSlice({

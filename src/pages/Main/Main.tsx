@@ -22,7 +22,7 @@ const Main: FC = () => {
     .shape({
       phone: yup.string()
         .required("Phone number is required")
-        .matches(/^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/, "Wrong phone number format"),
+        .matches(/^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/, "Enter full number"),
       email: yup.string()
         .required("Email adress is required")
         .email("Wrong email format")
@@ -71,7 +71,7 @@ const Main: FC = () => {
                   className={styleInput.input}
                   id="field-number"
                 />
-                <p className={styleInput.inputTip}>{errors.phone?.message || "Alrighty"}</p>
+                <p className={styleInput.inputTip}>{errors.phone?.message || "Correct"}</p>
               </div>
             )}
           />
@@ -87,15 +87,15 @@ const Main: FC = () => {
                 {...field}
                 title='Email' 
                 type='email'
-                placeholder="ARTEMMAKAROV76@YANDEX.RU"
-                tip={errors.email?.message || "Alrighty"}
+                placeholder="user@mail.ru"
+                tip={errors.email?.message || "Correct"}
                 id="filed-email"
               />
             )}
           />
         </div>
         <div className={style.buttonContainer}>
-          <Button type="submit" text="Начать" theme={"blue"} id="button-start"/>
+          <Button type="submit" text="Start" theme={"blue"} id="button-start"/>
         </div>
       </form>
     </main>

@@ -85,7 +85,7 @@ const StepTwo: FC<StepTwoProps> = ({stepForward, stepBack}) => {
       <div className={style.backContainer}>
         <Button
           onClick={() => stepBack(getValues())}
-          text="Назад"
+          text="Back"
           theme="white"
           id="button-back"
         />
@@ -93,7 +93,7 @@ const StepTwo: FC<StepTwoProps> = ({stepForward, stepBack}) => {
       <div className={style.nextContainer}>
         <Button
           type="submit"
-          text="Далее"
+          text="Next"
           theme="blue"
           id="button-next"
         />

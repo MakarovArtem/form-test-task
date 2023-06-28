@@ -14,10 +14,10 @@ const Error = () => {
   return (
     <article className={style.main}>
       <h1 className={style.title}>Error 404</h1>
-      <p className={style.text}>Такой страницы нет</p>
-      <p className={style.text}>Проверьте, правильно ли вы ввели адрес, или вернитесь на главную ! :)</p>
+      <p className={style.text}>Page not found</p>
+      <p className={style.text}>Check the URL adress or go to main page ! :)</p>
       <div className={style.buttonContainer}>
-        <Button onClick={buttonHandler} text="На главную" theme={"blue"} id="back-to-main"/>
+        <Button onClick={buttonHandler} text="To main" theme={"blue"} id="back-to-main"/>
       </div>
     </article>
   )

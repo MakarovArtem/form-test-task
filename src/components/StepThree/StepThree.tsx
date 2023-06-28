@@ -17,9 +17,11 @@ const StepThree: FC<StepThreeProps> = ({stepForward, stepBack}) => {
   const schema = yup
     .object()
     .shape({
-      about: yup.string().max(200, "Max length is 200 symbols"),
-    })
-    .required();
+      about: yup
+        .string()
+        .max(200, "Max length is 200 symbols")
+        .required("Please, write something about yourself"),
+    });
 
   const defaultValues = useAppSelector(state => ({
     about: state.form.about,
@@ -57,8 +59,8 @@ const StepThree: FC<StepThreeProps> = ({stepForward, stepBack}) => {
               watch={watch}
               title="About"
               width="auto"
-              placeholder="Placeholder"
-              tip={errors.about?.message || "Allrighty"}
+              placeholder="Some text about yourself"
+              tip={errors.about?.message || "Correct"}
               id="field-about"
             />
           )}
@@ -67,7 +69,7 @@ const StepThree: FC<StepThreeProps> = ({stepForward, stepBack}) => {
       <div className={style.backContainer}>
         <Button
           onClick={() => stepBack(getValues())}
-          text="Назад"
+          text="Back"
           theme="white"
           id="button-back"
         />
@@ -75,7 +77,7 @@ const StepThree: FC<StepThreeProps> = ({stepForward, stepBack}) => {
       <div className={style.nextContainer}>
         <Button
           type="submit"
-          text="Отправить"
+          text="Submit"
           theme="blue"
           id="button-next"
         />

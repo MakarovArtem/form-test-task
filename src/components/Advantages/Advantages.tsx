@@ -31,8 +31,8 @@ const Advantages: FC<AdvantagesProps> = ({control, register, errors}) => {
                 register={register}
                 registerProps={(`advantages.${index}.advantage`)}
                 title=""
-                placeholder="Advantage"
-                tip={errors?.advantages?.[index]?.advantage?.message || "Allrighty"}
+                placeholder={`advantage #${index + 1}`}
+                tip={errors?.advantages?.[index]?.advantage?.message || "Correct"}
                 id={`field-advantages-${index+1}`}
               />
             </div>
