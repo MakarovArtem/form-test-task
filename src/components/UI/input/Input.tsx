@@ -1,5 +1,4 @@
-import React, { FC } from "react";
-
+import React, { FC, Ref } from "react";
 import style from "./Input.module.css";
 
 interface InputProps {
@@ -10,7 +9,7 @@ interface InputProps {
   type?: string;
   tip?: string;
   id: string;
-  ref?: any;
+  ref?: Ref<HTMLInputElement>;
   register?: any;
   registerProps?: string;
 }

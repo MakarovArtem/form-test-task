@@ -3,7 +3,7 @@ import React, { FC } from "react";
 import style from "./ButtonIcon.module.css";
 
 interface ButtonIconProps {
-  onClick?: (key: any) => void;
+  onClick?: (a: any) => void;
   maxWidth?: string;
   picURL: string;
   id: string;

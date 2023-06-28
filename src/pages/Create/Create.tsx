@@ -32,7 +32,7 @@ const Create = () => {
     }
   }
 
-  function getResponse(formData: any) {
+  function getResponse(formData: {}) {
     const dataToSend = transformFormData(formData);
     console.log(dataToSend);
     sendData(dataToSend)
@@ -43,12 +43,12 @@ const Create = () => {
     })
   }
 
-  function stepBack(data: any) {
+  function stepBack(data: {}) {
     dispatch(updateFormData(data));
     step === 1 ? navigate("/") : setStep(prev => prev - 1);
   }
 
-  function stepForward(data: any) {
+  function stepForward(data: {}) {
     dispatch(updateFormData(data));
     step !== 3 ? setStep(prev => prev + 1) : getResponse(state);
   }

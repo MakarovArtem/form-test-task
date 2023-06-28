@@ -8,8 +8,8 @@ import Button from "components/UI/button/Button";
 import style from "./StepThree.module.css";
 
 interface StepThreeProps {
-  stepForward: (data: any) => void;
-  stepBack: (data: any) => any;
+  stepForward: (data: FormData) => void;
+  stepBack: (data: {}) => void;
 }
 
 const StepThree: FC<StepThreeProps> = ({stepForward, stepBack}) => {

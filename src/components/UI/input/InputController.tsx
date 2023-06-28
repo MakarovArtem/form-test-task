@@ -1,4 +1,4 @@
-import React, { FC, forwardRef } from "react";
+import React, { FC, Ref, forwardRef } from "react";
 import style from "./Input.module.css";
 
 interface InputControllerProps {
@@ -9,7 +9,7 @@ interface InputControllerProps {
   placeholder?: string;
   tip?: string;
   id: string;
-  ref?: any;
+  ref?: Ref<HTMLInputElement>;
 }
 
 const InputController: FC<InputControllerProps> = forwardRef(({width, disabled, title, placeholder, type, tip, id, ...rest}, ref) => {

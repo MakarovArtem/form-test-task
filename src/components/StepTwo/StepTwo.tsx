@@ -10,8 +10,8 @@ import style from "./StepTwo.module.css";
 import Advantages from "components/Advantages/Advantages";
 
 interface StepTwoProps {
-  stepForward: (data: any) => void;
-  stepBack: (data: any) => any;
+  stepForward: (data: FormData) => void;
+  stepBack: (data: {}) => void;
 }
 
 const StepTwo: FC<StepTwoProps> = ({stepForward, stepBack}) => {

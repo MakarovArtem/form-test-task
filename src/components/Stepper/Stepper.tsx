@@ -4,7 +4,7 @@ import "./Stepper.css";
 
 interface StepperProps {
   currentStep: number;
-  steps: number[] | string[];
+  steps: string[];
 }
 
 const Stepper: FC<StepperProps> = ({currentStep, steps}) => {

@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { useFieldArray } from "react-hook-form";
+import { Control, RegisterOptions, FieldErrors, useFieldArray, FieldArray } from "react-hook-form";
 import Input from "components/UI/input/Input";
 import Button from "components/UI/button/Button";
 import ButtonIcon from "components/UI/buttonIcon/ButtonIcon";

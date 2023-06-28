@@ -1,11 +1,9 @@
-import React, { FC } from "react";
-
+import React, { FC, MouseEvent } from "react";
 import styleBlue from "./ButtonBlue.module.css";
 import styleWhite from "./ButtonWhite.module.css";
 
 interface ButtonProps {
   onClick?: (a: any) => any;
-  // onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => any;
   disabled?: boolean;
   type?: "button" | "submit" | "reset" | undefined;
   text: string;

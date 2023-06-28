@@ -9,8 +9,8 @@ import Button from "components/UI/button/Button";
 import style from "./StepOne.module.css";
 
 interface StepOneProps {
-  stepForward: (data: any) => void;
-  stepBack: (data: any) => any;
+  stepForward: (data: FormData) => void;
+  stepBack: (data: {}) => void;
 }
 
 const StepOne: FC<StepOneProps> = ({stepForward, stepBack}) => {
