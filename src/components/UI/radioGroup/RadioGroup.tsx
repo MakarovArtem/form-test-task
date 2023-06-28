@@ -1,5 +1,4 @@
 import React, { FC } from "react";
-
 import style from "./RadioGroup.module.css";
 
 interface Options {
