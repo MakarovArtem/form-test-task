@@ -8,29 +8,8 @@
   row-gap: 24px;
 }
 
-.inputsContainer{
+.advantageContainer{
   grid-area: advantages;
-}
-
-.advantagesContainer{
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  margin-bottom: 8px;
-}
-
-.advantage{
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.inputContainer{
-  width: 300px;
-}
-
-.removeAdvantageContainer{
-  padding-bottom: 16px;
 }
 
 .checkboxContainer{
@@ -61,25 +40,8 @@
   }
 }
 
-@media screen and (max-width: 768px){
-  .inputsTitle{
-    font-size: 12px;
-    line-height: 14px;
-  }
-}
-
 @media screen and (max-width: 576px){
-  .inputsTitle{
-    font-size: 10px;
-    line-height: 12px;
-  }
   .form{
     row-gap: 10px;
-  }
-  .inputContainer{
-    width: 100%;
-  }
-  .removeAdvantageContainer{
-    padding-bottom: 8px;
   }
 }

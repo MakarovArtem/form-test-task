@@ -1,15 +1,13 @@
 import React, { FC } from "react";
 import { useAppSelector } from "redux/hooks/hooks";
-import { useForm, useFieldArray } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import Input from "components/UI/input/Input";
-import ButtonIcon from "components/UI/buttonIcon/ButtonIcon";
 import Button from "components/UI/button/Button";
 import Checkbox from "components/UI/checkboxGroup/CheckboxGroup";
 import Radio from "components/UI/radioGroup/RadioGroup";
-import removeIcon from "assets/icons/remove-icon.svg";
 import style from "./StepTwo.module.css";
+import Advantages from "components/Advantages/Advantages";
 
 interface StepTwoProps {
   stepForward: (data: any) => void;
@@ -44,11 +42,6 @@ const StepTwo: FC<StepTwoProps> = ({stepForward, stepBack}) => {
     defaultValues: defaultValues,
     resolver: yupResolver(schema),
   });
-
-  const { fields, append, remove } = useFieldArray({
-    control,
-    name: "advantages",
-  });
  
   function onSubmit(data: any) {
     stepForward(data);
@@ -56,38 +49,11 @@ const StepTwo: FC<StepTwoProps> = ({stepForward, stepBack}) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={style.form}>
-      <div className={style.inputsContainer}>
-        <p className={style.inputsTitle}>Advantages</p>
-        <ul className={style.advantagesContainer}>
-          {fields.map((item: any, index: number) => (
-            <li className={style.advantage} key={item.id}>
-              <div className={style.inputContainer}>
-                <Input
-                  key={item.id}
-                  register={register}
-                  registerProps={(`advantages.${index}.advantage`)}
-                  title=""
-                  placeholder="Advantage"
-                  tip={errors?.advantages?.[index]?.advantage?.message || "Allrighty"}
-                  id={`field-advantages-${index+1}`}
-                />
-              </div>
-              <div className={style.removeAdvantageContainer}>
-                <ButtonIcon
-                  maxWidth="16px"
-                  picURL={removeIcon}
-                  onClick={() => remove(index)}
-                  id={`button-remove-${index+1}`}
-                />
-              </div>
-            </li>
-          ))}
-        </ul>
-        <Button
-          type="button"
-          text="+"
-          onClick={() => append({advantage: ""})}
-          id="button-add"
+      <div className={style.advantageContainer}>
+        <Advantages
+          control={control}
+          register={register}
+          errors={errors}
         />
       </div>
       <div className={style.checkboxContainer}>
