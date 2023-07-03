@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/multiple-step-form/static/css/main.f6eb970b.css",
-    "main.js": "/multiple-step-form/static/js/main.251fa1a3.js",
+    "main.js": "/multiple-step-form/static/js/main.80ecb62d.js",
     "index.html": "/multiple-step-form/index.html",
     "static/media/modal-error-icon.svg": "/multiple-step-form/static/media/modal-error-icon.fd1a8448dacc4a5af170.svg",
     "static/media/remove-icon.svg": "/multiple-step-form/static/media/remove-icon.1650c7a175b934b2f27aefc55c49453f.svg",
@@ -10,10 +10,10 @@
     "static/media/cross-icon.svg": "/multiple-step-form/static/media/cross-icon.12697ca38f724dc86c5f.svg",
     "static/media/check-icon.svg": "/multiple-step-form/static/media/check-icon.501987ca8dd4487a7609.svg",
     "main.f6eb970b.css.map": "/multiple-step-form/static/css/main.f6eb970b.css.map",
-    "main.251fa1a3.js.map": "/multiple-step-form/static/js/main.251fa1a3.js.map"
+    "main.80ecb62d.js.map": "/multiple-step-form/static/js/main.80ecb62d.js.map"
   },
   "entrypoints": [
     "static/css/main.f6eb970b.css",
-    "static/js/main.251fa1a3.js"
+    "static/js/main.80ecb62d.js"
   ]
 }
