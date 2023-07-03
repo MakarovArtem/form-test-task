@@ -29,7 +29,7 @@ const Info: FC = () => {
             </div>
             
             <div className={style.linkContainer}>
-              <a className={style.link} href="https://github.com/MakarovArtem/form-test-task" target="_blank">GitHub</a>
+              <a className={style.link} href="https://github.com/MakarovArtem" target="_blank">GitHub</a>
             </div>
           </li>
           <li className={style.contactContainer}>
@@ -38,7 +38,7 @@ const Info: FC = () => {
             </div>
             
             <div className={style.linkContainer}>
-              <a className={style.link} href="https://clck.ru/34dfu5" target="_blank">Resume</a>
+              <a className={style.link} href="https://drive.google.com/file/d/1ALhfze0g8Q4KqNtHvz6jxWJ3UFQOmjxM/view?usp=sharing" target="_blank">Resume</a>
             </div>
           </li>
         </ul>
